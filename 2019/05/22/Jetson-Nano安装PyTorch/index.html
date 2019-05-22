@@ -5,21 +5,22 @@
   
 
   
-  <title>Hello World | weijiangaaa</title>
+  <title>三、Jetson Nano安装PyTorch | weijiangaaa</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="测试平台：Jetson Nano 建议先进行一下升级： 12$ sudo apt-get update$ sudo apt-get upgrade 安装pip3 12$ sudo apt-get install python3-pip python3-dev$ pip3 --version">
+<meta name="keywords" content="Jetson Nano">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2019/05/22/hello-world/index.html">
+<meta property="og:title" content="三、Jetson Nano安装PyTorch">
+<meta property="og:url" content="http://yoursite.com/2019/05/22/Jetson-Nano安装PyTorch/index.html">
 <meta property="og:site_name" content="weijiangaaa">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="测试平台：Jetson Nano 建议先进行一下升级： 12$ sudo apt-get update$ sudo apt-get upgrade 安装pip3 12$ sudo apt-get install python3-pip python3-dev$ pip3 --version">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://github.com/weijiangaaa/MyPostImag/blob/branch1/magazine1.jpg?raw=true">
-<meta property="og:updated_time" content="2019-05-20T02:25:59.555Z">
+<meta property="og:image" content="https://github.com/weijiangaaa/MyPostImag/blob/master/nvidia-jetson-nano-developer-kit-2c50-d.png?raw=true">
+<meta property="og:updated_time" content="2019-05-22T07:19:43.362Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
-<meta name="twitter:image" content="https://github.com/weijiangaaa/MyPostImag/blob/branch1/magazine1.jpg?raw=true">
+<meta name="twitter:title" content="三、Jetson Nano安装PyTorch">
+<meta name="twitter:description" content="测试平台：Jetson Nano 建议先进行一下升级： 12$ sudo apt-get update$ sudo apt-get upgrade 安装pip3 12$ sudo apt-get install python3-pip python3-dev$ pip3 --version">
+<meta name="twitter:image" content="https://github.com/weijiangaaa/MyPostImag/blob/master/nvidia-jetson-nano-developer-kit-2c50-d.png?raw=true">
   
     <link rel="alternate" href="/atom.xml" title="weijiangaaa" type="application/atom+xml">
   
@@ -70,12 +71,16 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Jetson-Nano安装PyTorch" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/05/22/hello-world/" class="article-date">
-  <time datetime="2019-05-22T08:50:08.876Z" itemprop="datePublished">2019-05-22</time>
+    <a href="/2019/05/22/Jetson-Nano安装PyTorch/" class="article-date">
+  <time datetime="2019-05-22T04:22:24.000Z" itemprop="datePublished">2019-05-22</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Jetson-Nano/">Jetson Nano</a>►<a class="article-category-link" href="/categories/Jetson-Nano/3、安装PyTorch/">3、安装PyTorch</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -84,7 +89,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      三、Jetson Nano安装PyTorch
     </h1>
   
 
@@ -92,33 +97,53 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-<p><img src="https://github.com/weijiangaaa/MyPostImag/blob/branch1/magazine1.jpg?raw=true" alt="iamge2"></p>
+        <p><strong>测试平台：Jetson Nano</strong><br><img src="https://github.com/weijiangaaa/MyPostImag/blob/master/nvidia-jetson-nano-developer-kit-2c50-d.png?raw=true" alt></p>
+<p>建议先进行一下升级：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get upgrade</span><br></pre></td></tr></table></figure>
+<p>安装pip3</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install python3-pip python3-dev</span><br><span class="line">$ pip3 --version</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>安装一些python常见的第三方库：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install python3-numpy</span><br><span class="line">$ sudo apt-get install python3-pandas</span><br><span class="line">$ sudo apt-get install python3-scipy</span><br><span class="line">$ sudo apt-get install python3-matplotlib</span><br></pre></td></tr></table></figure>
+<p>环境：python 3.6</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ wget https://nvidia.box.com/shared/static/veo87trfaawj5pfwuqvhl6mzc5b55fbj.whl -O torch<span class="number">-1.1</span><span class="number">.0</span>a0+b457266-cp36-cp36m-linux_aarch64.whl</span><br><span class="line"></span><br><span class="line">$ pip3 install numpy torch<span class="number">-1.1</span><span class="number">.0</span>a0+b457266-cp36-cp36m-linux_aarch64.whl</span><br></pre></td></tr></table></figure>
+<p>验证：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> torch</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(torch.__version__)</span><br></pre></td></tr></table></figure></p>
+<p>输出：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.1</span><span class="number">.0</span></span><br></pre></td></tr></table></figure></p>
+<p>说明安装成功！</p>
+<p>补充：</p>
+<p>缺少<code>torchvision</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip3 install torchvision</span><br></pre></td></tr></table></figure>
+<p>因为通过windows的anaconda配置PyTorch一般是torch和torchvision的安装，所以到此安装结束。</p>
+<p>p.s.如果通过<code>wget</code>命令下载太慢，可以通过邮箱询问云盘链接<a href="mailto:`1970650352@qq.com" target="_blank" rel="noopener">`1970650352@qq.com</a>`</p>
+<p>参考：<a href="https://devtalk.nvidia.com/default/topic/1049071/jetson-nano/pytorch-for-jetson-nano/" target="_blank" rel="noopener">PyTorch for Jetson Nano</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/22/hello-world/" data-id="cjvyzrxth0000d8u6btpchjhw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/22/Jetson-Nano安装PyTorch/" data-id="cjvyzuyp60003eou66dkf8sm0" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jetson-Nano/">Jetson Nano</a></li></ul>
+
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
+    <a href="/2019/05/22/jetson-inference/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          二、Jetson Nano运行jetson-inference
+        
+      </div>
+    </a>
   
-    <a href="/2019/05/22/jetson-inference/" id="article-nav-older" class="article-nav-link-wrap">
+  
+    <a href="/2019/05/20/Convolutional-Neural-Networks/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">二、Jetson Nano运行jetson-inference</div>
+      <div class="article-nav-title">九、卷积神经网络</div>
     </a>
   
 </nav>

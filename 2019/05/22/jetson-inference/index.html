@@ -5,15 +5,22 @@
   
 
   
-  <title>Archives | weijiangaaa</title>
+  <title>二、Jetson Nano运行jetson-inference | weijiangaaa</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="weijiangaaa">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="测试平台：Jetson Nano 安装前提： git和cake 12$ sudo apt-get install git$ sudo apt-get install cmake">
+<meta name="keywords" content="Jetson Nano">
+<meta property="og:type" content="article">
+<meta property="og:title" content="二、Jetson Nano运行jetson-inference">
+<meta property="og:url" content="http://yoursite.com/2019/05/22/jetson-inference/index.html">
 <meta property="og:site_name" content="weijiangaaa">
+<meta property="og:description" content="测试平台：Jetson Nano 安装前提： git和cake 12$ sudo apt-get install git$ sudo apt-get install cmake">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://github.com/weijiangaaa/MyPostImag/blob/master/nvidia-jetson-nano-module-standing-1cc-p@2x.jpg?raw=true">
+<meta property="og:updated_time" content="2019-05-22T07:03:25.401Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="weijiangaaa">
+<meta name="twitter:title" content="二、Jetson Nano运行jetson-inference">
+<meta name="twitter:description" content="测试平台：Jetson Nano 安装前提： git和cake 12$ sudo apt-get install git$ sudo apt-get install cmake">
+<meta name="twitter:image" content="https://github.com/weijiangaaa/MyPostImag/blob/master/nvidia-jetson-nano-module-standing-1cc-p@2x.jpg?raw=true">
   
     <link rel="alternate" href="/atom.xml" title="weijiangaaa" type="application/atom+xml">
   
@@ -64,135 +71,79 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/05/22/hello-world/" class="archive-article-date">
-  <time datetime="2019-05-22T08:50:08.876Z" itemprop="datePublished">May 22</time>
+        <section id="main"><article id="post-jetson-inference" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/05/22/jetson-inference/" class="article-date">
+  <time datetime="2019-05-22T06:47:03.000Z" itemprop="datePublished">2019-05-22</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Jetson-Nano/">Jetson Nano</a>►<a class="article-category-link" href="/categories/Jetson-Nano/2、运行jetson-inference/">2、运行jetson-inference</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/22/hello-world/">Hello World</a>
+    <h1 class="article-title" itemprop="name">
+      二、Jetson Nano运行jetson-inference
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/05/22/jetson-inference/" class="archive-article-date">
-  <time datetime="2019-05-22T06:47:03.000Z" itemprop="datePublished">May 22</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/22/jetson-inference/">二、Jetson Nano运行jetson-inference</a>
-    </h1>
-  
+        <p><strong>测试平台：Jetson Nano</strong><br><img src="https://github.com/weijiangaaa/MyPostImag/blob/master/nvidia-jetson-nano-module-standing-1cc-p@2x.jpg?raw=true" alt></p>
+<p>安装前提：</p>
+<p>git和cake</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install git</span><br><span class="line">$ sudo apt-get install cmake</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>从GitHub上Clone整个工程文件： </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://github.com/dusty-nv/jetson-inference</span><br><span class="line">$ cd jetson-inference</span><br><span class="line">$ git submodule update --init</span><br></pre></td></tr></table></figure>
+<p>使用<code>CMake</code>完成<code>makefile</code>的生成；</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir build    </span><br><span class="line">$ cd build       </span><br><span class="line">$ cmake ../ <span class="comment">#执行CMakePrebuild.sh</span></span><br></pre></td></tr></table></figure>
+<p>批处理编译<code>make</code>指令；</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cd jetson-inference/build			</span><br><span class="line">$ make <span class="comment">#对源代码进行编译，生成可执行文件</span></span><br><span class="line">$ sudo make install <span class="comment">#将生成的可执行文件安装到当前计算机中</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cd jetson-inference/build/aarch64/bin</span><br><span class="line">$ ./imagenet-console orange_0.jpg output_0.jpg <span class="comment">#Classifying Images with ImageNet</span></span><br><span class="line">$ ./detectnet-console dog_1.jpg output_1.jpg coco-dog <span class="comment">#Locating Object Coordinates using DetectNet</span></span><br></pre></td></tr></table></figure>
+<p>参考资料：<br>1、<a href="https://blog.csdn.net/weixin_42491857/article/details/80741060" target="_blank" rel="noopener">CMake与Make最简单直接的区别</a><br>2、<a href="https://www.cnblogs.com/mogujiang/p/5545462.html" target="_blank" rel="noopener">config、make、make install</a></p>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/05/22/Jetson-Nano安装PyTorch/" class="archive-article-date">
-  <time datetime="2019-05-22T04:22:24.000Z" itemprop="datePublished">May 22</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/22/Jetson-Nano安装PyTorch/">三、Jetson Nano安装PyTorch</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/05/20/Convolutional-Neural-Networks/" class="archive-article-date">
-  <time datetime="2019-05-20T03:17:23.000Z" itemprop="datePublished">May 20</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/05/22/jetson-inference/" data-id="cjvyzuyp80005eou63ttph87v" class="article-share-link">Share</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/20/Convolutional-Neural-Networks/">九、卷积神经网络</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/05/20/Blog-GitHub-Page-Hexo-landscape/" class="archive-article-date">
-  <time datetime="2019-05-20T02:27:40.000Z" itemprop="datePublished">May 20</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/20/Blog-GitHub-Page-Hexo-landscape/">Blog: GitHub Page + Hexo + landscape</a>
-    </h1>
-  
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jetson-Nano/">Jetson Nano</a></li></ul>
 
-    </header>
+    </footer>
   </div>
-</article>
   
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/05/20/Introduction/" class="archive-article-date">
-  <time datetime="2019-05-19T16:35:27.000Z" itemprop="datePublished">May 20</time>
-</a>
-      
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/20/Introduction/">Introduction</a>
-    </h1>
+    <a href="/2019/05/22/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Hello World
+        
+      </div>
+    </a>
   
+  
+    <a href="/2019/05/22/Jetson-Nano安装PyTorch/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">三、Jetson Nano安装PyTorch</div>
+    </a>
+  
+</nav>
 
-    </header>
-  </div>
+  
 </article>
-  
-  
-    </div></section>
-  
-
 
 </section>
         
