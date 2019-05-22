@@ -5,22 +5,20 @@
   
 
   
-  <title>三、Jetson Nano安装PyTorch | weijiangaaa</title>
+  <title>Jetson nano_power supply | weijiangaaa</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="测试平台：Jetson Nano 建议先进行一下升级： 12$ sudo apt-get update$ sudo apt-get upgrade 安装pip3 12$ sudo apt-get install python3-pip python3-dev$ pip3 --version">
+  <meta name="description" content="Jetson nano的供电方式一般有2种：  1、USB供电 2、DC供电  其中第一种供电方式，J48断开，第二种使用DC的方式要使用跳线帽将J48短接；  Jetson nano默认的供电功率是5W，而一般情况下跑一些最基础的模型推理就可能歇菜，所以出现自动关机等问题的时候，使用DC供电一般都可以解决问题； 使用DC供电时候，在shut down之后，nano关机，此时要注意220V-5V的">
 <meta name="keywords" content="Jetson Nano">
 <meta property="og:type" content="article">
-<meta property="og:title" content="三、Jetson Nano安装PyTorch">
-<meta property="og:url" content="http://yoursite.com/2019/05/22/Jetson-Nano安装PyTorch/index.html">
+<meta property="og:title" content="Jetson nano_power supply">
+<meta property="og:url" content="http://yoursite.com/2019/05/22/Jetson-nano-power-supply/index.html">
 <meta property="og:site_name" content="weijiangaaa">
-<meta property="og:description" content="测试平台：Jetson Nano 建议先进行一下升级： 12$ sudo apt-get update$ sudo apt-get upgrade 安装pip3 12$ sudo apt-get install python3-pip python3-dev$ pip3 --version">
+<meta property="og:description" content="Jetson nano的供电方式一般有2种：  1、USB供电 2、DC供电  其中第一种供电方式，J48断开，第二种使用DC的方式要使用跳线帽将J48短接；  Jetson nano默认的供电功率是5W，而一般情况下跑一些最基础的模型推理就可能歇菜，所以出现自动关机等问题的时候，使用DC供电一般都可以解决问题； 使用DC供电时候，在shut down之后，nano关机，此时要注意220V-5V的">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://github.com/weijiangaaa/MyPostImag/blob/master/nvidia-jetson-nano-developer-kit-2c50-d.png?raw=true">
-<meta property="og:updated_time" content="2019-05-22T07:19:43.362Z">
+<meta property="og:updated_time" content="2019-05-22T15:04:26.234Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="三、Jetson Nano安装PyTorch">
-<meta name="twitter:description" content="测试平台：Jetson Nano 建议先进行一下升级： 12$ sudo apt-get update$ sudo apt-get upgrade 安装pip3 12$ sudo apt-get install python3-pip python3-dev$ pip3 --version">
-<meta name="twitter:image" content="https://github.com/weijiangaaa/MyPostImag/blob/master/nvidia-jetson-nano-developer-kit-2c50-d.png?raw=true">
+<meta name="twitter:title" content="Jetson nano_power supply">
+<meta name="twitter:description" content="Jetson nano的供电方式一般有2种：  1、USB供电 2、DC供电  其中第一种供电方式，J48断开，第二种使用DC的方式要使用跳线帽将J48短接；  Jetson nano默认的供电功率是5W，而一般情况下跑一些最基础的模型推理就可能歇菜，所以出现自动关机等问题的时候，使用DC供电一般都可以解决问题； 使用DC供电时候，在shut down之后，nano关机，此时要注意220V-5V的">
   
     <link rel="alternate" href="/atom.xml" title="weijiangaaa" type="application/atom+xml">
   
@@ -71,16 +69,12 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-Jetson-Nano安装PyTorch" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Jetson-nano-power-supply" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/05/22/Jetson-Nano安装PyTorch/" class="article-date">
-  <time datetime="2019-05-22T04:22:24.000Z" itemprop="datePublished">2019-05-22</time>
+    <a href="/2019/05/22/Jetson-nano-power-supply/" class="article-date">
+  <time datetime="2019-05-22T14:56:34.000Z" itemprop="datePublished">2019-05-22</time>
 </a>
     
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Jetson-Nano/">Jetson Nano</a>►<a class="article-category-link" href="/categories/Jetson-Nano/3、安装PyTorch/">3、安装PyTorch</a>
-  </div>
-
   </div>
   <div class="article-inner">
     
@@ -89,7 +83,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      三、Jetson Nano安装PyTorch
+      Jetson nano_power supply
     </h1>
   
 
@@ -97,30 +91,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>测试平台：Jetson Nano</strong><br><img src="https://github.com/weijiangaaa/MyPostImag/blob/master/nvidia-jetson-nano-developer-kit-2c50-d.png?raw=true" alt></p>
-<p>建议先进行一下升级：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get upgrade</span><br></pre></td></tr></table></figure>
-<p>安装pip3</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install python3-pip python3-dev</span><br><span class="line">$ pip3 --version</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<p>安装一些python常见的第三方库：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install python3-numpy</span><br><span class="line">$ sudo apt-get install python3-pandas</span><br><span class="line">$ sudo apt-get install python3-scipy</span><br><span class="line">$ sudo apt-get install python3-matplotlib</span><br></pre></td></tr></table></figure>
-<p>环境：python 3.6</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ wget https://nvidia.box.com/shared/static/veo87trfaawj5pfwuqvhl6mzc5b55fbj.whl -O torch<span class="number">-1.1</span><span class="number">.0</span>a0+b457266-cp36-cp36m-linux_aarch64.whl</span><br><span class="line"></span><br><span class="line">$ pip3 install numpy torch<span class="number">-1.1</span><span class="number">.0</span>a0+b457266-cp36-cp36m-linux_aarch64.whl</span><br></pre></td></tr></table></figure>
-<p>验证：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> torch</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(torch.__version__)</span><br></pre></td></tr></table></figure></p>
-<p>输出：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.1</span><span class="number">.0</span></span><br></pre></td></tr></table></figure></p>
-<p>说明安装成功！</p>
-<p>补充：</p>
-<p>缺少<code>torchvision</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip3 install torchvision</span><br></pre></td></tr></table></figure>
-<p>因为通过windows的anaconda配置PyTorch一般是torch和torchvision的安装，所以到此安装结束。</p>
-<p>p.s.如果通过<code>wget</code>命令下载太慢，可以通过邮箱询问云盘链接<a href="mailto:`1970650352@qq.com" target="_blank" rel="noopener">`1970650352@qq.com</a>`</p>
-<p>参考：<a href="https://devtalk.nvidia.com/default/topic/1049071/jetson-nano/pytorch-for-jetson-nano/" target="_blank" rel="noopener">PyTorch for Jetson Nano</a></p>
+        <p>Jetson nano的供电方式一般有2种：</p>
+<ul>
+<li>1、USB供电</li>
+<li><p>2、DC供电</p>
+</li>
+<li><p>其中第一种供电方式，<code>J48</code>断开，第二种使用DC的方式要使用跳线帽将<code>J48</code>短接；</p>
+</li>
+<li>Jetson nano默认的供电功率是5W，而一般情况下跑一些最基础的模型推理就可能歇菜，所以出现自动关机等问题的时候，使用DC供电一般都可以解决问题；</li>
+<li>使用DC供电时候，在<code>shut down</code>之后，nano关机，此时要注意220V-5V的适配器由于电容效应还存在残余电压，使得nano处于一种奇怪的状态，此时便有2中方法断电：<br>1、拔掉DC口，不过这种方法对nano不好，插拔太多会松，并不建议；<br>2、拔掉插座的供电，这种方法由于残余电压，在拔掉后无法立刻开机，要等待5s左右，使得残余电压褪去，再进行供电，开机成功！</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/22/Jetson-Nano安装PyTorch/" data-id="cjvzcyz9t00013gu6oidjbuay" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/22/Jetson-nano-power-supply/" data-id="cjvzcyz9z00053gu6zvdk6x4x" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jetson-Nano/">Jetson Nano</a></li></ul>
@@ -131,19 +116,10 @@
     
   <nav id="article-nav">
     
-      <a href="/2019/05/22/jetson-inference/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption"><font color="purple">下一篇 newer</font></strong>
-        <div class="article-nav-title">
-          
-            <font color="purple">二、Jetson Nano运行jetson-inference</font>
-          
-        </div>
-      </a>
     
-    
-      <a href="/2019/05/20/Convolutional-Neural-Networks/" id="article-nav-older" class="article-nav-link-wrap">
+      <a href="/2019/05/22/daily-photo/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption"><font color="purple">上一篇 older</font></strong>
-        <div class="article-nav-title"><font color="purple">九、卷积神经网络</font></div>
+        <div class="article-nav-title"><font color="purple">daily-photo</font></div>
       </a>
     
   </nav>

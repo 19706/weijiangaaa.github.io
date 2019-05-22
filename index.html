@@ -66,6 +66,54 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Jetson-nano-power-supply" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/05/22/Jetson-nano-power-supply/" class="article-date">
+  <time datetime="2019-05-22T14:56:34.000Z" itemprop="datePublished">2019-05-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/22/Jetson-nano-power-supply/">Jetson nano_power supply</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Jetson nano的供电方式一般有2种：</p>
+<ul>
+<li>1、USB供电</li>
+<li><p>2、DC供电</p>
+</li>
+<li><p>其中第一种供电方式，<code>J48</code>断开，第二种使用DC的方式要使用跳线帽将<code>J48</code>短接；</p>
+</li>
+<li>Jetson nano默认的供电功率是5W，而一般情况下跑一些最基础的模型推理就可能歇菜，所以出现自动关机等问题的时候，使用DC供电一般都可以解决问题；</li>
+<li>使用DC供电时候，在<code>shut down</code>之后，nano关机，此时要注意220V-5V的适配器由于电容效应还存在残余电压，使得nano处于一种奇怪的状态，此时便有2中方法断电：<br>1、拔掉DC口，不过这种方法对nano不好，插拔太多会松，并不建议；<br>2、拔掉插座的供电，这种方法由于残余电压，在拔掉后无法立刻开机，要等待5s左右，使得残余电压褪去，再进行供电，开机成功！</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/05/22/Jetson-nano-power-supply/" data-id="cjvzcyz9z00053gu6zvdk6x4x" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jetson-Nano/">Jetson Nano</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-daily-photo" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/05/22/daily-photo/" class="article-date">
@@ -93,7 +141,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/22/daily-photo/" data-id="cjvz0p7qg0009q8u6eackminp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/22/daily-photo/" data-id="cjvzcyza000063gu6ssvaynkl" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/photo/">photo</a></li></ul>
@@ -141,7 +189,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/22/hello-world/" data-id="cjvz0p7qa0003q8u6kgwksgm0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/22/hello-world/" data-id="cjvzcyza3000b3gu6iqi9f27h" class="article-share-link">Share</a>
       
       
     </footer>
@@ -189,7 +237,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/22/jetson-inference/" data-id="cjvz0p7qc0005q8u610hl9n5j" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/22/jetson-inference/" data-id="cjvzcyza200093gu6h27yd67b" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jetson-Nano/">Jetson Nano</a></li></ul>
@@ -240,7 +288,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/22/Jetson-Nano安装PyTorch/" data-id="cjvz0p7qd0006q8u6plpy3td0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/22/Jetson-Nano安装PyTorch/" data-id="cjvzcyz9t00013gu6oidjbuay" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jetson-Nano/">Jetson Nano</a></li></ul>
@@ -291,7 +339,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/20/Convolutional-Neural-Networks/" data-id="cjvz0p7qv000sq8u6evazc4ru" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/20/Convolutional-Neural-Networks/" data-id="cjvzcyza6000e3gu6fvgfiatr" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PyTorch/">PyTorch</a></li></ul>
@@ -339,7 +387,7 @@
       
     </li></ul></div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/20/Blog-GitHub-Page-Hexo-landscape/" data-id="cjvz0p7q20000q8u6naj9l7aq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/20/Blog-GitHub-Page-Hexo-landscape/" data-id="cjvzcyz9o00003gu6ugfd7pr3" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/">Blog</a></li></ul>
@@ -406,7 +454,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/20/Introduction/" data-id="cjvz0p7q60001q8u6jbzigp85" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/20/Introduction/" data-id="cjvzcyz9x00033gu63h0g86l4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/">Blog</a></li></ul>
@@ -448,7 +496,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Blog/" style="font-size: 20px;">Blog</a> <a href="/tags/Deep-Learning/" style="font-size: 10px;">Deep Learning</a> <a href="/tags/Jetson-Nano/" style="font-size: 20px;">Jetson Nano</a> <a href="/tags/PyTorch/" style="font-size: 10px;">PyTorch</a> <a href="/tags/photo/" style="font-size: 10px;">photo</a>
+      <a href="/tags/Blog/" style="font-size: 15px;">Blog</a> <a href="/tags/Deep-Learning/" style="font-size: 10px;">Deep Learning</a> <a href="/tags/Jetson-Nano/" style="font-size: 20px;">Jetson Nano</a> <a href="/tags/PyTorch/" style="font-size: 10px;">PyTorch</a> <a href="/tags/photo/" style="font-size: 10px;">photo</a>
     </div>
   </div>
 
@@ -470,6 +518,10 @@
       <ul>
         
           <li>
+            <a href="/2019/05/22/Jetson-nano-power-supply/">Jetson nano_power supply</a>
+          </li>
+        
+          <li>
             <a href="/2019/05/22/daily-photo/">daily-photo</a>
           </li>
         
@@ -483,10 +535,6 @@
         
           <li>
             <a href="/2019/05/22/Jetson-Nano安装PyTorch/">三、Jetson Nano安装PyTorch</a>
-          </li>
-        
-          <li>
-            <a href="/2019/05/20/Convolutional-Neural-Networks/">九、卷积神经网络</a>
           </li>
         
       </ul>
