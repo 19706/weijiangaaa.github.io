@@ -7,19 +7,19 @@
   
   <title>TensorRT引入 | weijiangaaa</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="目前在做一个校内无人自主配送平台项目，类似JD的无人物流车，毕竟是自己的团队，预算只能卡在了5k；国家级大创、毕业设计、互联网+题目，三线并行； 目的：通过CSI摄像头实时识别目标，读取相关信息已知解决方案：通过TensorRT进行推理的加速 以下是基础方案：  AI平台：Jetson Nano 嵌入式平台：STM32F1，STM32F4，PyBoard，Arduino 硬件设计：双层PCB，主要">
+  <meta name="description" content="目前在做一个校内无人自主配送平台项目，类似JD的无人物流车，毕竟是自己的团队，预算只能卡在了5k；国家级大创、毕业设计、互联网+题目，三线并行； 目的：通过CSI摄像头实时识别目标（约30fps），读取相关信息已知解决方案：通过TensorRT进行推理的加速注：  目前是单目的方案，在Nano的性能之下，30fps很难   以下是基础方案：  AI平台：Jetson Nano 嵌入式平台：STM3">
 <meta name="keywords" content="Deep Learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="TensorRT引入">
 <meta property="og:url" content="http://yoursite.com/2019/06/01/tensorrt-introduction/index.html">
 <meta property="og:site_name" content="weijiangaaa">
-<meta property="og:description" content="目前在做一个校内无人自主配送平台项目，类似JD的无人物流车，毕竟是自己的团队，预算只能卡在了5k；国家级大创、毕业设计、互联网+题目，三线并行； 目的：通过CSI摄像头实时识别目标，读取相关信息已知解决方案：通过TensorRT进行推理的加速 以下是基础方案：  AI平台：Jetson Nano 嵌入式平台：STM32F1，STM32F4，PyBoard，Arduino 硬件设计：双层PCB，主要">
+<meta property="og:description" content="目前在做一个校内无人自主配送平台项目，类似JD的无人物流车，毕竟是自己的团队，预算只能卡在了5k；国家级大创、毕业设计、互联网+题目，三线并行； 目的：通过CSI摄像头实时识别目标（约30fps），读取相关信息已知解决方案：通过TensorRT进行推理的加速注：  目前是单目的方案，在Nano的性能之下，30fps很难   以下是基础方案：  AI平台：Jetson Nano 嵌入式平台：STM3">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://s3.sinaimg.cn/mw690/002c2mEVzy7nKnBsVCqc2&690">
-<meta property="og:updated_time" content="2019-05-31T17:00:59.352Z">
+<meta property="og:updated_time" content="2019-05-31T17:05:44.705Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TensorRT引入">
-<meta name="twitter:description" content="目前在做一个校内无人自主配送平台项目，类似JD的无人物流车，毕竟是自己的团队，预算只能卡在了5k；国家级大创、毕业设计、互联网+题目，三线并行； 目的：通过CSI摄像头实时识别目标，读取相关信息已知解决方案：通过TensorRT进行推理的加速 以下是基础方案：  AI平台：Jetson Nano 嵌入式平台：STM32F1，STM32F4，PyBoard，Arduino 硬件设计：双层PCB，主要">
+<meta name="twitter:description" content="目前在做一个校内无人自主配送平台项目，类似JD的无人物流车，毕竟是自己的团队，预算只能卡在了5k；国家级大创、毕业设计、互联网+题目，三线并行； 目的：通过CSI摄像头实时识别目标（约30fps），读取相关信息已知解决方案：通过TensorRT进行推理的加速注：  目前是单目的方案，在Nano的性能之下，30fps很难   以下是基础方案：  AI平台：Jetson Nano 嵌入式平台：STM3">
 <meta name="twitter:image" content="http://s3.sinaimg.cn/mw690/002c2mEVzy7nKnBsVCqc2&690">
   
     <link rel="alternate" href="/atom.xml" title="weijiangaaa" type="application/atom+xml">
@@ -96,7 +96,11 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><em>目前在做一个<code>校内无人自主配送平台</code>项目，类似JD的无人物流车，毕竟是自己的团队，预算只能卡在了5k；</em><br><em>国家级大创、毕业设计、互联网+题目，三线并行；</em></p>
-<h2 id="目的：通过CSI摄像头实时识别目标，读取相关信息"><a href="#目的：通过CSI摄像头实时识别目标，读取相关信息" class="headerlink" title="目的：通过CSI摄像头实时识别目标，读取相关信息"></a>目的：通过CSI摄像头实时识别目标，读取相关信息</h2><h2 id="已知解决方案：通过TensorRT进行推理的加速"><a href="#已知解决方案：通过TensorRT进行推理的加速" class="headerlink" title="已知解决方案：通过TensorRT进行推理的加速"></a>已知解决方案：通过TensorRT进行推理的加速</h2><p><img src="http://s3.sinaimg.cn/mw690/002c2mEVzy7nKnBsVCqc2&amp;690" alt="rua rua rua！！！"></p>
+<h2 id="目的：通过CSI摄像头实时识别目标（约30fps），读取相关信息"><a href="#目的：通过CSI摄像头实时识别目标（约30fps），读取相关信息" class="headerlink" title="目的：通过CSI摄像头实时识别目标（约30fps），读取相关信息"></a>目的：通过CSI摄像头实时识别目标（约30fps），读取相关信息</h2><h2 id="已知解决方案：通过TensorRT进行推理的加速"><a href="#已知解决方案：通过TensorRT进行推理的加速" class="headerlink" title="已知解决方案：通过TensorRT进行推理的加速"></a>已知解决方案：通过TensorRT进行推理的加速</h2><p>注：</p>
+<ul>
+<li>目前是单目的方案，在Nano的性能之下，30fps很难</li>
+</ul>
+<p><img src="http://s3.sinaimg.cn/mw690/002c2mEVzy7nKnBsVCqc2&amp;690" alt="rua rua rua！！！"></p>
 <p>以下是基础方案：</p>
 <ul>
 <li>AI平台：Jetson Nano</li>
@@ -112,6 +116,7 @@
 <li>部署</li>
 </ul>
 <p>输入图片数据后,进行一大堆的矩阵运算,得到最终图片的分类.推理引擎干的事情就是优化矩阵运算,缩短运算时间。</p>
+<p>训练。堆砌GPU，完成即可；<br>部署。在推理过程中，不考虑成本，使用最牛逼的GPU，如果方法不得当，都无法做到实时的要求；<br>TensorRT是专门针对部署端进行优化的，最擅长的是CNN；</p>
 <p>开始学习TensorRT，然后参考的文章以下，学习之后进行整理：<br><a href="https://yq.aliyun.com/articles/580307" target="_blank" rel="noopener">高性能深度学习支持引擎实战——TensorRT</a></p>
 
       
