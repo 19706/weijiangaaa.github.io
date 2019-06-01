@@ -116,7 +116,8 @@
 <p>输入图片数据后,进行一大堆的矩阵运算,得到最终图片的分类.推理引擎干的事情就是优化矩阵运算,缩短运算时间。</p>
 <h3 id="训练。"><a href="#训练。" class="headerlink" title="训练。"></a>训练。</h3><p>堆砌GPU，完成即可；<br>模型的训练必须精确，所以一般来说需要float型，如FP32，32位的浮点型来处理数据；</p>
 <h3 id="部署。"><a href="#部署。" class="headerlink" title="部署。"></a>部署。</h3><p>在推理过程中，不考虑成本，使用最牛逼的GPU，如果方法不得当，都无法做到实时的要求；<br>对精度的要求没有那么高，很多研究表明可以用低精度，如半长（16）的float型，即FP16，也可以用8位的整型（INT8）来做推断（Inference），研究结果表明没有特别大的精度损失，尤其对CNN（减少计算量）；<br>TensorRT是专门针对部署端进行优化的，最擅长的是CNN；</p>
-<p>开始学习TensorRT，然后参考的文章以下，学习之后进行整理：<br><a href="https://yq.aliyun.com/articles/580307" target="_blank" rel="noopener">高性能深度学习支持引擎实战——TensorRT</a></p>
+<p><img src="https://docs.nvidia.com/deeplearning/sdk/tensorrt-developer-guide/graphics/overview.png" alt="Figure 1. TensorRT is a high performance neural network inference optimizer and runtime engine for production deployment."><br>TensorRT optimizes the network by combining layers and optimizing kernel selection for improved latency, throughput, power efficiency and memory consumption. If the application specifies, it will additionally optimize the network to run in lower precision, further increasing performance and reducing memory requirements.</p>
+<p>The following figure shows TensorRT defined as part high-performance inference optimizer and part runtime engine. It can take in neural networks trained on these popular frameworks, optimize the neural network computation, generate a light-weight runtime engine (which is the only thing you need to deploy to your production environment), and it will then maximize the throughput, latency, and performance on these GPU platforms.<br><img src="https://docs.nvidia.com/deeplearning/sdk/tensorrt-developer-guide/graphics/whatistrt2.png" alt="Figure 2. TensorRT is a programmable inference accelerator."></p>
 
       
     </div>
