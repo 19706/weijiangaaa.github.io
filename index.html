@@ -71,6 +71,49 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-yolo-darknet" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/10/yolo-darknet/" class="article-date">
+  <time datetime="2019-06-09T16:45:39.000Z" itemprop="datePublished">2019-06-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/10/yolo-darknet/">yolo-darknet</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/pjreddie/darknet</span><br><span class="line">cd darknet</span><br><span class="line">make</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://pjreddie.com/media/files/yolov3.weights</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./darknet detect cfg/yolov3.cfg yolov3.weights data/dog.jpg</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">layer     filters    size              input                output</span><br><span class="line">    0 conv     32  3 x 3 / 1   416 x 416 x   3   -&gt;   416 x 416 x  32  0.299 BFLOPs</span><br><span class="line">    1 conv     64  3 x 3 / 2   416 x 416 x  32   -&gt;   208 x 208 x  64  1.595 BFLOPs</span><br><span class="line">    .......</span><br><span class="line">  105 conv    255  1 x 1 / 1    52 x  52 x 256   -&gt;    52 x  52 x 255  0.353 BFLOPs</span><br><span class="line">  <span class="number">106</span> detection</span><br><span class="line">truth_thresh: Using default <span class="string">'1.000000'</span></span><br><span class="line">Loading weights <span class="keyword">from</span> yolov3.weights...Done!</span><br><span class="line">data/dog.jpg: Predicted <span class="keyword">in</span> <span class="number">0.029329</span> seconds.</span><br><span class="line">dog: <span class="number">99</span>%</span><br><span class="line">truck: <span class="number">93</span>%</span><br><span class="line">bicycle: <span class="number">99</span>%</span><br></pre></td></tr></table></figure>
+<p><img src="https://pjreddie.com/media/image/Screen_Shot_2018-03-24_at_10.48.42_PM.png" alt></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/10/yolo-darknet/" data-id="cjwp6rjm200164ou6l08kas1u" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learing/">Deep Learing</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Opencv-serial-vs2017" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/06/09/Opencv-serial-vs2017/" class="article-date">
@@ -99,7 +142,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/09/Opencv-serial-vs2017/" data-id="cjwow4ye9000alsu6k9ts36p6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/09/Opencv-serial-vs2017/" data-id="cjwp6rjls000s4ou6ocz1q6e1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OpenCV/">OpenCV</a></li></ul>
@@ -162,7 +205,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/01/tensorrt-introduction/" data-id="cjwow4yf00014lsu6ku6fml8a" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/01/tensorrt-introduction/" data-id="cjwp6rjm100144ou69x46aays" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li></ul>
@@ -210,7 +253,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/31/keyboard/" data-id="cjwow4yex0011lsu6wkqthqfy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/31/keyboard/" data-id="cjwp6rjlz00114ou60xem2eum" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Buy/">Buy</a></li></ul>
@@ -249,7 +292,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/31/emoji-test/" data-id="cjwow4yed000glsu640tapbeo" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/31/emoji-test/" data-id="cjwp6rjlq000r4ou6h4bq2r0x" class="article-share-link">Share</a>
       
       
     </footer>
@@ -290,7 +333,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/28/daily-photo-1/" data-id="cjwow4yec000flsu6kgo38w6m" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/28/daily-photo-1/" data-id="cjwp6rjlp000p4ou6bc1xiy9o" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/photo/">photo</a></li></ul>
@@ -329,7 +372,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/23/OpenCV-Gaussian-Blur/" data-id="cjwow4ye60006lsu6hn9tdmkm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/23/OpenCV-Gaussian-Blur/" data-id="cjwp6rjln000o4ou6sb1mrr5e" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OpenCV/">OpenCV</a></li></ul>
@@ -377,7 +420,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/22/Jetson-nano-power-supply/" data-id="cjwow4ye40004lsu6jbq7t2v4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/22/Jetson-nano-power-supply/" data-id="cjwp6rjl200054ou61le8nd7c" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jetson-Nano/">Jetson Nano</a></li></ul>
@@ -420,7 +463,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/22/daily-photo/" data-id="cjwow4yea000blsu68jl41hcc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/22/daily-photo/" data-id="cjwp6rjlt000t4ou65oeeqca3" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/photo/">photo</a></li></ul>
@@ -468,59 +511,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/22/hello-world/" data-id="cjwow4yey0012lsu6sfuq2723" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/22/hello-world/" data-id="cjwp6rjly000y4ou66q7p8epu" class="article-share-link">Share</a>
       
       
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-jetson-inference" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/05/22/jetson-inference/" class="article-date">
-  <time datetime="2019-05-22T06:47:03.000Z" itemprop="datePublished">2019-05-22</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Jetson-Nano/">Jetson Nano</a>►<a class="article-category-link" href="/categories/Jetson-Nano/2、运行jetson-inference/">2、运行jetson-inference</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/22/jetson-inference/">二、Jetson Nano运行jetson-inference</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>测试平台：Jetson Nano</strong><br><img src="https://github.com/weijiangaaa/MyPostImag/blob/master/nvidia-jetson-nano-module-standing-1cc-p@2x.jpg?raw=true" alt></p>
-<p>安装前提：</p>
-<p>git和cake</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install git</span><br><span class="line">$ sudo apt-get install cmake</span><br></pre></td></tr></table></figure>
-        
-          <p class="article-more-link">
-            <a href="/2019/05/22/jetson-inference/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/22/jetson-inference/" data-id="cjwow4yf10015lsu66ep276xt" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jetson-Nano/">Jetson Nano</a></li></ul>
-
     </footer>
   </div>
   
@@ -553,7 +546,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/">Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Buy/">Buy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jetson-Nano/">Jetson Nano</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenCV/">OpenCV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PyTorch/">PyTorch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/photo/">photo</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/">Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Buy/">Buy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-Learing/">Deep Learing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jetson-Nano/">Jetson Nano</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenCV/">OpenCV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PyTorch/">PyTorch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/photo/">photo</a></li></ul>
     </div>
   </div>
 
@@ -563,7 +556,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Blog/" style="font-size: 15px;">Blog</a> <a href="/tags/Buy/" style="font-size: 10px;">Buy</a> <a href="/tags/Deep-Learning/" style="font-size: 15px;">Deep Learning</a> <a href="/tags/Jetson-Nano/" style="font-size: 20px;">Jetson Nano</a> <a href="/tags/OpenCV/" style="font-size: 15px;">OpenCV</a> <a href="/tags/PyTorch/" style="font-size: 10px;">PyTorch</a> <a href="/tags/photo/" style="font-size: 15px;">photo</a>
+      <a href="/tags/Blog/" style="font-size: 15px;">Blog</a> <a href="/tags/Buy/" style="font-size: 10px;">Buy</a> <a href="/tags/Deep-Learing/" style="font-size: 10px;">Deep Learing</a> <a href="/tags/Deep-Learning/" style="font-size: 15px;">Deep Learning</a> <a href="/tags/Jetson-Nano/" style="font-size: 20px;">Jetson Nano</a> <a href="/tags/OpenCV/" style="font-size: 15px;">OpenCV</a> <a href="/tags/PyTorch/" style="font-size: 10px;">PyTorch</a> <a href="/tags/photo/" style="font-size: 15px;">photo</a>
     </div>
   </div>
 
@@ -585,6 +578,10 @@
       <ul>
         
           <li>
+            <a href="/2019/06/10/yolo-darknet/">yolo-darknet</a>
+          </li>
+        
+          <li>
             <a href="/2019/06/09/Opencv-serial-vs2017/">Opencv-serial-vs2017</a>
           </li>
         
@@ -598,10 +595,6 @@
         
           <li>
             <a href="/2019/05/31/emoji-test/">emoji test</a>
-          </li>
-        
-          <li>
-            <a href="/2019/05/28/daily-photo-1/">中北大学 图书馆</a>
           </li>
         
       </ul>
