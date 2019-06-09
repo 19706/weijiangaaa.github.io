@@ -16,7 +16,7 @@
 <meta property="og:description" content="问题提出：Jetson Nano使用cam运行实时目标检测，读出预测框的坐标 1、开发框架的选择pytorch（训练模型灵活好用）；tensorflow（资源丰富、支持较多）；caffee（使用c++开发，速度快）；darknet（yolo专用的小型框架）；detectnet（NVIDIA使用DIGIST训练的框架） FINALLY，本文选择darknet（因为其他暂时没找到教程） 2、摄像头的选">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://pjreddie.com/media/image/Screen_Shot_2018-03-24_at_10.48.42_PM.png">
-<meta property="og:updated_time" content="2019-06-09T17:03:20.239Z">
+<meta property="og:updated_time" content="2019-06-09T17:05:55.753Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="yolo-darknet">
 <meta name="twitter:description" content="问题提出：Jetson Nano使用cam运行实时目标检测，读出预测框的坐标 1、开发框架的选择pytorch（训练模型灵活好用）；tensorflow（资源丰富、支持较多）；caffee（使用c++开发，速度快）；darknet（yolo专用的小型框架）；detectnet（NVIDIA使用DIGIST训练的框架） FINALLY，本文选择darknet（因为其他暂时没找到教程） 2、摄像头的选">
@@ -105,7 +105,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./darknet detect cfg/yolov3.cfg yolov3.weights data/dog.jpg</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">layer     filters    size              input                output</span><br><span class="line">    0 conv     32  3 x 3 / 1   416 x 416 x   3   -&gt;   416 x 416 x  32  0.299 BFLOPs</span><br><span class="line">    1 conv     64  3 x 3 / 2   416 x 416 x  32   -&gt;   208 x 208 x  64  1.595 BFLOPs</span><br><span class="line">    .......</span><br><span class="line">  105 conv    255  1 x 1 / 1    52 x  52 x 256   -&gt;    52 x  52 x 255  0.353 BFLOPs</span><br><span class="line">  <span class="number">106</span> detection</span><br><span class="line">truth_thresh: Using default <span class="string">'1.000000'</span></span><br><span class="line">Loading weights <span class="keyword">from</span> yolov3.weights...Done!</span><br><span class="line">data/dog.jpg: Predicted <span class="keyword">in</span> <span class="number">0.029329</span> seconds.</span><br><span class="line">dog: <span class="number">99</span>%</span><br><span class="line">truck: <span class="number">93</span>%</span><br><span class="line">bicycle: <span class="number">99</span>%</span><br></pre></td></tr></table></figure>
 <p><img src="https://pjreddie.com/media/image/Screen_Shot_2018-03-24_at_10.48.42_PM.png" alt></p>
-<p>参考：!(<a href="https://pjreddie.com/darknet/yolo/" target="_blank" rel="noopener">https://pjreddie.com/darknet/yolo/</a>)</p>
+<p>参考：<a href="https://pjreddie.com/darknet/yolo/" target="_blank" rel="noopener">https://pjreddie.com/darknet/yolo/</a></p>
 
       
     </div>
