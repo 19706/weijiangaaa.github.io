@@ -7,19 +7,19 @@
   
   <title>yolo-darknet | weijiangaaa</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="123git clone https://github.com/pjreddie/darknetcd darknetmake 1wget https://pjreddie.com/media/files/yolov3.weights 1./darknet detect cfg/yolov3.cfg yolov3.weights data/dog.jpg 123456789101112layer">
+  <meta name="description" content="问题提出：Jetson Nano使用cam运行实时目标检测，读出预测框的坐标 1、开发框架的选择pytorch（训练模型灵活好用）；tensorflow（资源丰富、支持较多）；caffee（使用c++开发，速度快）；darknet（yolo专用的小型框架）；detectnet（NVIDIA使用DIGIST训练的框架） FINALLY，本文选择darknet（因为其他暂时没找到教程） 2、摄像头的选">
 <meta name="keywords" content="Deep Learing">
 <meta property="og:type" content="article">
 <meta property="og:title" content="yolo-darknet">
 <meta property="og:url" content="http://yoursite.com/2019/06/10/yolo-darknet/index.html">
 <meta property="og:site_name" content="weijiangaaa">
-<meta property="og:description" content="123git clone https://github.com/pjreddie/darknetcd darknetmake 1wget https://pjreddie.com/media/files/yolov3.weights 1./darknet detect cfg/yolov3.cfg yolov3.weights data/dog.jpg 123456789101112layer">
+<meta property="og:description" content="问题提出：Jetson Nano使用cam运行实时目标检测，读出预测框的坐标 1、开发框架的选择pytorch（训练模型灵活好用）；tensorflow（资源丰富、支持较多）；caffee（使用c++开发，速度快）；darknet（yolo专用的小型框架）；detectnet（NVIDIA使用DIGIST训练的框架） FINALLY，本文选择darknet（因为其他暂时没找到教程） 2、摄像头的选">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://pjreddie.com/media/image/Screen_Shot_2018-03-24_at_10.48.42_PM.png">
-<meta property="og:updated_time" content="2019-06-09T16:52:38.197Z">
+<meta property="og:updated_time" content="2019-06-09T17:03:20.239Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="yolo-darknet">
-<meta name="twitter:description" content="123git clone https://github.com/pjreddie/darknetcd darknetmake 1wget https://pjreddie.com/media/files/yolov3.weights 1./darknet detect cfg/yolov3.cfg yolov3.weights data/dog.jpg 123456789101112layer">
+<meta name="twitter:description" content="问题提出：Jetson Nano使用cam运行实时目标检测，读出预测框的坐标 1、开发框架的选择pytorch（训练模型灵活好用）；tensorflow（资源丰富、支持较多）；caffee（使用c++开发，速度快）；darknet（yolo专用的小型框架）；detectnet（NVIDIA使用DIGIST训练的框架） FINALLY，本文选择darknet（因为其他暂时没找到教程） 2、摄像头的选">
 <meta name="twitter:image" content="https://pjreddie.com/media/image/Screen_Shot_2018-03-24_at_10.48.42_PM.png">
   
     <link rel="alternate" href="/atom.xml" title="weijiangaaa" type="application/atom+xml">
@@ -95,11 +95,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/pjreddie/darknet</span><br><span class="line">cd darknet</span><br><span class="line">make</span><br></pre></td></tr></table></figure>
+        <p>问题提出：Jetson Nano使用cam运行实时目标检测，读出预测框的坐标</p>
+<h3 id="1、开发框架的选择"><a href="#1、开发框架的选择" class="headerlink" title="1、开发框架的选择"></a>1、开发框架的选择</h3><p>pytorch（训练模型灵活好用）；<br>tensorflow（资源丰富、支持较多）；<br>caffee（使用c++开发，速度快）；<br>darknet（yolo专用的小型框架）；<br>detectnet（NVIDIA使用DIGIST训练的框架）</p>
+<p>FINALLY，本文选择darknet（因为其他暂时没找到教程）</p>
+<h3 id="2、摄像头的选择"><a href="#2、摄像头的选择" class="headerlink" title="2、摄像头的选择"></a>2、摄像头的选择</h3><p>csi摄像头（使用pciee。。完成调用，速度显然更快，但是目前还没时间学）<br>webcam（通过usb总线进行视频流的调用，资料较多，速度相比以上较慢）</p>
+<p>FINALLY，本文选择webcam（因为csi还没时间看）</p>
+<h4 id="接下来就是darknet官网的教程"><a href="#接下来就是darknet官网的教程" class="headerlink" title="接下来就是darknet官网的教程"></a>接下来就是<code>darknet</code>官网的教程</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/pjreddie/darknet</span><br><span class="line">cd darknet</span><br><span class="line">make</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://pjreddie.com/media/files/yolov3.weights</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./darknet detect cfg/yolov3.cfg yolov3.weights data/dog.jpg</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">layer     filters    size              input                output</span><br><span class="line">    0 conv     32  3 x 3 / 1   416 x 416 x   3   -&gt;   416 x 416 x  32  0.299 BFLOPs</span><br><span class="line">    1 conv     64  3 x 3 / 2   416 x 416 x  32   -&gt;   208 x 208 x  64  1.595 BFLOPs</span><br><span class="line">    .......</span><br><span class="line">  105 conv    255  1 x 1 / 1    52 x  52 x 256   -&gt;    52 x  52 x 255  0.353 BFLOPs</span><br><span class="line">  <span class="number">106</span> detection</span><br><span class="line">truth_thresh: Using default <span class="string">'1.000000'</span></span><br><span class="line">Loading weights <span class="keyword">from</span> yolov3.weights...Done!</span><br><span class="line">data/dog.jpg: Predicted <span class="keyword">in</span> <span class="number">0.029329</span> seconds.</span><br><span class="line">dog: <span class="number">99</span>%</span><br><span class="line">truck: <span class="number">93</span>%</span><br><span class="line">bicycle: <span class="number">99</span>%</span><br></pre></td></tr></table></figure>
 <p><img src="https://pjreddie.com/media/image/Screen_Shot_2018-03-24_at_10.48.42_PM.png" alt></p>
+<p>参考：!(<a href="https://pjreddie.com/darknet/yolo/" target="_blank" rel="noopener">https://pjreddie.com/darknet/yolo/</a>)</p>
 
       
     </div>
