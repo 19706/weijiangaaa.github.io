@@ -5,20 +5,22 @@
   
 
   
-  <title>使用yolov3-tiny实时进行图像的采集，完成目标检测 | weijiangaaa</title>
+  <title>二、yolov3_tiny-darknet-webcam | weijiangaaa</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="毕设答辩完了，索然无味，emmm。。。本来打算的全程录像，还是算了，简直没有价值，从昨晚的兴奋到现在的无语，大学最简单松弛的一次答辩，， 以下是答辩回忆录  老师：“机械设计的创新性？” 我：（我毕设核心乃机器视觉，机器人仅做测试平台用，我通信工程的学生你让我机械创新？） 我：“没有。。”  老师：laptop的opencv如何和机器人通信部署？  我：（这个问题还行，我讲了1分钟，，你没听吗，都">
-<meta name="keywords" content="Deep Learning">
+  <meta name="description" content="承接上文 前言：上文使用的是单张图片的目标检测，本文完成的是通过webcam完成实时的目标检测； 1、说明： 框架：darknet 底层语言：c 权重参数：yolov3-tiny 设备：webcam  2、步骤：1、先修改makefile里的编译文件，opencv=1，cuda=12、make clean-&amp;gt;make3、确保darknet-master目录下有.weights文件4、直接运行">
+<meta name="keywords" content="Deep Learning,Darknet">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用yolov3-tiny实时进行图像的采集，完成目标检测">
+<meta property="og:title" content="二、yolov3_tiny-darknet-webcam">
 <meta property="og:url" content="http://yoursite.com/2019/06/11/yolo-darknet-webcam/index.html">
 <meta property="og:site_name" content="weijiangaaa">
-<meta property="og:description" content="毕设答辩完了，索然无味，emmm。。。本来打算的全程录像，还是算了，简直没有价值，从昨晚的兴奋到现在的无语，大学最简单松弛的一次答辩，， 以下是答辩回忆录  老师：“机械设计的创新性？” 我：（我毕设核心乃机器视觉，机器人仅做测试平台用，我通信工程的学生你让我机械创新？） 我：“没有。。”  老师：laptop的opencv如何和机器人通信部署？  我：（这个问题还行，我讲了1分钟，，你没听吗，都">
+<meta property="og:description" content="承接上文 前言：上文使用的是单张图片的目标检测，本文完成的是通过webcam完成实时的目标检测； 1、说明： 框架：darknet 底层语言：c 权重参数：yolov3-tiny 设备：webcam  2、步骤：1、先修改makefile里的编译文件，opencv=1，cuda=12、make clean-&amp;gt;make3、确保darknet-master目录下有.weights文件4、直接运行">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-11T15:15:20.325Z">
+<meta property="og:image" content="https://pjreddie.com/media/image/yologo_2.png">
+<meta property="og:updated_time" content="2019-06-11T16:42:27.913Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用yolov3-tiny实时进行图像的采集，完成目标检测">
-<meta name="twitter:description" content="毕设答辩完了，索然无味，emmm。。。本来打算的全程录像，还是算了，简直没有价值，从昨晚的兴奋到现在的无语，大学最简单松弛的一次答辩，， 以下是答辩回忆录  老师：“机械设计的创新性？” 我：（我毕设核心乃机器视觉，机器人仅做测试平台用，我通信工程的学生你让我机械创新？） 我：“没有。。”  老师：laptop的opencv如何和机器人通信部署？  我：（这个问题还行，我讲了1分钟，，你没听吗，都">
+<meta name="twitter:title" content="二、yolov3_tiny-darknet-webcam">
+<meta name="twitter:description" content="承接上文 前言：上文使用的是单张图片的目标检测，本文完成的是通过webcam完成实时的目标检测； 1、说明： 框架：darknet 底层语言：c 权重参数：yolov3-tiny 设备：webcam  2、步骤：1、先修改makefile里的编译文件，opencv=1，cuda=12、make clean-&amp;gt;make3、确保darknet-master目录下有.weights文件4、直接运行">
+<meta name="twitter:image" content="https://pjreddie.com/media/image/yologo_2.png">
   
     <link rel="alternate" href="/atom.xml" title="weijiangaaa" type="application/atom+xml">
   
@@ -85,7 +87,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      使用yolov3-tiny实时进行图像的采集，完成目标检测
+      二、yolov3_tiny-darknet-webcam
     </h1>
   
 
@@ -93,42 +95,24 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>毕设答辩完了，索然无味，emmm。。。<br>本来打算的全程录像，还是算了，简直没有价值，从昨晚的兴奋到现在的无语，大学最简单松弛的一次答辩，，</p>
-<p><em>以下是答辩回忆录</em></p>
-<ul>
-<li>老师：“机械设计的创新性？”</li>
-<li>我：（我毕设核心乃机器视觉，机器人仅做测试平台用，我通信工程的学生你让我机械创新？）</li>
-<li><p>我：“没有。。”</p>
-</li>
-<li><p>老师：laptop的opencv如何和机器人通信部署？</p>
-</li>
-<li>我：（这个问题还行，我讲了1分钟，，你没听吗，都如此通俗易懂了。。）</li>
-<li>我：通过vs的串口通信控件，库</li>
-<li><p>老师：好，知道是库就行了（反正不是你学生写的，你就是一个只会用别人函数的笨比）</p>
-</li>
-<li><p>老师：实际道路避障应用如何？</p>
-</li>
-<li>我：没钱，机械结构存在问题，资金短缺，机械完善足够完成道路基本避障</li>
-<li>老师：不是机械的问题。</li>
-<li>我:(我再有5k改个机械做出来你信不信)</li>
-<li>我：我确定就是机械（开怼）</li>
-<li>老师：那我把我汽车给你，你给我弄试试</li>
-<li>我：好，没问题（你给我我就弄，我根本不怕）</li>
-<li>老师：你智商很高，情商很低。</li>
-<li>我：（抱歉，你太无趣，我被迫听了你一天不痛不痒的答辩提问，我，就是来怼你的）</li>
-<li>我：嗯。</li>
+        <p><em>承接上文</em></p>
+<p>前言：上文使用的是单张图片的目标检测，本文完成的是通过<code>webcam</code>完成实时的目标检测；<br><img src="https://pjreddie.com/media/image/yologo_2.png" alt></p>
+<h2 id="1、说明："><a href="#1、说明：" class="headerlink" title="1、说明："></a>1、说明：</h2><ul>
+<li>框架：<code>darknet</code></li>
+<li>底层语言：<code>c</code></li>
+<li>权重参数：<code>yolov3-tiny</code></li>
+<li>设备：<code>webcam</code></li>
 </ul>
-<h2 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h2><p>框架：darknet<br>底层语言：c<br>算法：yolov3-tiny<br>设备：webcam</p>
-<h2 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h2><p>1、先修改makefile里的编译文件，opencv=1，cuda=1<br>2、make clean-&gt;make<br>3、确保darknet-master目录下有.weights文件<br>4、直接运行<code>./darknet detector demo cfg/coco.data cfg/yolov3-tiny.cfg yolov3-tiny.weights -c 1</code></p>
-<h3 id="注："><a href="#注：" class="headerlink" title="注："></a>注：</h3><p>1、csi摄像头无法使用<br>2、一定要加<code>-c 1</code>选项，否则无论csi摄像头是否连接都无法启用webcam<br>3、fps10左右，</p>
+<h2 id="2、步骤："><a href="#2、步骤：" class="headerlink" title="2、步骤："></a>2、步骤：</h2><p>1、先修改<code>makefile</code>里的编译文件，<code>opencv=1</code>，<code>cuda=1</code><br>2、<code>make clean</code>-&gt;<code>make</code><br>3、确保<code>darknet-master</code>目录下有<code>.weights</code>文件<br>4、直接运行<code>./darknet detector demo cfg/coco.data cfg/yolov3-tiny.cfg yolov3-tiny.weights -c 1</code></p>
+<h3 id="注："><a href="#注：" class="headerlink" title="注："></a>注：</h3><p>1、csi摄像头无法使用<br>2、一定要加<code>-c 1</code>选项，否则无论csi摄像头是否连接都无法启用<code>webcam</code><br>3、<code>fps10</code>左右，</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/11/yolo-darknet-webcam/" data-id="cjwrzmm2e000yy8u6qez23u0o" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/11/yolo-darknet-webcam/" data-id="cjws1a3jy00121wu6uuse6sqv" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Darknet/">Darknet</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li></ul>
 
     </footer>
   </div>
@@ -148,7 +132,7 @@
     
       <a href="/2019/06/10/yolo-darknet/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption"><font color="purple">上一篇 older</font></strong>
-        <div class="article-nav-title"><font color="purple">yolo-darknet</font></div>
+        <div class="article-nav-title"><font color="purple">一、yolov3-darknet-image</font></div>
       </a>
     
   </nav>
@@ -174,7 +158,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/">Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Buy/">Buy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jetson-Nano/">Jetson Nano</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenCV/">OpenCV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PyTorch/">PyTorch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/darknet/">darknet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/photo/">photo</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/">Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Buy/">Buy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Darknet/">Darknet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jetson-Nano/">Jetson Nano</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenCV/">OpenCV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PyTorch/">PyTorch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/photo/">photo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日记/">日记</a></li></ul>
     </div>
   </div>
 
@@ -184,7 +168,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Blog/" style="font-size: 16.67px;">Blog</a> <a href="/tags/Buy/" style="font-size: 10px;">Buy</a> <a href="/tags/Deep-Learning/" style="font-size: 20px;">Deep Learning</a> <a href="/tags/Jetson-Nano/" style="font-size: 16.67px;">Jetson Nano</a> <a href="/tags/OpenCV/" style="font-size: 13.33px;">OpenCV</a> <a href="/tags/PyTorch/" style="font-size: 10px;">PyTorch</a> <a href="/tags/darknet/" style="font-size: 10px;">darknet</a> <a href="/tags/photo/" style="font-size: 13.33px;">photo</a>
+      <a href="/tags/Blog/" style="font-size: 16.67px;">Blog</a> <a href="/tags/Buy/" style="font-size: 10px;">Buy</a> <a href="/tags/Darknet/" style="font-size: 13.33px;">Darknet</a> <a href="/tags/Deep-Learning/" style="font-size: 20px;">Deep Learning</a> <a href="/tags/Jetson-Nano/" style="font-size: 16.67px;">Jetson Nano</a> <a href="/tags/OpenCV/" style="font-size: 13.33px;">OpenCV</a> <a href="/tags/PyTorch/" style="font-size: 10px;">PyTorch</a> <a href="/tags/photo/" style="font-size: 13.33px;">photo</a> <a href="/tags/日记/" style="font-size: 10px;">日记</a>
     </div>
   </div>
 
@@ -206,23 +190,23 @@
       <ul>
         
           <li>
+            <a href="/2019/06/12/graduate/">graduate</a>
+          </li>
+        
+          <li>
             <a href="/2019/06/11/blog-rebuild/">blog rebuild</a>
           </li>
         
           <li>
-            <a href="/2019/06/11/yolo-darknet-webcam/">使用yolov3-tiny实时进行图像的采集，完成目标检测</a>
+            <a href="/2019/06/11/yolo-darknet-webcam/">二、yolov3_tiny-darknet-webcam</a>
           </li>
         
           <li>
-            <a href="/2019/06/10/yolo-darknet/">yolo-darknet</a>
+            <a href="/2019/06/10/yolo-darknet/">一、yolov3-darknet-image</a>
           </li>
         
           <li>
             <a href="/2019/06/09/Opencv-serial-vs2017/">Opencv-serial-vs2017</a>
-          </li>
-        
-          <li>
-            <a href="/2019/06/01/tensorrt-introduction/">TensorRT引入</a>
           </li>
         
       </ul>
