@@ -7,18 +7,18 @@
   
   <title>使用yolov3-tiny实时进行图像的采集，完成目标检测 | weijiangaaa</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="毕设答辩完了，索然无味，emmm。。。本来打算的全程录像，还是算了，简直没有价值，从昨晚的兴奋到现在的无语，大学最简单松弛的一次答辩，， 以下是答辩回忆录老师：“机械设计的创新性？”我想：我毕设核心乃机器视觉，机器人仅做测试平台用，我通信工程的学生你让我机械创新？我答：“没有。。” 老师：laptop的opencv如何和机器人通信部署？我：（这个问题还行，我讲了1分钟，，你没听吗，都如此通俗易懂了">
+  <meta name="description" content="毕设答辩完了，索然无味，emmm。。。本来打算的全程录像，还是算了，简直没有价值，从昨晚的兴奋到现在的无语，大学最简单松弛的一次答辩，， 以下是答辩回忆录  老师：“机械设计的创新性？” 我：（我毕设核心乃机器视觉，机器人仅做测试平台用，我通信工程的学生你让我机械创新？） 我：“没有。。”  老师：laptop的opencv如何和机器人通信部署？  我：（这个问题还行，我讲了1分钟，，你没听吗，都">
 <meta name="keywords" content="Deep Learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用yolov3-tiny实时进行图像的采集，完成目标检测">
 <meta property="og:url" content="http://yoursite.com/2019/06/11/yolo-darknet-webcam/index.html">
 <meta property="og:site_name" content="weijiangaaa">
-<meta property="og:description" content="毕设答辩完了，索然无味，emmm。。。本来打算的全程录像，还是算了，简直没有价值，从昨晚的兴奋到现在的无语，大学最简单松弛的一次答辩，， 以下是答辩回忆录老师：“机械设计的创新性？”我想：我毕设核心乃机器视觉，机器人仅做测试平台用，我通信工程的学生你让我机械创新？我答：“没有。。” 老师：laptop的opencv如何和机器人通信部署？我：（这个问题还行，我讲了1分钟，，你没听吗，都如此通俗易懂了">
+<meta property="og:description" content="毕设答辩完了，索然无味，emmm。。。本来打算的全程录像，还是算了，简直没有价值，从昨晚的兴奋到现在的无语，大学最简单松弛的一次答辩，， 以下是答辩回忆录  老师：“机械设计的创新性？” 我：（我毕设核心乃机器视觉，机器人仅做测试平台用，我通信工程的学生你让我机械创新？） 我：“没有。。”  老师：laptop的opencv如何和机器人通信部署？  我：（这个问题还行，我讲了1分钟，，你没听吗，都">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-11T15:10:08.314Z">
+<meta property="og:updated_time" content="2019-06-11T15:15:20.325Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用yolov3-tiny实时进行图像的采集，完成目标检测">
-<meta name="twitter:description" content="毕设答辩完了，索然无味，emmm。。。本来打算的全程录像，还是算了，简直没有价值，从昨晚的兴奋到现在的无语，大学最简单松弛的一次答辩，， 以下是答辩回忆录老师：“机械设计的创新性？”我想：我毕设核心乃机器视觉，机器人仅做测试平台用，我通信工程的学生你让我机械创新？我答：“没有。。” 老师：laptop的opencv如何和机器人通信部署？我：（这个问题还行，我讲了1分钟，，你没听吗，都如此通俗易懂了">
+<meta name="twitter:description" content="毕设答辩完了，索然无味，emmm。。。本来打算的全程录像，还是算了，简直没有价值，从昨晚的兴奋到现在的无语，大学最简单松弛的一次答辩，， 以下是答辩回忆录  老师：“机械设计的创新性？” 我：（我毕设核心乃机器视觉，机器人仅做测试平台用，我通信工程的学生你让我机械创新？） 我：“没有。。”  老师：laptop的opencv如何和机器人通信部署？  我：（这个问题还行，我讲了1分钟，，你没听吗，都">
   
     <link rel="alternate" href="/atom.xml" title="weijiangaaa" type="application/atom+xml">
   
@@ -94,9 +94,30 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>毕设答辩完了，索然无味，emmm。。。<br>本来打算的全程录像，还是算了，简直没有价值，从昨晚的兴奋到现在的无语，大学最简单松弛的一次答辩，，</p>
-<p><em>以下是答辩回忆录</em><br>老师：“机械设计的创新性？”<br>我想：我毕设核心乃机器视觉，机器人仅做测试平台用，我通信工程的学生你让我机械创新？<br>我答：“没有。。”</p>
-<p>老师：laptop的opencv如何和机器人通信部署？<br>我：（这个问题还行，我讲了1分钟，，你没听吗，都如此通俗易懂了。。）<br>我：通过vs的串口通信控件，库<br>老师：好，知道是库就行了（反正不是你学生写的，你就是一个只会用别人函数的笨比）</p>
-<p>老师：实际道路避障应用如何？<br>我：没钱，机械结构存在问题，资金短缺，机械完善足够完成道路基本避障<br>老师：不是机械的问题。<br>我:(我再有5k改个机械做出来你信不信)<br>我：我确定就是机械（开怼）<br>老师：那我把我汽车给你，你给我弄试试<br>我：好，没问题（你给我我就弄，我根本不怕）<br>老师：你智商很高，情商很低。<br>我：（抱歉，你太庸俗也太无趣，我就是来怼你的）<br>我：嗯。</p>
+<p><em>以下是答辩回忆录</em></p>
+<ul>
+<li>老师：“机械设计的创新性？”</li>
+<li>我：（我毕设核心乃机器视觉，机器人仅做测试平台用，我通信工程的学生你让我机械创新？）</li>
+<li><p>我：“没有。。”</p>
+</li>
+<li><p>老师：laptop的opencv如何和机器人通信部署？</p>
+</li>
+<li>我：（这个问题还行，我讲了1分钟，，你没听吗，都如此通俗易懂了。。）</li>
+<li>我：通过vs的串口通信控件，库</li>
+<li><p>老师：好，知道是库就行了（反正不是你学生写的，你就是一个只会用别人函数的笨比）</p>
+</li>
+<li><p>老师：实际道路避障应用如何？</p>
+</li>
+<li>我：没钱，机械结构存在问题，资金短缺，机械完善足够完成道路基本避障</li>
+<li>老师：不是机械的问题。</li>
+<li>我:(我再有5k改个机械做出来你信不信)</li>
+<li>我：我确定就是机械（开怼）</li>
+<li>老师：那我把我汽车给你，你给我弄试试</li>
+<li>我：好，没问题（你给我我就弄，我根本不怕）</li>
+<li>老师：你智商很高，情商很低。</li>
+<li>我：（抱歉，你太无趣，我被迫听了你一天不痛不痒的答辩提问，我，就是来怼你的）</li>
+<li>我：嗯。</li>
+</ul>
 <h2 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h2><p>框架：darknet<br>底层语言：c<br>算法：yolov3-tiny<br>设备：webcam</p>
 <h2 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h2><p>1、先修改makefile里的编译文件，opencv=1，cuda=1<br>2、make clean-&gt;make<br>3、确保darknet-master目录下有.weights文件<br>4、直接运行<code>./darknet detector demo cfg/coco.data cfg/yolov3-tiny.cfg yolov3-tiny.weights -c 1</code></p>
 <h3 id="注："><a href="#注：" class="headerlink" title="注："></a>注：</h3><p>1、csi摄像头无法使用<br>2、一定要加<code>-c 1</code>选项，否则无论csi摄像头是否连接都无法启用webcam<br>3、fps10左右，</p>
