@@ -7,16 +7,13 @@
   
   <title>weijiangaaa</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="rua rua rua !!!">
-<meta property="og:type" content="website">
+  <meta property="og:type" content="website">
 <meta property="og:title" content="weijiangaaa">
 <meta property="og:url" content="http://yoursite.com/index.html">
 <meta property="og:site_name" content="weijiangaaa">
-<meta property="og:description" content="rua rua rua !!!">
 <meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="weijiangaaa">
-<meta name="twitter:description" content="rua rua rua !!!">
   
     <link rel="alternate" href="/atom.xml" title="weijiangaaa" type="application/atom+xml">
   
@@ -329,243 +326,11 @@
 
 
   
-    <article id="post-tensorrt-introduction" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/06/01/tensorrt-introduction/" class="article-date">
-  <time datetime="2019-05-31T16:31:35.000Z" itemprop="datePublished">2019-06-01</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/01/tensorrt-introduction/">TensorRT引入</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><em>目前在做一个<code>校内无人自主配送平台</code>项目，类似JD的无人物流车，毕竟是自己的团队，预算只能卡在了5k；</em><br><em>国家级大创、毕业设计、互联网+题目，三线并行；</em></p>
-<h2 id="目的：通过CSI摄像头实时识别目标（约30fps），读取相关信息"><a href="#目的：通过CSI摄像头实时识别目标（约30fps），读取相关信息" class="headerlink" title="目的：通过CSI摄像头实时识别目标（约30fps），读取相关信息"></a>目的：通过CSI摄像头实时识别目标（约30fps），读取相关信息</h2><h2 id="已知解决方案：通过TensorRT进行推理的加速"><a href="#已知解决方案：通过TensorRT进行推理的加速" class="headerlink" title="已知解决方案：通过TensorRT进行推理的加速"></a>已知解决方案：通过TensorRT进行推理的加速</h2><p>注：</p>
-<ul>
-<li>目前是单目的方案，在Nano的性能之下，30fps很难</li>
-</ul>
-<p><img src="http://s3.sinaimg.cn/mw690/002c2mEVzy7nKnBsVCqc2&amp;690" alt="rua rua rua！！！"></p>
-<p>以下是基础方案：</p>
-<ul>
-<li>AI平台：Jetson Nano</li>
-<li>嵌入式平台：STM32F1，STM32F4，PyBoard，Arduino</li>
-<li>硬件设计：双层PCB，主要集成所有的最小系统和模组</li>
-<li>软件设计：Android</li>
-<li>机械设计：好看到不舍得告诉你们（不学机械设计真是委屈我了）</li>
-</ul>
-<p>嵌入式开发，以及传感器系统设计，APP开发等等都没什么价值，这里的目的是说明AI开发的思路：<br>1、在校园道路行驶，躲避的目标：汽车、行人、自行车（主要是这三样东西）<br>2、要识别出以上目标，涉及的技术是目标检测、目标定位等；<br>3、我的思路是，使用目标检测，目标检测在我认知范围内最优的算法是YOLOv3；<br>4、我手里目前有的平台是Jetson Nano，算力在1k以及体积功耗如此小的范围内，决定是第一的位置，毋庸置疑（刚上市就卖断货了，足足等了1个月才发货）；<br>5、确定了，使用Nano跑YOLOv3，因为精度可能不需要那么高（我又不是去做AutoMobile），所以使用yolov3-tiny；<br>6、在上个月NVIDIA的公开课中，提到“Nano使用darknet框架处理yolov3-tiny的fps可以到达26”，但是前提是使用TensorRT进行预测加速；</p>
-<h1 id="TensorRT：GPU-Inference-Engine"><a href="#TensorRT：GPU-Inference-Engine" class="headerlink" title="TensorRT：GPU Inference Engine"></a>TensorRT：GPU Inference Engine</h1><p>深度学习的过程主要分为以下2步：</p>
-<ul>
-<li>训练</li>
-<li>部署</li>
-</ul>
-<p>输入图片数据后,进行一大堆的矩阵运算,得到最终图片的分类.推理引擎干的事情就是优化矩阵运算,缩短运算时间。</p>
-<h3 id="训练。"><a href="#训练。" class="headerlink" title="训练。"></a>训练。</h3><p>堆砌GPU，完成即可；<br>模型的训练必须精确，所以一般来说需要float型，如FP32，32位的浮点型来处理数据；</p>
-<h3 id="部署。"><a href="#部署。" class="headerlink" title="部署。"></a>部署。</h3><p>在推理过程中，不考虑成本，使用最牛逼的GPU，如果方法不得当，都无法做到实时的要求；<br>对精度的要求没有那么高，很多研究表明可以用低精度，如半长（16）的float型，即FP16，也可以用8位的整型（INT8）来做推断（Inference），研究结果表明没有特别大的精度损失，尤其对CNN（减少计算量）；<br>TensorRT是专门针对部署端进行优化的，最擅长的是CNN；</p>
-<p><img src="https://docs.nvidia.com/deeplearning/sdk/tensorrt-developer-guide/graphics/overview.png" alt="Figure 1. TensorRT is a high performance neural network inference optimizer and runtime engine for production deployment."><br>TensorRT optimizes the network by combining layers and optimizing kernel selection for improved latency, throughput, power efficiency and memory consumption. If the application specifies, it will additionally optimize the network to run in lower precision, further increasing performance and reducing memory requirements.</p>
-<p>The following figure shows TensorRT defined as part high-performance inference optimizer and part runtime engine. It can take in neural networks trained on these popular frameworks, optimize the neural network computation, generate a light-weight runtime engine (which is the only thing you need to deploy to your production environment), and it will then maximize the throughput, latency, and performance on these GPU platforms.<br><img src="https://docs.nvidia.com/deeplearning/sdk/tensorrt-developer-guide/graphics/whatistrt2.png" alt="Figure 2. TensorRT is a programmable inference accelerator."></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/01/tensorrt-introduction/" data-id="cjws2rtnc00104gu60j6m8twy" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-keyboard" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/05/31/keyboard/" class="article-date">
-  <time datetime="2019-05-31T07:44:47.000Z" itemprop="datePublished">2019-05-31</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/31/keyboard/">形形色色的键盘们</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="首推，PLUM-NIZ-静电容键盘35g，66键有线"><a href="#首推，PLUM-NIZ-静电容键盘35g，66键有线" class="headerlink" title="首推，PLUM NIZ 静电容键盘35g，66键有线"></a>首推，<code>PLUM NIZ 静电容键盘35g，66键有线</code></h2><p><img src="https://i.redd.it/oumw9t4kgwe11.jpg" alt></p>
-<p>（PUBG的通行证“百搭牌”还有不到一周就结束了，而我才50多级；</p>
-<p>艾达王的红裙没拿到、碎花抹胸、明星墨镜等，都还没拿到，更不说麻烦的高级挑战任务，枪械皮肤，M762的毒性，M16A4的红线等等；</p>
-<p>实在肝不动了；</p>
-<p>每把成盒之后开始写东西，早睡是不可能早睡的，毕竟今天论文刚审核通过，先浪一个通宵再说；）</p>
-<p>之前的说的实用好货的经验分享，先从最近每天陪伴我的键盘开始吧，<br>
-        
-          </p><p class="article-more-link">
-            <a href="/2019/05/31/keyboard/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/31/keyboard/" data-id="cjws2rtna000x4gu6mbuquh16" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Buy/">Buy</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-emoji-test" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/05/31/emoji-test/" class="article-date">
-  <time datetime="2019-05-31T06:42:53.000Z" itemprop="datePublished">2019-05-31</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/31/emoji-test/">emoji test</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>❤️️️️️<br>💕<br>🤣</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/31/emoji-test/" data-id="cjws2rtmz000h4gu6j9504jz6" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/">Blog</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-daily-photo-1" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/05/28/daily-photo-1/" class="article-date">
-  <time datetime="2019-05-28T10:18:07.000Z" itemprop="datePublished">2019-05-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/28/daily-photo-1/">中北大学 图书馆</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="拍摄于-中北大学-图书馆"><a href="#拍摄于-中北大学-图书馆" class="headerlink" title="拍摄于 中北大学 图书馆"></a>拍摄于 中北大学 图书馆</h3><h3 id="时间：2019-05-23-周四-9：23"><a href="#时间：2019-05-23-周四-9：23" class="headerlink" title="时间：2019-05-23 周四 9：23"></a>时间：2019-05-23 周四 9：23</h3>
-        
-          <p class="article-more-link">
-            <a href="/2019/05/28/daily-photo-1/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/28/daily-photo-1/" data-id="cjws2rtmp00064gu6n75clxhf" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/photo/">photo</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-OpenCV-Gaussian-Blur" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/05/23/OpenCV-Gaussian-Blur/" class="article-date">
-  <time datetime="2019-05-23T10:09:02.000Z" itemprop="datePublished">2019-05-23</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/23/OpenCV-Gaussian-Blur/">OpenCV-Gaussian Blur</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>转载：<a href="https://www.cnblogs.com/invisible2/p/9177018.html" target="_blank" rel="noopener">Gaussian Blur</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/23/OpenCV-Gaussian-Blur/" data-id="cjws2rtmm00044gu6m1xgo045" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OpenCV/">OpenCV</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -679,5 +444,5 @@
 
 <script type="text/javascript" src="/js/Click-Love.js"></script>
   </div>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
 </html>

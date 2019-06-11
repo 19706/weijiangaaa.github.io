@@ -7,16 +7,13 @@
   
   <title>weijiangaaa</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="rua rua rua !!!">
-<meta property="og:type" content="website">
+  <meta property="og:type" content="website">
 <meta property="og:title" content="weijiangaaa">
 <meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content="weijiangaaa">
-<meta property="og:description" content="rua rua rua !!!">
 <meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="weijiangaaa">
-<meta name="twitter:description" content="rua rua rua !!!">
   
     <link rel="alternate" href="/atom.xml" title="weijiangaaa" type="application/atom+xml">
   
@@ -71,10 +68,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Jetson-nano-power-supply" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-tensorrt-introduction" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/05/22/Jetson-nano-power-supply/" class="article-date">
-  <time datetime="2019-05-22T14:56:34.000Z" itemprop="datePublished">2019-05-22</time>
+    <a href="/2019/06/01/tensorrt-introduction/" class="article-date">
+  <time datetime="2019-05-31T16:31:35.000Z" itemprop="datePublished">2019-06-01</time>
 </a>
     
   </div>
@@ -85,7 +82,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/22/Jetson-nano-power-supply/">Jetson nano_power supply</a>
+      <a class="article-title" href="/2019/06/01/tensorrt-introduction/">TensorRT引入</a>
     </h1>
   
 
@@ -93,24 +90,39 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Jetson nano的供电方式一般有2种：</p>
+        <p><em>目前在做一个<code>校内无人自主配送平台</code>项目，类似JD的无人物流车，毕竟是自己的团队，预算只能卡在了5k；</em><br><em>国家级大创、毕业设计、互联网+题目，三线并行；</em></p>
+<h2 id="目的：通过CSI摄像头实时识别目标（约30fps），读取相关信息"><a href="#目的：通过CSI摄像头实时识别目标（约30fps），读取相关信息" class="headerlink" title="目的：通过CSI摄像头实时识别目标（约30fps），读取相关信息"></a>目的：通过CSI摄像头实时识别目标（约30fps），读取相关信息</h2><h2 id="已知解决方案：通过TensorRT进行推理的加速"><a href="#已知解决方案：通过TensorRT进行推理的加速" class="headerlink" title="已知解决方案：通过TensorRT进行推理的加速"></a>已知解决方案：通过TensorRT进行推理的加速</h2><p>注：</p>
 <ul>
-<li>1、USB供电</li>
-<li><p>2、DC供电</p>
-</li>
-<li><p>其中第一种供电方式，<code>J48</code>断开，第二种使用DC的方式要使用跳线帽将<code>J48</code>短接；</p>
-</li>
-<li>Jetson nano默认的供电功率是5W，而一般情况下跑一些最基础的模型推理就可能歇菜，所以出现自动关机等问题的时候，使用DC供电一般都可以解决问题；</li>
-<li>使用DC供电时候，在<code>shut down</code>之后，nano关机，此时要注意220V-5V的适配器由于电容效应还存在残余电压，使得nano处于一种奇怪的状态，此时便有2中方法断电：<br>1、拔掉DC口，不过这种方法对nano不好，插拔太多会松，并不建议；<br>2、拔掉插座的供电，这种方法由于残余电压，在拔掉后无法立刻开机，要等待5s左右，使得残余电压褪去，再进行供电，开机成功！</li>
+<li>目前是单目的方案，在Nano的性能之下，30fps很难</li>
 </ul>
+<p><img src="http://s3.sinaimg.cn/mw690/002c2mEVzy7nKnBsVCqc2&amp;690" alt="rua rua rua！！！"></p>
+<p>以下是基础方案：</p>
+<ul>
+<li>AI平台：Jetson Nano</li>
+<li>嵌入式平台：STM32F1，STM32F4，PyBoard，Arduino</li>
+<li>硬件设计：双层PCB，主要集成所有的最小系统和模组</li>
+<li>软件设计：Android</li>
+<li>机械设计：好看到不舍得告诉你们（不学机械设计真是委屈我了）</li>
+</ul>
+<p>嵌入式开发，以及传感器系统设计，APP开发等等都没什么价值，这里的目的是说明AI开发的思路：<br>1、在校园道路行驶，躲避的目标：汽车、行人、自行车（主要是这三样东西）<br>2、要识别出以上目标，涉及的技术是目标检测、目标定位等；<br>3、我的思路是，使用目标检测，目标检测在我认知范围内最优的算法是YOLOv3；<br>4、我手里目前有的平台是Jetson Nano，算力在1k以及体积功耗如此小的范围内，决定是第一的位置，毋庸置疑（刚上市就卖断货了，足足等了1个月才发货）；<br>5、确定了，使用Nano跑YOLOv3，因为精度可能不需要那么高（我又不是去做AutoMobile），所以使用yolov3-tiny；<br>6、在上个月NVIDIA的公开课中，提到“Nano使用darknet框架处理yolov3-tiny的fps可以到达26”，但是前提是使用TensorRT进行预测加速；</p>
+<h1 id="TensorRT：GPU-Inference-Engine"><a href="#TensorRT：GPU-Inference-Engine" class="headerlink" title="TensorRT：GPU Inference Engine"></a>TensorRT：GPU Inference Engine</h1><p>深度学习的过程主要分为以下2步：</p>
+<ul>
+<li>训练</li>
+<li>部署</li>
+</ul>
+<p>输入图片数据后,进行一大堆的矩阵运算,得到最终图片的分类.推理引擎干的事情就是优化矩阵运算,缩短运算时间。</p>
+<h3 id="训练。"><a href="#训练。" class="headerlink" title="训练。"></a>训练。</h3><p>堆砌GPU，完成即可；<br>模型的训练必须精确，所以一般来说需要float型，如FP32，32位的浮点型来处理数据；</p>
+<h3 id="部署。"><a href="#部署。" class="headerlink" title="部署。"></a>部署。</h3><p>在推理过程中，不考虑成本，使用最牛逼的GPU，如果方法不得当，都无法做到实时的要求；<br>对精度的要求没有那么高，很多研究表明可以用低精度，如半长（16）的float型，即FP16，也可以用8位的整型（INT8）来做推断（Inference），研究结果表明没有特别大的精度损失，尤其对CNN（减少计算量）；<br>TensorRT是专门针对部署端进行优化的，最擅长的是CNN；</p>
+<p><img src="https://docs.nvidia.com/deeplearning/sdk/tensorrt-developer-guide/graphics/overview.png" alt="Figure 1. TensorRT is a high performance neural network inference optimizer and runtime engine for production deployment."><br>TensorRT optimizes the network by combining layers and optimizing kernel selection for improved latency, throughput, power efficiency and memory consumption. If the application specifies, it will additionally optimize the network to run in lower precision, further increasing performance and reducing memory requirements.</p>
+<p>The following figure shows TensorRT defined as part high-performance inference optimizer and part runtime engine. It can take in neural networks trained on these popular frameworks, optimize the neural network computation, generate a light-weight runtime engine (which is the only thing you need to deploy to your production environment), and it will then maximize the throughput, latency, and performance on these GPU platforms.<br><img src="https://docs.nvidia.com/deeplearning/sdk/tensorrt-developer-guide/graphics/whatistrt2.png" alt="Figure 2. TensorRT is a programmable inference accelerator."></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/22/Jetson-nano-power-supply/" data-id="cjws2rtmy000f4gu6g5r899jr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/01/tensorrt-introduction/" data-id="cjws2rtnc00104gu60j6m8twy" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jetson-Nano/">Jetson Nano</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li></ul>
 
     </footer>
   </div>
@@ -119,10 +131,10 @@
 
 
   
-    <article id="post-daily-photo" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-keyboard" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/05/22/daily-photo/" class="article-date">
-  <time datetime="2019-05-22T09:19:56.000Z" itemprop="datePublished">2019-05-22</time>
+    <a href="/2019/05/31/keyboard/" class="article-date">
+  <time datetime="2019-05-31T07:44:47.000Z" itemprop="datePublished">2019-05-31</time>
 </a>
     
   </div>
@@ -133,7 +145,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/22/daily-photo/">中北大学 龙山餐厅</a>
+      <a class="article-title" href="/2019/05/31/keyboard/">形形色色的键盘们</a>
     </h1>
   
 
@@ -141,16 +153,103 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="拍摄于-中北大学-龙山餐厅"><a href="#拍摄于-中北大学-龙山餐厅" class="headerlink" title="拍摄于 中北大学 龙山餐厅"></a>拍摄于 中北大学 龙山餐厅</h3><h3 id="时间：2019-05-21-19：00"><a href="#时间：2019-05-21-19：00" class="headerlink" title="时间：2019-05-21 19：00"></a>时间：2019-05-21 19：00</h3>
+        <h2 id="首推，PLUM-NIZ-静电容键盘35g，66键有线"><a href="#首推，PLUM-NIZ-静电容键盘35g，66键有线" class="headerlink" title="首推，PLUM NIZ 静电容键盘35g，66键有线"></a>首推，<code>PLUM NIZ 静电容键盘35g，66键有线</code></h2><p><img src="https://i.redd.it/oumw9t4kgwe11.jpg" alt></p>
+<p>（PUBG的通行证“百搭牌”还有不到一周就结束了，而我才50多级；</p>
+<p>艾达王的红裙没拿到、碎花抹胸、明星墨镜等，都还没拿到，更不说麻烦的高级挑战任务，枪械皮肤，M762的毒性，M16A4的红线等等；</p>
+<p>实在肝不动了；</p>
+<p>每把成盒之后开始写东西，早睡是不可能早睡的，毕竟今天论文刚审核通过，先浪一个通宵再说；）</p>
+<p>之前的说的实用好货的经验分享，先从最近每天陪伴我的键盘开始吧，<br>
         
-          <p class="article-more-link">
-            <a href="/2019/05/22/daily-photo/#more">Read More</a>
+          </p><p class="article-more-link">
+            <a href="/2019/05/31/keyboard/#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/22/daily-photo/" data-id="cjws2rtn3000m4gu6d9irzw9h" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/31/keyboard/" data-id="cjws2rtna000x4gu6mbuquh16" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Buy/">Buy</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-emoji-test" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/05/31/emoji-test/" class="article-date">
+  <time datetime="2019-05-31T06:42:53.000Z" itemprop="datePublished">2019-05-31</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/31/emoji-test/">emoji test</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>❤️️️️️<br>💕<br>🤣</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/05/31/emoji-test/" data-id="cjws2rtmz000h4gu6j9504jz6" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/">Blog</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-daily-photo-1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/05/28/daily-photo-1/" class="article-date">
+  <time datetime="2019-05-28T10:18:07.000Z" itemprop="datePublished">2019-05-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/28/daily-photo-1/">中北大学 图书馆</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="拍摄于-中北大学-图书馆"><a href="#拍摄于-中北大学-图书馆" class="headerlink" title="拍摄于 中北大学 图书馆"></a>拍摄于 中北大学 图书馆</h3><h3 id="时间：2019-05-23-周四-9：23"><a href="#时间：2019-05-23-周四-9：23" class="headerlink" title="时间：2019-05-23 周四 9：23"></a>时间：2019-05-23 周四 9：23</h3>
+        
+          <p class="article-more-link">
+            <a href="/2019/05/28/daily-photo-1/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/05/28/daily-photo-1/" data-id="cjws2rtmp00064gu6n75clxhf" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/photo/">photo</a></li></ul>
@@ -162,10 +261,10 @@
 
 
   
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-OpenCV-Gaussian-Blur" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/05/22/hello-world/" class="article-date">
-  <time datetime="2019-05-22T08:50:08.876Z" itemprop="datePublished">2019-05-22</time>
+    <a href="/2019/05/23/OpenCV-Gaussian-Blur/" class="article-date">
+  <time datetime="2019-05-23T10:09:02.000Z" itemprop="datePublished">2019-05-23</time>
 </a>
     
   </div>
@@ -176,7 +275,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/22/hello-world/">Hello World</a>
+      <a class="article-title" href="/2019/05/23/OpenCV-Gaussian-Blur/">OpenCV-Gaussian Blur</a>
     </h1>
   
 
@@ -184,293 +283,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-<p><img src="https://github.com/weijiangaaa/MyPostImag/blob/branch1/magazine1.jpg?raw=true" alt="iamge2"></p>
+        <p>转载：<a href="https://www.cnblogs.com/invisible2/p/9177018.html" target="_blank" rel="noopener">Gaussian Blur</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/22/hello-world/" data-id="cjws2rtn2000k4gu6s5q1tva6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/23/OpenCV-Gaussian-Blur/" data-id="cjws2rtmm00044gu6m1xgo045" class="article-share-link">Share</a>
       
       
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-jetson-inference" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/05/22/jetson-inference/" class="article-date">
-  <time datetime="2019-05-22T06:47:03.000Z" itemprop="datePublished">2019-05-22</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Jetson-Nano/">Jetson Nano</a>►<a class="article-category-link" href="/categories/Jetson-Nano/2、运行jetson-inference/">2、运行jetson-inference</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/22/jetson-inference/">二、Jetson Nano运行jetson-inference</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>测试平台：Jetson Nano</strong><br><img src="https://github.com/weijiangaaa/MyPostImag/blob/master/nvidia-jetson-nano-module-standing-1cc-p@2x.jpg?raw=true" alt></p>
-<p>安装前提：</p>
-<p>git和cake</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install git</span><br><span class="line">$ sudo apt-get install cmake</span><br></pre></td></tr></table></figure>
-        
-          <p class="article-more-link">
-            <a href="/2019/05/22/jetson-inference/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/22/jetson-inference/" data-id="cjws2rtn5000q4gu6x7ygz0vm" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jetson-Nano/">Jetson Nano</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Jetson-Nano安装PyTorch" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/05/22/Jetson-Nano安装PyTorch/" class="article-date">
-  <time datetime="2019-05-22T04:22:24.000Z" itemprop="datePublished">2019-05-22</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Jetson-Nano/">Jetson Nano</a>►<a class="article-category-link" href="/categories/Jetson-Nano/3、安装PyTorch/">3、安装PyTorch</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/22/Jetson-Nano安装PyTorch/">三、Jetson Nano安装PyTorch</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>测试平台：Jetson Nano</strong><br><img src="https://github.com/weijiangaaa/MyPostImag/blob/master/nvidia-jetson-nano-developer-kit-2c50-d.png?raw=true" alt></p>
-<p>建议先进行一下升级：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get upgrade</span><br></pre></td></tr></table></figure>
-<p>安装pip3</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install python3-pip python3-dev</span><br><span class="line">$ pip3 --version</span><br></pre></td></tr></table></figure>
-        
-          <p class="article-more-link">
-            <a href="/2019/05/22/Jetson-Nano安装PyTorch/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/22/Jetson-Nano安装PyTorch/" data-id="cjws2rtmn00054gu6smngszwu" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jetson-Nano/">Jetson Nano</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Convolutional-Neural-Networks" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/05/20/Convolutional-Neural-Networks/" class="article-date">
-  <time datetime="2019-05-20T03:17:23.000Z" itemprop="datePublished">2019-05-20</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Deep-Learning/">Deep Learning</a>►<a class="article-category-link" href="/categories/Deep-Learning/PyTorch/">PyTorch</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/20/Convolutional-Neural-Networks/">九、卷积神经网络</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>（Convolutional Neural Networks, CNN）</p>
-<p><img src="https://github.com/weijiangaaa/MyPostImag/blob/master/0_qd07w4Yevqq2d1vY.png?raw=true" alt></p>
-<p>在图片和语言方面有更优的测试效果</p>
-<p>计算器图像识别、视频分析、NLP、AlphaGo等等</p>
-<p>运作分析：<br>图片分析<br>图片的矩阵<br>优势在于，卷积在于区域处理，增加连续性，增加理解，批量过滤器<br>
-        
-          </p><p class="article-more-link">
-            <a href="/2019/05/20/Convolutional-Neural-Networks/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/20/Convolutional-Neural-Networks/" data-id="cjws2rtnv001t4gu6a2ybbtw4" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PyTorch/">PyTorch</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Blog-GitHub-Page-Hexo-landscape" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/05/20/Blog-GitHub-Page-Hexo-landscape/" class="article-date">
-  <time datetime="2019-05-20T02:27:40.000Z" itemprop="datePublished">2019-05-20</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Blog/">Blog</a>►<a class="article-category-link" href="/categories/Blog/2、Build/">2、Build</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/20/Blog-GitHub-Page-Hexo-landscape/">Blog: GitHub Page + Hexo + landscape</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="博客重新搭建啦！"><a href="#博客重新搭建啦！" class="headerlink" title="博客重新搭建啦！"></a>博客重新搭建啦！</h1><p>（之前使用的是GitHub官方框架，现在更改为Hexo框架，站内功能目前尚未完善）</p>
-<p><img src="https://github.com/weijiangaaa/MyPostImag/blob/master/tim1g.jpg?raw=true" alt></p>
-<p>正如官方所说，“快速、简洁且高效的博客框架”</p>
-<ul>
-<li>Node.js 所带来的超快生成速度，让上百个页面在几秒内瞬间完成渲染。</li>
-<li>只需一条指令即可部署到 GitHub Pages, Heroku 或其他网站。
-        
-          <p class="article-more-link">
-            <a href="/2019/05/20/Blog-GitHub-Page-Hexo-landscape/#more">Read More</a>
-          </p>
-        
-      
-    </li></ul></div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/20/Blog-GitHub-Page-Hexo-landscape/" data-id="cjws2rtmi00014gu6z74etubk" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/">Blog</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Introduction" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/05/20/Introduction/" class="article-date">
-  <time datetime="2019-05-19T16:35:27.000Z" itemprop="datePublished">2019-05-20</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Blog/">Blog</a>►<a class="article-category-link" href="/categories/Blog/1、Introduction/">1、Introduction</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/20/Introduction/">Introduction</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Welcome-to-GitHub-Page"><a href="#Welcome-to-GitHub-Page" class="headerlink" title="Welcome to GitHub Page."></a>Welcome to GitHub Page.</h1><p><img src="https://github.com/weijiangaaa/MyPostImag/blob/master/d009b3de9c82d15885783f7e8c0a19d8bd3e4202.gif?raw=true" alt></p>
-<h2 id="1、前言："><a href="#1、前言：" class="headerlink" title="1、前言："></a>1、前言：</h2><p><strong>写在这里：</strong></p>
-<ul>
-<li>自去年3月以来，只在DJI的RoboMaster公众号推送过一篇文章：<br><a href="https://mp.weixin.qq.com/s/F_rInGqnKW9SM8jaaEcn0A" target="_blank" rel="noopener">RoboMaster赛场上的Wi-Fi通信！</a></li>
-<li>自媒体，搭建个人Blog的Website</li>
-<li>主要的文章推送，暂时打算放在微信公众号或者简书</li>
-<li>大部分的文章Markdown目前都在本地，等排版和技术确认之后会进行上传</li>
-<li>GitHub Page搭建的Blog之后不定期更新，Website页面之后后期也会优化</li>
-</ul>
-<h2 id="2、搭建："><a href="#2、搭建：" class="headerlink" title="2、搭建："></a>2、搭建：</h2><p>如果之后我个人的Blog搭建有成效的话，你可以<code>Clone</code>我的<code>repository</code>，来完成你自己的设计：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">~ $ git clone http://github.com/weijiangaaa/weijiangaaa.github.io</span><br><span class="line">~ $ cd weijiangaaa.github.io</span><br><span class="line">~ $ echo <span class="string">"Hello World"</span> &gt; index.html</span><br><span class="line">~ $ git add --all</span><br><span class="line">~ $ git commit -m <span class="string">"Initial commit"</span></span><br><span class="line">~ $ git push -u origin master</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="3、即将推送的内容："><a href="#3、即将推送的内容：" class="headerlink" title="3、即将推送的内容："></a>3、即将推送的内容：</h2><p>搭建个人网站的主要目的是为了完成技术文章的推送分享，目录总结，之后完成填充（脑子最近不够用，想起来再补充）：</p>
-<h3 id="学习笔记"><a href="#学习笔记" class="headerlink" title="学习笔记"></a><strong>学习笔记</strong></h3><ul>
-<li><strong>1.ARM-&gt;STM32F103</strong></li>
-<li><strong>2.Arduino</strong></li>
-<li><strong>3.硬件设计-&gt;电源设计</strong></li>
-<li><strong>4.机械设计</strong></li>
-<li><strong>5.Git-&gt;GitHub</strong></li>
-<li><strong>6.ROS</strong></li>
-</ul>
-        
-          <p class="article-more-link">
-            <a href="/2019/05/20/Introduction/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/20/Introduction/" data-id="cjws2rtme00004gu60ftuwyld" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/">Blog</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OpenCV/">OpenCV</a></li></ul>
 
     </footer>
   </div>
@@ -483,7 +304,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -597,5 +418,5 @@
 
 <script type="text/javascript" src="/js/Click-Love.js"></script>
   </div>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
 </html>
