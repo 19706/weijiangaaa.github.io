@@ -7,19 +7,19 @@
   
   <title>一、yolov3-darknet-image | weijiangaaa</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言：Jetson Nano使用cam运行实时目标检测，读出预测框的坐标 1、开发框架的选择pytorch（训练模型灵活好用）；tensorflow（资源丰富、支持较多）；caffee（使用c++开发，速度快）；darknet（yolo专用的小型框架）；detectnet（NVIDIA使用DIGIST训练的框架）  FINALLY，本文选择darknet（因为其他暂时没找到教程）  2、摄像头的">
+  <meta name="description" content="前言：Jetson Nano使用cam运行实时目标检测，读出预测框的坐标 1、开发框架的选择pytorch（训练模型灵活好用）；tensorflow（资源丰富、支持较多）；caffee（使用c++开发，速度快）；darknet（yolo专用的小型框架）；detectnet（NVIDIA使用DIGIST训练的框架）  FINALLY，本文选择darknet（因为其他暂时没找到教程）  2、摄像头的选">
 <meta name="keywords" content="Deep Learning,Darknet">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一、yolov3-darknet-image">
 <meta property="og:url" content="http://yoursite.com/2019/06/10/yolo-darknet/index.html">
 <meta property="og:site_name" content="weijiangaaa">
-<meta property="og:description" content="前言：Jetson Nano使用cam运行实时目标检测，读出预测框的坐标 1、开发框架的选择pytorch（训练模型灵活好用）；tensorflow（资源丰富、支持较多）；caffee（使用c++开发，速度快）；darknet（yolo专用的小型框架）；detectnet（NVIDIA使用DIGIST训练的框架）  FINALLY，本文选择darknet（因为其他暂时没找到教程）  2、摄像头的">
+<meta property="og:description" content="前言：Jetson Nano使用cam运行实时目标检测，读出预测框的坐标 1、开发框架的选择pytorch（训练模型灵活好用）；tensorflow（资源丰富、支持较多）；caffee（使用c++开发，速度快）；darknet（yolo专用的小型框架）；detectnet（NVIDIA使用DIGIST训练的框架）  FINALLY，本文选择darknet（因为其他暂时没找到教程）  2、摄像头的选">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://pjreddie.com/media/image/Screen_Shot_2018-03-24_at_10.48.42_PM.png">
-<meta property="og:updated_time" content="2019-06-11T18:14:37.521Z">
+<meta property="og:updated_time" content="2019-06-11T18:50:41.671Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一、yolov3-darknet-image">
-<meta name="twitter:description" content="前言：Jetson Nano使用cam运行实时目标检测，读出预测框的坐标 1、开发框架的选择pytorch（训练模型灵活好用）；tensorflow（资源丰富、支持较多）；caffee（使用c++开发，速度快）；darknet（yolo专用的小型框架）；detectnet（NVIDIA使用DIGIST训练的框架）  FINALLY，本文选择darknet（因为其他暂时没找到教程）  2、摄像头的">
+<meta name="twitter:description" content="前言：Jetson Nano使用cam运行实时目标检测，读出预测框的坐标 1、开发框架的选择pytorch（训练模型灵活好用）；tensorflow（资源丰富、支持较多）；caffee（使用c++开发，速度快）；darknet（yolo专用的小型框架）；detectnet（NVIDIA使用DIGIST训练的框架）  FINALLY，本文选择darknet（因为其他暂时没找到教程）  2、摄像头的选">
 <meta name="twitter:image" content="https://pjreddie.com/media/image/Screen_Shot_2018-03-24_at_10.48.42_PM.png">
   
     <link rel="alternate" href="/atom.xml" title="weijiangaaa" type="application/atom+xml">
@@ -95,8 +95,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<p>前言：Jetson Nano使用cam运行实时目标检测，读出预测框的坐标</p>
+        <p>前言：Jetson Nano使用cam运行实时目标检测，读出预测框的坐标</p>
 <h3 id="1、开发框架的选择"><a href="#1、开发框架的选择" class="headerlink" title="1、开发框架的选择"></a>1、开发框架的选择</h3><p><code>pytorch</code>（训练模型灵活好用）；<br><code>tensorflow</code>（资源丰富、支持较多）；<br><code>caffee</code>（使用c++开发，速度快）；<br><code>darknet</code>（yolo专用的小型框架）；<br><code>detectnet</code>（NVIDIA使用DIGIST训练的框架）</p>
 <ul>
 <li>FINALLY，本文选择darknet（因为其他暂时没找到教程）</li>
