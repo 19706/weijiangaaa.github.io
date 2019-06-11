@@ -71,6 +71,51 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-yolo-darknet-webcam" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/11/yolo-darknet-webcam/" class="article-date">
+  <time datetime="2019-06-11T14:40:39.000Z" itemprop="datePublished">2019-06-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/11/yolo-darknet-webcam/">使用yolov3-tiny实时进行图像的采集，完成目标检测</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>毕设答辩完了，索然无味，emmm。。。<br>本来打算的全程录像，还是算了，简直没有价值，从昨晚的兴奋到现在的无语，大学最简单松弛的一次答辩，，</p>
+<p><em>以下是答辩回忆录</em><br>老师：“机械设计的创新性？”<br>我想：我毕设核心乃机器视觉，机器人仅做测试平台用，我通信工程的学生你让我机械创新？<br>我答：“没有。。”</p>
+<p>老师：laptop的opencv如何和机器人通信部署？<br>我：（这个问题还行，我讲了1分钟，，你没听吗，都如此通俗易懂了。。）<br>我：通过vs的串口通信控件，库<br>老师：好，知道是库就行了（反正不是你学生写的，你就是一个只会用别人函数的笨比）</p>
+<p>老师：实际道路避障应用如何？<br>我：没钱，机械结构存在问题，资金短缺，机械完善足够完成道路基本避障<br>老师：不是机械的问题。<br>我:(我再有5k改个机械做出来你信不信)<br>我：我确定就是机械（开怼）<br>老师：那我把我汽车给你，你给我弄试试<br>我：好，没问题（你给我我就弄，我根本不怕）<br>老师：你智商很高，情商很低。<br>我：（抱歉，你太庸俗也太无趣，我就是来怼你的）<br>我：嗯。</p>
+<h2 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h2><p>框架：darknet<br>底层语言：c<br>算法：yolov3-tiny<br>设备：webcam</p>
+<h2 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h2><p>1、先修改makefile里的编译文件，opencv=1，cuda=1<br>2、make clean-&gt;make<br>3、确保darknet-master目录下有.weights文件<br>4、直接运行<code>./darknet detector demo cfg/coco.data cfg/yolov3-tiny.cfg yolov3-tiny.weights -c 1</code></p>
+<h3 id="注："><a href="#注：" class="headerlink" title="注："></a>注：</h3><p>1、csi摄像头无法使用<br>2、一定要加<code>-c 1</code>选项，否则无论csi摄像头是否连接都无法启用webcam<br>3、fps10左右，</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/11/yolo-darknet-webcam/" data-id="cjwrxzaud000qb4u60cjhv4hg" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-yolo-darknet" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/06/10/yolo-darknet/" class="article-date">
@@ -108,7 +153,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/10/yolo-darknet/" data-id="cjwp6rjm200164ou6l08kas1u" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/10/yolo-darknet/" data-id="cjwrxzauh000wb4u6qq1frahy" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learing/">Deep Learing</a></li></ul>
@@ -148,7 +193,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/09/Opencv-serial-vs2017/" data-id="cjwp6rjls000s4ou6ocz1q6e1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/09/Opencv-serial-vs2017/" data-id="cjwrxzau6000gb4u648ar0ait" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OpenCV/">OpenCV</a></li></ul>
@@ -211,7 +256,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/01/tensorrt-introduction/" data-id="cjwp6rjm100144ou69x46aays" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/01/tensorrt-introduction/" data-id="cjwrxzaui000yb4u65dzx2hnw" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li></ul>
@@ -259,7 +304,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/31/keyboard/" data-id="cjwp6rjlz00114ou60xem2eum" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/31/keyboard/" data-id="cjwrxzauf000tb4u6vgid4krd" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Buy/">Buy</a></li></ul>
@@ -298,7 +343,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/31/emoji-test/" data-id="cjwp6rjlq000r4ou6h4bq2r0x" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/31/emoji-test/" data-id="cjwrxzau3000bb4u6ctqp6brz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -339,7 +384,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/28/daily-photo-1/" data-id="cjwp6rjlp000p4ou6bc1xiy9o" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/28/daily-photo-1/" data-id="cjwrxzaty0005b4u62yt49qq5" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/photo/">photo</a></li></ul>
@@ -378,7 +423,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/23/OpenCV-Gaussian-Blur/" data-id="cjwp6rjln000o4ou6sb1mrr5e" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/23/OpenCV-Gaussian-Blur/" data-id="cjwrxzatx0004b4u6ossa8i5q" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OpenCV/">OpenCV</a></li></ul>
@@ -426,7 +471,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/22/Jetson-nano-power-supply/" data-id="cjwp6rjl200054ou61le8nd7c" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/22/Jetson-nano-power-supply/" data-id="cjwrxzau5000fb4u6zsixgn8n" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jetson-Nano/">Jetson Nano</a></li></ul>
@@ -469,57 +514,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/22/daily-photo/" data-id="cjwp6rjlt000t4ou65oeeqca3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/22/daily-photo/" data-id="cjwrxzau2000ab4u6yw3c0dam" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/photo/">photo</a></li></ul>
 
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/05/22/hello-world/" class="article-date">
-  <time datetime="2019-05-22T08:50:08.876Z" itemprop="datePublished">2019-05-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/22/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-<p><img src="https://github.com/weijiangaaa/MyPostImag/blob/branch1/magazine1.jpg?raw=true" alt="iamge2"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/22/hello-world/" data-id="cjwp6rjly000y4ou66q7p8epu" class="article-share-link">Share</a>
-      
-      
     </footer>
   </div>
   
@@ -562,7 +561,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Blog/" style="font-size: 15px;">Blog</a> <a href="/tags/Buy/" style="font-size: 10px;">Buy</a> <a href="/tags/Deep-Learing/" style="font-size: 10px;">Deep Learing</a> <a href="/tags/Deep-Learning/" style="font-size: 15px;">Deep Learning</a> <a href="/tags/Jetson-Nano/" style="font-size: 20px;">Jetson Nano</a> <a href="/tags/OpenCV/" style="font-size: 15px;">OpenCV</a> <a href="/tags/PyTorch/" style="font-size: 10px;">PyTorch</a> <a href="/tags/photo/" style="font-size: 15px;">photo</a>
+      <a href="/tags/Blog/" style="font-size: 15px;">Blog</a> <a href="/tags/Buy/" style="font-size: 10px;">Buy</a> <a href="/tags/Deep-Learing/" style="font-size: 10px;">Deep Learing</a> <a href="/tags/Deep-Learning/" style="font-size: 20px;">Deep Learning</a> <a href="/tags/Jetson-Nano/" style="font-size: 20px;">Jetson Nano</a> <a href="/tags/OpenCV/" style="font-size: 15px;">OpenCV</a> <a href="/tags/PyTorch/" style="font-size: 10px;">PyTorch</a> <a href="/tags/photo/" style="font-size: 15px;">photo</a>
     </div>
   </div>
 
@@ -584,6 +583,10 @@
       <ul>
         
           <li>
+            <a href="/2019/06/11/yolo-darknet-webcam/">使用yolov3-tiny实时进行图像的采集，完成目标检测</a>
+          </li>
+        
+          <li>
             <a href="/2019/06/10/yolo-darknet/">yolo-darknet</a>
           </li>
         
@@ -597,10 +600,6 @@
         
           <li>
             <a href="/2019/05/31/keyboard/">形形色色的键盘们</a>
-          </li>
-        
-          <li>
-            <a href="/2019/05/31/emoji-test/">emoji test</a>
           </li>
         
       </ul>
