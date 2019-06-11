@@ -7,18 +7,18 @@
   
   <title>二、yolov3_tiny-darknet-webcam | weijiangaaa</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="承接上文 前言：上文使用的是单张图片的目标检测，本文完成的是通过webcam完成实时的目标检测； 1、说明： 框架：darknet 底层语言：c 权重参数：yolov3-tiny 设备：webcam  2、步骤：1、先修改makefile里的编译文件，opencv=1，cuda=12、make clean-&amp;gt;make3、确保darknet-master目录下有.weights文件4、直接运行">
+  <meta name="description" content="承接上文 前言：上文使用的是单张图片的目标检测，本文完成的是通过webcam完成实时的目标检测； 1、说明： 框架：darknet 底层语言：c 权重参数：yolov3-tiny 设备：webcam  2、步骤：1、先修改makefile里的编译文件，opencv=1，cuda=12、make clean-&amp;gt;make3、确保darknet-master目录下有.weights文件4、直接运">
 <meta name="keywords" content="Deep Learning,Darknet">
 <meta property="og:type" content="article">
 <meta property="og:title" content="二、yolov3_tiny-darknet-webcam">
 <meta property="og:url" content="http://yoursite.com/2019/06/11/yolo-darknet-webcam/index.html">
 <meta property="og:site_name" content="weijiangaaa">
-<meta property="og:description" content="承接上文 前言：上文使用的是单张图片的目标检测，本文完成的是通过webcam完成实时的目标检测； 1、说明： 框架：darknet 底层语言：c 权重参数：yolov3-tiny 设备：webcam  2、步骤：1、先修改makefile里的编译文件，opencv=1，cuda=12、make clean-&amp;gt;make3、确保darknet-master目录下有.weights文件4、直接运行">
+<meta property="og:description" content="承接上文 前言：上文使用的是单张图片的目标检测，本文完成的是通过webcam完成实时的目标检测； 1、说明： 框架：darknet 底层语言：c 权重参数：yolov3-tiny 设备：webcam  2、步骤：1、先修改makefile里的编译文件，opencv=1，cuda=12、make clean-&amp;gt;make3、确保darknet-master目录下有.weights文件4、直接运">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-11T17:55:58.140Z">
+<meta property="og:updated_time" content="2019-06-11T18:14:34.479Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="二、yolov3_tiny-darknet-webcam">
-<meta name="twitter:description" content="承接上文 前言：上文使用的是单张图片的目标检测，本文完成的是通过webcam完成实时的目标检测； 1、说明： 框架：darknet 底层语言：c 权重参数：yolov3-tiny 设备：webcam  2、步骤：1、先修改makefile里的编译文件，opencv=1，cuda=12、make clean-&amp;gt;make3、确保darknet-master目录下有.weights文件4、直接运行">
+<meta name="twitter:description" content="承接上文 前言：上文使用的是单张图片的目标检测，本文完成的是通过webcam完成实时的目标检测； 1、说明： 框架：darknet 底层语言：c 权重参数：yolov3-tiny 设备：webcam  2、步骤：1、先修改makefile里的编译文件，opencv=1，cuda=12、make clean-&amp;gt;make3、确保darknet-master目录下有.weights文件4、直接运">
   
     <link rel="alternate" href="/atom.xml" title="weijiangaaa" type="application/atom+xml">
   
@@ -93,7 +93,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><em>承接上文</em></p>
+        <hr>
+<p><em>承接上文</em></p>
 <p>前言：上文使用的是单张图片的目标检测，本文完成的是通过<code>webcam</code>完成实时的目标检测；</p>
 <h2 id="1、说明："><a href="#1、说明：" class="headerlink" title="1、说明："></a>1、说明：</h2><ul>
 <li>框架：<code>darknet</code></li>
@@ -144,26 +145,6 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Blog/">Blog</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Blog/1、Introduction/">1、Introduction</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Blog/2、Build/">2、Build</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Deep-Learning/">Deep Learning</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Deep-Learning/PyTorch/">PyTorch</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Jetson-Nano/">Jetson Nano</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Jetson-Nano/2、运行jetson-inference/">2、运行jetson-inference</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Jetson-Nano/3、安装PyTorch/">3、安装PyTorch</a></li></ul></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/">Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Buy/">Buy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Darknet/">Darknet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jetson-Nano/">Jetson Nano</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenCV/">OpenCV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PyTorch/">PyTorch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/photo/">photo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日记/">日记</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
       <a href="/tags/Blog/" style="font-size: 20px;">Blog</a> <a href="/tags/Buy/" style="font-size: 10px;">Buy</a> <a href="/tags/Darknet/" style="font-size: 13.33px;">Darknet</a> <a href="/tags/Deep-Learning/" style="font-size: 20px;">Deep Learning</a> <a href="/tags/Jetson-Nano/" style="font-size: 16.67px;">Jetson Nano</a> <a href="/tags/OpenCV/" style="font-size: 13.33px;">OpenCV</a> <a href="/tags/PyTorch/" style="font-size: 10px;">PyTorch</a> <a href="/tags/photo/" style="font-size: 13.33px;">photo</a> <a href="/tags/日记/" style="font-size: 10px;">日记</a>
@@ -175,7 +156,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">12</span></li></ul>
     </div>
   </div>
 
@@ -219,7 +200,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2019 LiuWei<br>
+      &copy; 2019 weijiangaaa<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>

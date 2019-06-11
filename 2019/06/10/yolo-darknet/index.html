@@ -7,19 +7,19 @@
   
   <title>一、yolov3-darknet-image | weijiangaaa</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言：Jetson Nano使用cam运行实时目标检测，读出预测框的坐标 1、开发框架的选择pytorch（训练模型灵活好用）；tensorflow（资源丰富、支持较多）；caffee（使用c++开发，速度快）；darknet（yolo专用的小型框架）；detectnet（NVIDIA使用DIGIST训练的框架）  FINALLY，本文选择darknet（因为其他暂时没找到教程）  2、摄像头的选">
+  <meta name="description" content="前言：Jetson Nano使用cam运行实时目标检测，读出预测框的坐标 1、开发框架的选择pytorch（训练模型灵活好用）；tensorflow（资源丰富、支持较多）；caffee（使用c++开发，速度快）；darknet（yolo专用的小型框架）；detectnet（NVIDIA使用DIGIST训练的框架）  FINALLY，本文选择darknet（因为其他暂时没找到教程）  2、摄像头的">
 <meta name="keywords" content="Deep Learning,Darknet">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一、yolov3-darknet-image">
 <meta property="og:url" content="http://yoursite.com/2019/06/10/yolo-darknet/index.html">
 <meta property="og:site_name" content="weijiangaaa">
-<meta property="og:description" content="前言：Jetson Nano使用cam运行实时目标检测，读出预测框的坐标 1、开发框架的选择pytorch（训练模型灵活好用）；tensorflow（资源丰富、支持较多）；caffee（使用c++开发，速度快）；darknet（yolo专用的小型框架）；detectnet（NVIDIA使用DIGIST训练的框架）  FINALLY，本文选择darknet（因为其他暂时没找到教程）  2、摄像头的选">
+<meta property="og:description" content="前言：Jetson Nano使用cam运行实时目标检测，读出预测框的坐标 1、开发框架的选择pytorch（训练模型灵活好用）；tensorflow（资源丰富、支持较多）；caffee（使用c++开发，速度快）；darknet（yolo专用的小型框架）；detectnet（NVIDIA使用DIGIST训练的框架）  FINALLY，本文选择darknet（因为其他暂时没找到教程）  2、摄像头的">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://pjreddie.com/media/image/Screen_Shot_2018-03-24_at_10.48.42_PM.png">
-<meta property="og:updated_time" content="2019-06-11T17:55:56.987Z">
+<meta property="og:updated_time" content="2019-06-11T18:14:37.521Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一、yolov3-darknet-image">
-<meta name="twitter:description" content="前言：Jetson Nano使用cam运行实时目标检测，读出预测框的坐标 1、开发框架的选择pytorch（训练模型灵活好用）；tensorflow（资源丰富、支持较多）；caffee（使用c++开发，速度快）；darknet（yolo专用的小型框架）；detectnet（NVIDIA使用DIGIST训练的框架）  FINALLY，本文选择darknet（因为其他暂时没找到教程）  2、摄像头的选">
+<meta name="twitter:description" content="前言：Jetson Nano使用cam运行实时目标检测，读出预测框的坐标 1、开发框架的选择pytorch（训练模型灵活好用）；tensorflow（资源丰富、支持较多）；caffee（使用c++开发，速度快）；darknet（yolo专用的小型框架）；detectnet（NVIDIA使用DIGIST训练的框架）  FINALLY，本文选择darknet（因为其他暂时没找到教程）  2、摄像头的">
 <meta name="twitter:image" content="https://pjreddie.com/media/image/Screen_Shot_2018-03-24_at_10.48.42_PM.png">
   
     <link rel="alternate" href="/atom.xml" title="weijiangaaa" type="application/atom+xml">
@@ -95,7 +95,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>前言：Jetson Nano使用cam运行实时目标检测，读出预测框的坐标</p>
+        <hr>
+<p>前言：Jetson Nano使用cam运行实时目标检测，读出预测框的坐标</p>
 <h3 id="1、开发框架的选择"><a href="#1、开发框架的选择" class="headerlink" title="1、开发框架的选择"></a>1、开发框架的选择</h3><p><code>pytorch</code>（训练模型灵活好用）；<br><code>tensorflow</code>（资源丰富、支持较多）；<br><code>caffee</code>（使用c++开发，速度快）；<br><code>darknet</code>（yolo专用的小型框架）；<br><code>detectnet</code>（NVIDIA使用DIGIST训练的框架）</p>
 <ul>
 <li>FINALLY，本文选择darknet（因为其他暂时没找到教程）</li>
@@ -160,26 +161,6 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Blog/">Blog</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Blog/1、Introduction/">1、Introduction</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Blog/2、Build/">2、Build</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Deep-Learning/">Deep Learning</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Deep-Learning/PyTorch/">PyTorch</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Jetson-Nano/">Jetson Nano</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Jetson-Nano/2、运行jetson-inference/">2、运行jetson-inference</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Jetson-Nano/3、安装PyTorch/">3、安装PyTorch</a></li></ul></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/">Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Buy/">Buy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Darknet/">Darknet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jetson-Nano/">Jetson Nano</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenCV/">OpenCV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PyTorch/">PyTorch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/photo/">photo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日记/">日记</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
       <a href="/tags/Blog/" style="font-size: 20px;">Blog</a> <a href="/tags/Buy/" style="font-size: 10px;">Buy</a> <a href="/tags/Darknet/" style="font-size: 13.33px;">Darknet</a> <a href="/tags/Deep-Learning/" style="font-size: 20px;">Deep Learning</a> <a href="/tags/Jetson-Nano/" style="font-size: 16.67px;">Jetson Nano</a> <a href="/tags/OpenCV/" style="font-size: 13.33px;">OpenCV</a> <a href="/tags/PyTorch/" style="font-size: 10px;">PyTorch</a> <a href="/tags/photo/" style="font-size: 13.33px;">photo</a> <a href="/tags/日记/" style="font-size: 10px;">日记</a>
@@ -191,7 +172,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">12</span></li></ul>
     </div>
   </div>
 
@@ -235,7 +216,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2019 LiuWei<br>
+      &copy; 2019 weijiangaaa<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
