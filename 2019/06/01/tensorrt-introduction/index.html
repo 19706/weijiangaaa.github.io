@@ -7,21 +7,21 @@
   
   <title>TensorRT引入 | weijiangaaa</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="目前在做一个校内无人自主配送平台项目，类似JD的无人物流车，毕竟是自己的团队，预算只能卡在了5k；国家级大创、毕业设计、互联网+题目，三线并行； 目的：通过CSI摄像头实时识别目标（约30fps），读取相关信息已知解决方案：通过TensorRT进行推理的加速注：  目前是单目的方案，在Nano的性能之下，30fps很难   以下是基础方案：  AI平台：Jetson Nano 嵌入式平台：STM3">
+  <meta name="description" content="目前在做一个校内无人自主配送平台项目，类似JD的无人物流车，毕竟是自己的团队，预算只能卡在了5k；国家级大创、毕业设计、互联网+题目，三线并行；">
 <meta name="keywords" content="Deep Learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="TensorRT引入">
 <meta property="og:url" content="http://yoursite.com/2019/06/01/tensorrt-introduction/index.html">
 <meta property="og:site_name" content="weijiangaaa">
-<meta property="og:description" content="目前在做一个校内无人自主配送平台项目，类似JD的无人物流车，毕竟是自己的团队，预算只能卡在了5k；国家级大创、毕业设计、互联网+题目，三线并行； 目的：通过CSI摄像头实时识别目标（约30fps），读取相关信息已知解决方案：通过TensorRT进行推理的加速注：  目前是单目的方案，在Nano的性能之下，30fps很难   以下是基础方案：  AI平台：Jetson Nano 嵌入式平台：STM3">
+<meta property="og:description" content="目前在做一个校内无人自主配送平台项目，类似JD的无人物流车，毕竟是自己的团队，预算只能卡在了5k；国家级大创、毕业设计、互联网+题目，三线并行；">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://s3.sinaimg.cn/mw690/002c2mEVzy7nKnBsVCqc2&690">
 <meta property="og:image" content="https://docs.nvidia.com/deeplearning/sdk/tensorrt-developer-guide/graphics/overview.png">
 <meta property="og:image" content="https://docs.nvidia.com/deeplearning/sdk/tensorrt-developer-guide/graphics/whatistrt2.png">
-<meta property="og:updated_time" content="2019-06-01T03:31:02.034Z">
+<meta property="og:updated_time" content="2019-06-17T13:22:17.237Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TensorRT引入">
-<meta name="twitter:description" content="目前在做一个校内无人自主配送平台项目，类似JD的无人物流车，毕竟是自己的团队，预算只能卡在了5k；国家级大创、毕业设计、互联网+题目，三线并行； 目的：通过CSI摄像头实时识别目标（约30fps），读取相关信息已知解决方案：通过TensorRT进行推理的加速注：  目前是单目的方案，在Nano的性能之下，30fps很难   以下是基础方案：  AI平台：Jetson Nano 嵌入式平台：STM3">
+<meta name="twitter:description" content="目前在做一个校内无人自主配送平台项目，类似JD的无人物流车，毕竟是自己的团队，预算只能卡在了5k；国家级大创、毕业设计、互联网+题目，三线并行；">
 <meta name="twitter:image" content="http://s3.sinaimg.cn/mw690/002c2mEVzy7nKnBsVCqc2&690">
   
     <link rel="alternate" href="/atom.xml" title="weijiangaaa" type="application/atom+xml">
@@ -97,7 +97,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><em>目前在做一个<code>校内无人自主配送平台</code>项目，类似JD的无人物流车，毕竟是自己的团队，预算只能卡在了5k；</em><br><em>国家级大创、毕业设计、互联网+题目，三线并行；</em></p>
+        <p><em>目前在做一个<code>校内无人自主配送平台</code>项目，类似JD的无人物流车，毕竟是自己的团队，预算只能卡在了5k；</em><br><em>国家级大创、毕业设计、互联网+题目，三线并行；</em><br><a id="more"></a></p>
 <h2 id="目的：通过CSI摄像头实时识别目标（约30fps），读取相关信息"><a href="#目的：通过CSI摄像头实时识别目标（约30fps），读取相关信息" class="headerlink" title="目的：通过CSI摄像头实时识别目标（约30fps），读取相关信息"></a>目的：通过CSI摄像头实时识别目标（约30fps），读取相关信息</h2><h2 id="已知解决方案：通过TensorRT进行推理的加速"><a href="#已知解决方案：通过TensorRT进行推理的加速" class="headerlink" title="已知解决方案：通过TensorRT进行推理的加速"></a>已知解决方案：通过TensorRT进行推理的加速</h2><p>注：</p>
 <ul>
 <li>目前是单目的方案，在Nano的性能之下，30fps很难</li>
