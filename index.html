@@ -68,6 +68,71 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-c-c-笔记记录" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/18/c-c-笔记记录/" class="article-date">
+  <time datetime="2019-06-18T03:51:14.000Z" itemprop="datePublished">2019-06-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/18/c-c-笔记记录/">[c++]c++笔记记录</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="存储变量类型："><a href="#存储变量类型：" class="headerlink" title="存储变量类型："></a>存储变量类型：</h2><p>1、<code>register</code> 存储类用于定义存储在寄存器中而不是 RAM 中的局部变量，且不能对它应用一元的 ‘&amp;’ 运算符。</p>
+<p>2、<code>static</code> 修饰局部变量可以在函数调用之间保持局部变量的值。<br><code>static</code> 修饰符也可以应用于全局变量。当 static 修饰全局变量时，会使变量的作用域限制在声明它的文件内。</p>
+<p>3、<code>extern</code> 是用来在另一个文件中声明一个全局变量或函数。<br>无法初始化的变量。<br>全局变量对所有的程序文件都是可见的。</p>
+<h2 id="函数参数："><a href="#函数参数：" class="headerlink" title="函数参数："></a>函数参数：</h2><table>
+<thead>
+<tr>
+<th>调用类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>传值调用</td>
+<td>修改函数内的形式参数对实际参数没有影响。</td>
+</tr>
+<tr>
+<td>指针调用</td>
+<td>该方法把参数的地址复制给形式参数，修改形式参数会影响实际参数。</td>
+</tr>
+<tr>
+<td>引用调用</td>
+<td>该方法把参数的引用复制给形式参数，修改形式参数会影响实际参数。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="字符串："><a href="#字符串：" class="headerlink" title="字符串："></a>字符串：</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> greeting[<span class="number">6</span>] = &#123;<span class="string">'H'</span>, <span class="string">'e'</span>, <span class="string">'l'</span>, <span class="string">'l'</span>, <span class="string">'o'</span>, <span class="string">'\0'</span>&#125;;</span><br><span class="line"><span class="keyword">char</span> greeting[] = <span class="string">"Hello"</span>;</span><br><span class="line"><span class="built_in">string</span> str1 = <span class="string">"Hello"</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="指针："><a href="#指针：" class="headerlink" title="指针："></a>指针：</h2><p>动态内存分配。<br>指针是一个变量，其值为另一个变量的地址。<br>所有指针的值的实际数据类型，不管是整型、浮点型、字符型，还是其他的数据类型，都是一样的，都是一个代表内存地址的长的十六进制数。<br>定义一个指针变量-&gt;把变量地址赋值给指针-&gt;访问指针变量中可用地址的值。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/18/c-c-笔记记录/" data-id="cjx1kvhil000hfou6lfbm3942" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c-c/">c/c++</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-c-c-环境配置基础知识" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/06/18/c-c-环境配置基础知识/" class="article-date">
@@ -104,7 +169,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/18/c-c-环境配置基础知识/" data-id="cjx0n8txy000fkwu6r2d6mz6q" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/18/c-c-环境配置基础知识/" data-id="cjx1kvhig0009fou6emw04fun" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c-c/">c/c++</a></li></ul>
@@ -144,7 +209,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/18/emacs-download/" data-id="cjx0n8ty4000mkwu6747rjs0u" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/18/emacs-download/" data-id="cjx1kvhio000jfou6lsfrkgua" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/emacs/">emacs</a></li></ul>
@@ -187,7 +252,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/17/日记-毕业季/" data-id="cjx0n8tyi001dkwu6jvww0n8p" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/17/日记-毕业季/" data-id="cjx1kvhjm001sfou6ggoiqnbn" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/日记/">日记</a></li></ul>
@@ -226,7 +291,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/12/pytorch-pytorch-hub/" data-id="cjx0n8tyd0013kwu6dvnv6rys" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/12/pytorch-pytorch-hub/" data-id="cjx1kvhit000tfou6xj5ztieu" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PyTorch/">PyTorch</a></li></ul>
@@ -266,7 +331,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/12/graduate/" data-id="cjx0n8ty7000rkwu6fyqyjmc4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/12/graduate/" data-id="cjx1kvhj00016fou6hkbyy57h" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/日记/">日记</a></li></ul>
@@ -310,7 +375,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/11/blog-rebuild/" data-id="cjx0n8ty3000kkwu6pp2jkj1a" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/11/blog-rebuild/" data-id="cjx1kvhis000qfou6zap68p90" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/">Blog</a></li></ul>
@@ -358,7 +423,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/11/yolo-darknet-webcam/" data-id="cjx0n8tyj001ekwu6pn5wy96c" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/11/yolo-darknet-webcam/" data-id="cjx1kvhjo001ufou6fil6wcld" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Darknet/">Darknet</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li></ul>
@@ -420,7 +485,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/10/yolo-darknet/" data-id="cjx0n8tyk001ikwu6tonvmy67" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/10/yolo-darknet/" data-id="cjx1kvhjq001wfou6rje1jp1i" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Darknet/">Darknet</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li></ul>
@@ -460,53 +525,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/09/Opencv-serial-vs2017/" data-id="cjx0n8txv000akwu6hxntu11l" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/09/Opencv-serial-vs2017/" data-id="cjx1kvhix0010fou65gqbs8kr" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OpenCV/">OpenCV</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-tensorrt-introduction" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/06/01/tensorrt-introduction/" class="article-date">
-  <time datetime="2019-05-31T16:31:35.000Z" itemprop="datePublished">2019-06-01</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/01/tensorrt-introduction/">TensorRT引入</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><em>目前在做一个<code>校内无人自主配送平台</code>项目，类似JD的无人物流车，毕竟是自己的团队，预算只能卡在了5k；</em><br><em>国家级大创、毕业设计、互联网+题目，三线并行；</em><br>
-        
-          </p><p class="article-more-link">
-            <a href="/2019/06/01/tensorrt-introduction/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/01/tensorrt-introduction/" data-id="cjx0n8tyg001akwu6az9gy459" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li></ul>
 
     </footer>
   </div>
@@ -530,7 +552,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Blog/" style="font-size: 17.5px;">Blog</a> <a href="/tags/Buy/" style="font-size: 10px;">Buy</a> <a href="/tags/Darknet/" style="font-size: 12.5px;">Darknet</a> <a href="/tags/Deep-Learning/" style="font-size: 20px;">Deep Learning</a> <a href="/tags/Jetson-Nano/" style="font-size: 15px;">Jetson Nano</a> <a href="/tags/OpenCV/" style="font-size: 12.5px;">OpenCV</a> <a href="/tags/PyTorch/" style="font-size: 12.5px;">PyTorch</a> <a href="/tags/c-c/" style="font-size: 10px;">c/c++</a> <a href="/tags/emacs/" style="font-size: 10px;">emacs</a> <a href="/tags/photo/" style="font-size: 12.5px;">photo</a> <a href="/tags/日记/" style="font-size: 12.5px;">日记</a>
+      <a href="/tags/Blog/" style="font-size: 17.5px;">Blog</a> <a href="/tags/Buy/" style="font-size: 10px;">Buy</a> <a href="/tags/Darknet/" style="font-size: 12.5px;">Darknet</a> <a href="/tags/Deep-Learning/" style="font-size: 20px;">Deep Learning</a> <a href="/tags/Jetson-Nano/" style="font-size: 15px;">Jetson Nano</a> <a href="/tags/OpenCV/" style="font-size: 12.5px;">OpenCV</a> <a href="/tags/PyTorch/" style="font-size: 12.5px;">PyTorch</a> <a href="/tags/c-c/" style="font-size: 12.5px;">c/c++</a> <a href="/tags/emacs/" style="font-size: 10px;">emacs</a> <a href="/tags/photo/" style="font-size: 12.5px;">photo</a> <a href="/tags/日记/" style="font-size: 12.5px;">日记</a>
     </div>
   </div>
 
@@ -539,7 +561,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">12</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">12</span></li></ul>
     </div>
   </div>
 
@@ -550,6 +572,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/06/18/c-c-笔记记录/">[c++]c++笔记记录</a>
+          </li>
         
           <li>
             <a href="/2019/06/18/c-c-环境配置基础知识/">[c++]c++环境配置基础知识</a>
@@ -565,10 +591,6 @@
         
           <li>
             <a href="/2019/06/12/pytorch-pytorch-hub/">[pytorch] pytorch hub</a>
-          </li>
-        
-          <li>
-            <a href="/2019/06/12/graduate/">graduate</a>
           </li>
         
       </ul>
