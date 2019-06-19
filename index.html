@@ -463,7 +463,26 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>1、Haar Cascade<br>2001，基于Haar特征的cascade分类器。<br>它是一种机器学习方法，通过许多正负样例中训练得到cascade方程，然后将其应用于其他图片。</p>
+        <h2 id="1、Haar-Cascade"><a href="#1、Haar-Cascade" class="headerlink" title="1、Haar Cascade"></a>1、Haar Cascade</h2><p><strong>时间：</strong>2001年。</p>
+<p><strong>说明：</strong>最经典的算法，被Matlab和OpenCV引用作为库。</p>
+<p><strong>概况：</strong>基于Haar特征的cascade分类器。它是一种机器学习方法，通过许多正负样例中训练得到cascade方程，然后将其应用于其他图片。</p>
+<p><strong>前言：</strong></p>
+<p>目标检测的基本原理（<code>yolo</code>之前的那些方案）：</p>
+<p>1、先通过训练集学习一个分类器；</p>
+<p>2、然后在测试图像中以不同<code>scale</code>的窗口滑动扫描整个图像；</p>
+<p>3、每次扫描做一下分类，判断一下当前的这个窗口是否为要检测的目标。</p>
+<p>算法的核心是分类，分类的核心一个是<strong>用什么特征</strong>，一个是<strong>用哪种分类器</strong>。</p>
+<ul>
+<li><code>Haar特征/矩形特征</code>，计算Haar特征个数，是使用黑色的所有像素值和减去白色的所有像素值和。</li>
+</ul>
+<p>!()[<a href="https://img-my.csdn.net/uploads/201211/23/1353646276_1594.png]" target="_blank" rel="noopener">https://img-my.csdn.net/uploads/201211/23/1353646276_1594.png]</a></p>
+<ul>
+<li><p><code>Integral Image</code>来重新表示一幅图像，把计算量一下就缩减了一个量级。</p>
+</li>
+<li><p><code>Cascade 分类器</code>，提出级联分类器的方法，检测一个窗口未必要计算所有这T个特征。</p>
+</li>
+</ul>
+<p>《Rapid Object Detection using a Boosted Cascade of Simple Features》<br>原文链接：(<a href="https://ieeexplore.ieee.org/document/990517)[https://ieeexplore.ieee.org/document/990517]" target="_blank" rel="noopener">https://ieeexplore.ieee.org/document/990517)[https://ieeexplore.ieee.org/document/990517]</a></p>
 
       
     </div>
