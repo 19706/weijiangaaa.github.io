@@ -68,10 +68,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-人脸识别-1" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Git" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/06/19/人脸识别-1/" class="article-date">
-  <time datetime="2019-06-19T12:04:52.000Z" itemprop="datePublished">2019-06-19</time>
+    <a href="/2019/06/19/Git/" class="article-date">
+  <time datetime="2019-06-19T12:19:11.000Z" itemprop="datePublished">2019-06-19</time>
 </a>
     
   </div>
@@ -82,7 +82,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/19/人脸识别-1/">[人脸识别]</a>
+      <a class="article-title" href="/2019/06/19/Git/">Git</a>
     </h1>
   
 
@@ -90,13 +90,48 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p><em>Git是一个开源的分布式版本控制系统，可以有效、高速地处理从很小到非常大的项目版本管理。</em></p>
+<p>个人目前的常用途：<br>1、目前绝大多数优秀项目的源码都会开源在<code>github</code>上，为了<code>clone</code>；<br>2、个人博客是搭载<code>github</code>上的，<code>git</code>是基础命令工具，同是为的是素材的网络地址；<br>3、为了项目源代码的开源共享。</p>
+<p>git log –oneline</p>
+<h3 id="回到过去"><a href="#回到过去" class="headerlink" title="回到过去"></a>回到过去</h3><p>reset是在commit之间穿梭</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;git reset</span><br><span class="line">&gt;git reset --hard HEAD</span><br><span class="line">&gt;git reset --hard HEAD^^</span><br><span class="line">&gt;git reset --hard HEAD~2</span><br></pre></td></tr></table></figure>
+<p>使用ID号码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;git reset --hard 283968a</span><br></pre></td></tr></table></figure>
+<h3 id="回到未来"><a href="#回到未来" class="headerlink" title="回到未来"></a>回到未来</h3><p>查看“未来的ID号码”<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;git reflog</span><br></pre></td></tr></table></figure></p>
+<h4 id="对单个文件进行回到过去"><a href="#对单个文件进行回到过去" class="headerlink" title="对单个文件进行回到过去"></a>对单个文件进行回到过去</h4><ul>
+<li><p>说明：【checkout】是针对单个文件进行的回退，相比于【reset】，【checkout】操作后log中的所有记录均不发生改变；而【reset】后，整个log发生了改变，其下的【checkout】也会不同。</p>
+</li>
+<li><p>比喻：【reset】改变了历史，包括其中的人物命运也随历史的不同而不同；【checkou】不改变历史，而是可以单独可查个人在不同版本历史的命运。就好像是针对历史中某个人物的命运改变，即只回退了单一文件的版本，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;git checkout 【ID】 --  1.py</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Branch"><a href="#Branch" class="headerlink" title="Branch"></a>Branch</h3><p>Master主要给用户使用，其他的branch的话可以用作自己的开发</p>
+<p>通过图表的方式来查看branch<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;git log --oneline --graph</span><br></pre></td></tr></table></figure></p>
+<p>建立分支<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;git branch dev</span><br></pre></td></tr></table></figure></p>
+<p>查看分支<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;git branch</span><br></pre></td></tr></table></figure></p>
+<p>其中带有【 * 】的说明是所处的分支</p>
+<p>转换分支<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;gir checkout dev</span><br></pre></td></tr></table></figure></p>
+<p>删除分支<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;git checkout branch</span><br><span class="line">&gt;git branch -d dev</span><br></pre></td></tr></table></figure></p>
+<p>先切换回主分支再进行其他分支的删除</p>
+<p>建立分支2<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;git checkout -b dev</span><br><span class="line">&gt;git commit -am &quot;change&quot;</span><br></pre></td></tr></table></figure></p>
+<p>前提是已经stage，已经在管理库中存在</p>
+<p>转换主分支<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;git checkout master</span><br></pre></td></tr></table></figure></p>
+<p>进入master之后，branch不影响master，用户看到的还是master的</p>
+<p>开发版本完成之后，将其从branch推到master中<br>确保进入了master<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;git merge dev</span><br></pre></td></tr></table></figure></p>
+<p>这条指令就在master中，将dev的信息推进来</p>
+<p>加入信息，选项的内容为：<br><code>`</code>latex</p>
+<blockquote>
+<p>git merge –no-ff -m “keep me merge info” dev<br><code>`</code>latex</p>
+</blockquote>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/19/人脸识别-1/" data-id="cjx36vw4v001ux8u65ffign3p" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/19/Git/" data-id="cjx37iqsu0001hou6cylbuh9v" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li></ul>
+
     </footer>
   </div>
   
@@ -171,7 +206,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/19/人脸识别/" data-id="cjx36vw4y0020x8u6wylmi24g" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/19/人脸识别/" data-id="cjx37iqua001whou6ij9zgwdm" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/人脸识别/">人脸识别</a></li></ul>
@@ -210,7 +245,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/19/ML-欧几里得距离/" data-id="cjx36vw3h000ax8u6wb5gvu3g" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/19/ML-欧几里得距离/" data-id="cjx37iqt10006hou654h0f5gv" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li></ul>
@@ -251,7 +286,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/19/pytorch-三、快速搭建神经网络/" data-id="cjx36vw4s001qx8u6vy4v148z" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/19/pytorch-三、快速搭建神经网络/" data-id="cjx37iqu2001khou6loxy7zqi" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PyTorch/">PyTorch</a></li></ul>
@@ -307,7 +342,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/19/pytorch-二、分类问题/" data-id="cjx36vw4m001ix8u6s15y0ze2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/19/pytorch-二、分类问题/" data-id="cjx37iqu6001qhou6nu7qs5vl" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PyTorch/">PyTorch</a></li></ul>
@@ -345,7 +380,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/19/pytorch-一、回归问题/" data-id="cjx36vw4l001hx8u6vl8qzbdm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/19/pytorch-一、回归问题/" data-id="cjx37iqu0001ghou60k4gz8ud" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PyTorch/">PyTorch</a></li></ul>
@@ -479,7 +514,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/19/liniux-基础指令/" data-id="cjx36vw4o001lx8u6o9iuvu57" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/19/liniux-基础指令/" data-id="cjx37iqtt0016hou6ovqk1bi7" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
@@ -554,7 +589,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/19/人脸识别1、Haar Cascade/" data-id="cjx36vw4x001yx8u627m6789r" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/19/人脸识别1、Haar Cascade/" data-id="cjx37iqub001yhou6j5lkqzct" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OpenCV/">OpenCV</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/人脸识别/">人脸识别</a></li></ul>
@@ -598,7 +633,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/18/pr-基础使用/" data-id="cjx36vw4j001ex8u67onta2h1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/18/pr-基础使用/" data-id="cjx37iqu3001mhou656zlboud" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PR/">PR</a></li></ul>
@@ -663,7 +698,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/18/c-c-笔记记录/" data-id="cjx36vw3n000hx8u63wtqpo7b" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/18/c-c-笔记记录/" data-id="cjx37iqth000qhou65xgn46xp" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c-c/">c/c++</a></li></ul>
@@ -690,7 +725,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Blog/" style="font-size: 17.5px;">Blog</a> <a href="/tags/Buy/" style="font-size: 10px;">Buy</a> <a href="/tags/Darknet/" style="font-size: 12.5px;">Darknet</a> <a href="/tags/Deep-Learning/" style="font-size: 20px;">Deep Learning</a> <a href="/tags/Jetson-Nano/" style="font-size: 15px;">Jetson Nano</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Machine-Learning/" style="font-size: 10px;">Machine Learning</a> <a href="/tags/OpenCV/" style="font-size: 15px;">OpenCV</a> <a href="/tags/PR/" style="font-size: 10px;">PR</a> <a href="/tags/PyTorch/" style="font-size: 17.5px;">PyTorch</a> <a href="/tags/TensorRT/" style="font-size: 10px;">TensorRT</a> <a href="/tags/c-c/" style="font-size: 12.5px;">c/c++</a> <a href="/tags/emacs/" style="font-size: 10px;">emacs</a> <a href="/tags/photo/" style="font-size: 12.5px;">photo</a> <a href="/tags/人脸识别/" style="font-size: 12.5px;">人脸识别</a> <a href="/tags/日记/" style="font-size: 12.5px;">日记</a> <a href="/tags/目标检测/" style="font-size: 12.5px;">目标检测</a>
+      <a href="/tags/Blog/" style="font-size: 17.5px;">Blog</a> <a href="/tags/Buy/" style="font-size: 10px;">Buy</a> <a href="/tags/Darknet/" style="font-size: 12.5px;">Darknet</a> <a href="/tags/Deep-Learning/" style="font-size: 20px;">Deep Learning</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Jetson-Nano/" style="font-size: 15px;">Jetson Nano</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Machine-Learning/" style="font-size: 10px;">Machine Learning</a> <a href="/tags/OpenCV/" style="font-size: 15px;">OpenCV</a> <a href="/tags/PR/" style="font-size: 10px;">PR</a> <a href="/tags/PyTorch/" style="font-size: 17.5px;">PyTorch</a> <a href="/tags/TensorRT/" style="font-size: 10px;">TensorRT</a> <a href="/tags/c-c/" style="font-size: 12.5px;">c/c++</a> <a href="/tags/emacs/" style="font-size: 10px;">emacs</a> <a href="/tags/photo/" style="font-size: 12.5px;">photo</a> <a href="/tags/人脸识别/" style="font-size: 12.5px;">人脸识别</a> <a href="/tags/日记/" style="font-size: 12.5px;">日记</a> <a href="/tags/目标检测/" style="font-size: 12.5px;">目标检测</a>
     </div>
   </div>
 
@@ -712,7 +747,7 @@
       <ul>
         
           <li>
-            <a href="/2019/06/19/人脸识别-1/">[人脸识别]</a>
+            <a href="/2019/06/19/Git/">Git</a>
           </li>
         
           <li>
