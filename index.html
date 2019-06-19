@@ -68,6 +68,139 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-pytorch-三、快速搭建神经网络" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/19/pytorch-三、快速搭建神经网络/" class="article-date">
+  <time datetime="2019-06-19T01:42:28.000Z" itemprop="datePublished">2019-06-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/19/pytorch-三、快速搭建神经网络/">[pytorch]三、快速搭建神经网络</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="三、快速搭建神经网络"><a href="#三、快速搭建神经网络" class="headerlink" title="三、快速搭建神经网络"></a>三、快速搭建神经网络</h1><h2 id="1、之前常规的方法"><a href="#1、之前常规的方法" class="headerlink" title="1、之前常规的方法"></a>1、之前常规的方法</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#继承Module，很多功能都包含在其中</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Net</span><span class="params">(torch.nn.Module)</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, n_feature, n_hidden, n_output)</span>:</span></span><br><span class="line">		super(Net, self).__init__()</span><br><span class="line">		self.hidden = torch.nn.Linear(n_feature, n_hidden)</span><br><span class="line">		self.predict = torch.nn.Linear(n_hidden, n_output)</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, x)</span>:</span></span><br><span class="line">    	x = F.relu(self.hidden(x))</span><br><span class="line">    	x = self.predict(x)</span><br><span class="line">    	<span class="keyword">return</span> x</span><br><span class="line">net1 = Net(<span class="number">2</span>, <span class="number">10</span>, <span class="number">2</span>) <span class="comment">#输出有2个类型</span></span><br></pre></td></tr></table></figure>
+<h2 id="2、快速搭建的方法（使用Sequential序列容器）"><a href="#2、快速搭建的方法（使用Sequential序列容器）" class="headerlink" title="2、快速搭建的方法（使用Sequential序列容器）"></a>2、快速搭建的方法（使用Sequential序列容器）</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">net2 = torch.nn.Sequential(</span><br><span class="line">    torch.nn.Linear(<span class="number">2</span>, <span class="number">10</span>),</span><br><span class="line">    torch.nn.ReLU(),</span><br><span class="line">    torch.nn.Linear(<span class="number">10</span>, <span class="number">2</span>)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>前者是F.relu()，使用的是函数，一种普通的功能，所以在模型的输出中并不现实relu；<br>后者是torch.nn.relu，使用的是类中的一种，在模型的输出中显示；<br>二者的效果都是一样的。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/19/pytorch-三、快速搭建神经网络/" data-id="cjx2knuky001pzwu6iiyi60y4" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-pytorch-二、分类问题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/19/pytorch-二、分类问题/" class="article-date">
+  <time datetime="2019-06-19T01:40:53.000Z" itemprop="datePublished">2019-06-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/19/pytorch-二、分类问题/">[pytorch]二、分类问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="二、分类问题"><a href="#二、分类问题" class="headerlink" title="二、分类问题"></a>二、分类问题</h1><h4 id="问题：有3堆数据，每个数据的特征都是（x，y），在坐标系中可以对应显示，如何进行分类？"><a href="#问题：有3堆数据，每个数据的特征都是（x，y），在坐标系中可以对应显示，如何进行分类？" class="headerlink" title="问题：有3堆数据，每个数据的特征都是（x，y），在坐标系中可以对应显示，如何进行分类？"></a>问题：有3堆数据，每个数据的特征都是（x，y），在坐标系中可以对应显示，如何进行分类？</h4><h5 id="问题分析："><a href="#问题分析：" class="headerlink" title="问题分析："></a>问题分析：</h5><p>1、输入的数据为（x，y），说明输入层有2个特征，则对应的n_feature=2，2个特征；</p>
+<p>2、输出的分类要分3类，说明输出层有3个特征，则对应的n_output=3，3个特征；</p>
+<p>3、其中的n_hidden，不受影响，之前在回归问题中使用的是10个神经元的隐藏层，这里可以不做改变</p>
+<h5 id="细节介绍："><a href="#细节介绍：" class="headerlink" title="细节介绍："></a>细节介绍：</h5><p>1、分类问题的损失函数用<code>torch.nn.CrossEntropyLoss()</code>，其计算的是<code>softmax</code>，即预测误差为【0.1,0.2,0.7】，最后在计算结果中的标签误差为【0,0,1】，即说明分类中属于第三种情况的可能性最大，将其分入第三类中。</p>
+<p>2、输出格式的改变：<br>在回归问题中是：</p>
+<blockquote>
+<p>y_pred=net(x)</p>
+<ul>
+<li>这里的输出是一个固定的数值，就是y的预测值</li>
+</ul>
+</blockquote>
+<p>在分类问题中是：</p>
+<blockquote>
+<p>out=net(x)</p>
+</blockquote>
+<ul>
+<li>这里的输出是一个列表，在这里是比如【10,23,77】这样的格式，所以用<code>softmax()</code>来进行转换，输出变为【0.1,0.2,0.7】这样的格式，即说明属于第3类的可能性最大</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/19/pytorch-二、分类问题/" data-id="cjx2knukt001fzwu64ythoq5z" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PyTorch/">PyTorch</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-pytorch-一、回归问题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/19/pytorch-一、回归问题/" class="article-date">
+  <time datetime="2019-06-19T01:39:12.000Z" itemprop="datePublished">2019-06-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/19/pytorch-一、回归问题/">[pytorch]一、回归问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="一、回归问题"><a href="#一、回归问题" class="headerlink" title="一、回归问题"></a>一、回归问题</h1><h4 id="问题：有一堆数据点，（x，y），找到曲线，拟合到数据点上，做一个已知数据点之外的预测？"><a href="#问题：有一堆数据点，（x，y），找到曲线，拟合到数据点上，做一个已知数据点之外的预测？" class="headerlink" title="问题：有一堆数据点，（x，y），找到曲线，拟合到数据点上，做一个已知数据点之外的预测？"></a>问题：有一堆数据点，（x，y），找到曲线，拟合到数据点上，做一个已知数据点之外的预测？</h4><h5 id="问题分析："><a href="#问题分析：" class="headerlink" title="问题分析："></a>问题分析：</h5><h5 id="细节介绍："><a href="#细节介绍：" class="headerlink" title="细节介绍："></a>细节介绍：</h5>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/19/pytorch-一、回归问题/" data-id="cjx2knukx001nzwu6efavjwnx" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PyTorch/">PyTorch</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-liniux-基础指令" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/06/19/liniux-基础指令/" class="article-date">
@@ -190,7 +323,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/19/liniux-基础指令/" data-id="cjx2kdabw0015mcu6s3xic67q" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/19/liniux-基础指令/" data-id="cjx2knuks001dzwu6ujlxe7pd" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
@@ -294,7 +427,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/19/git-常用命令/" data-id="cjx2kdabs000xmcu6oklplspe" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/19/git-常用命令/" data-id="cjx2knukj0013zwu61xmwod8t" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
@@ -333,7 +466,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/19/人脸识别-demo/" data-id="cjx2kdac7001nmcu6lt5t1ye7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/19/人脸识别-demo/" data-id="cjx2knul4001yzwu6u66j1e85" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/人脸识别/">人脸识别</a></li></ul>
@@ -377,7 +510,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/18/pr-基础使用/" data-id="cjx2kdac4001imcu69tbapff9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/18/pr-基础使用/" data-id="cjx2knukv001jzwu60fmm88ac" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pr/">pr</a></li></ul>
@@ -442,7 +575,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/18/c-c-笔记记录/" data-id="cjx2kdabh000hmcu6k15qkarh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/18/c-c-笔记记录/" data-id="cjx2knuk9000szwu63f6ujytt" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c-c/">c/c++</a></li></ul>
@@ -490,7 +623,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/18/c-c-环境配置基础知识/" data-id="cjx2kdabd000bmcu64ounw4co" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/18/c-c-环境配置基础知识/" data-id="cjx2knukb000uzwu6qj5hfyck" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c-c/">c/c++</a></li></ul>
@@ -530,132 +663,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/18/emacs-download/" data-id="cjx2kdabm000nmcu6sv1lpiae" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/18/emacs-download/" data-id="cjx2knukf000xzwu68kd2pgo5" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/emacs/">emacs</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-日记-毕业季" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/06/17/日记-毕业季/" class="article-date">
-  <time datetime="2019-06-17T13:12:14.000Z" itemprop="datePublished">2019-06-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/17/日记-毕业季/">[日记]毕业季</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>等到了自己的毕业季，一切又将重新开始，“路漫漫其修远兮，吾将上下而求索”<br>
-        
-          </p><p class="article-more-link">
-            <a href="/2019/06/17/日记-毕业季/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/17/日记-毕业季/" data-id="cjx2kdac6001lmcu6tnx8zpc4" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/日记/">日记</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-pytorch-pytorch-hub" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/06/12/pytorch-pytorch-hub/" class="article-date">
-  <time datetime="2019-06-12T01:49:34.000Z" itemprop="datePublished">2019-06-12</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/12/pytorch-pytorch-hub/">[pytorch] pytorch hub</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>论文复现要求</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/12/pytorch-pytorch-hub/" data-id="cjx2kdac3001gmcu6efqetq5c" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PyTorch/">PyTorch</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-graduate" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/06/12/graduate/" class="article-date">
-  <time datetime="2019-06-11T16:36:09.000Z" itemprop="datePublished">2019-06-12</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/12/graduate/">graduate</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="毕设答辩问答"><a href="#毕设答辩问答" class="headerlink" title="毕设答辩问答"></a><font color="#FF6A6A">毕设答辩问答</font></h3><p>毕设答辩完了，索然无味，emmm。。。<br>本来打算的全程录像，还是算了，简直没有价值，从昨晚的兴奋到现在的无语，大学最简单松弛的一次答辩，，</p>
-<p><em>以下是答辩回忆录</em><br>（自我屏蔽）</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/12/graduate/" data-id="cjx2kdabq000umcu699bfjf9l" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/日记/">日记</a></li></ul>
 
     </footer>
   </div>
@@ -679,7 +690,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Blog/" style="font-size: 17.5px;">Blog</a> <a href="/tags/Buy/" style="font-size: 10px;">Buy</a> <a href="/tags/Darknet/" style="font-size: 12.5px;">Darknet</a> <a href="/tags/Deep-Learning/" style="font-size: 20px;">Deep Learning</a> <a href="/tags/Jetson-Nano/" style="font-size: 15px;">Jetson Nano</a> <a href="/tags/OpenCV/" style="font-size: 12.5px;">OpenCV</a> <a href="/tags/PyTorch/" style="font-size: 12.5px;">PyTorch</a> <a href="/tags/TensorRT/" style="font-size: 10px;">TensorRT</a> <a href="/tags/c-c/" style="font-size: 12.5px;">c/c++</a> <a href="/tags/emacs/" style="font-size: 10px;">emacs</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/photo/" style="font-size: 12.5px;">photo</a> <a href="/tags/pr/" style="font-size: 10px;">pr</a> <a href="/tags/人脸识别/" style="font-size: 10px;">人脸识别</a> <a href="/tags/日记/" style="font-size: 12.5px;">日记</a> <a href="/tags/目标检测/" style="font-size: 12.5px;">目标检测</a>
+      <a href="/tags/Blog/" style="font-size: 17.5px;">Blog</a> <a href="/tags/Buy/" style="font-size: 10px;">Buy</a> <a href="/tags/Darknet/" style="font-size: 12.5px;">Darknet</a> <a href="/tags/Deep-Learning/" style="font-size: 20px;">Deep Learning</a> <a href="/tags/Jetson-Nano/" style="font-size: 15px;">Jetson Nano</a> <a href="/tags/OpenCV/" style="font-size: 12.5px;">OpenCV</a> <a href="/tags/PyTorch/" style="font-size: 15px;">PyTorch</a> <a href="/tags/TensorRT/" style="font-size: 10px;">TensorRT</a> <a href="/tags/c-c/" style="font-size: 12.5px;">c/c++</a> <a href="/tags/emacs/" style="font-size: 10px;">emacs</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/photo/" style="font-size: 12.5px;">photo</a> <a href="/tags/pr/" style="font-size: 10px;">pr</a> <a href="/tags/人脸识别/" style="font-size: 10px;">人脸识别</a> <a href="/tags/日记/" style="font-size: 12.5px;">日记</a> <a href="/tags/目标检测/" style="font-size: 12.5px;">目标检测</a>
     </div>
   </div>
 
@@ -688,7 +699,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">12</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">11</span></li></ul>
     </div>
   </div>
 
@@ -701,23 +712,23 @@
       <ul>
         
           <li>
+            <a href="/2019/06/19/pytorch-三、快速搭建神经网络/">[pytorch]三、快速搭建神经网络</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/19/pytorch-二、分类问题/">[pytorch]二、分类问题</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/19/pytorch-一、回归问题/">[pytorch]一、回归问题</a>
+          </li>
+        
+          <li>
             <a href="/2019/06/19/liniux-基础指令/">[linux]基础指令</a>
           </li>
         
           <li>
             <a href="/2019/06/19/git-常用命令/">[git]常用命令</a>
-          </li>
-        
-          <li>
-            <a href="/2019/06/19/人脸识别-demo/">[人脸识别]方法总结和对比分析</a>
-          </li>
-        
-          <li>
-            <a href="/2019/06/18/pr-基础使用/">[pr]基础使用</a>
-          </li>
-        
-          <li>
-            <a href="/2019/06/18/c-c-笔记记录/">[c++]c++笔记记录</a>
           </li>
         
       </ul>
