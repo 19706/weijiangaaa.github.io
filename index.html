@@ -68,6 +68,140 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-liniux-基础指令" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/19/liniux-基础指令/" class="article-date">
+  <time datetime="2019-06-19T01:34:00.000Z" itemprop="datePublished">2019-06-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/19/liniux-基础指令/">[liniux]基础指令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="2、Linux基本操作"><a href="#2、Linux基本操作" class="headerlink" title="2、Linux基本操作"></a>2、Linux基本操作</h1><p><em>以下都是从接触Jetson Nano开始，学习Linux的笔记：</em></p>
+<h2 id="2-1简介"><a href="#2-1简介" class="headerlink" title="2.1简介"></a>2.1简介</h2><p>Jetson Nano官方提高的系统镜像中预置了基于Ubuntu16.04的LTS系统，其中包含了吧啦吧啦一堆（）<br>这里是一些常见的问题说明，新手需要注意：</p>
+<ul>
+<li>Linux下的文件，没有拓展名的概念，所以看到txt不要想当然的就认为是一个文本文件；</li>
+<li>同时，文件名是区分大小写的；<h2 id="2-2基础常用指令"><a href="#2-2基础常用指令" class="headerlink" title="2.2基础常用指令"></a>2.2基础常用指令</h2><h3 id="2-2-1-文件管理指令"><a href="#2-2-1-文件管理指令" class="headerlink" title="2.2.1 文件管理指令"></a>2.2.1 文件管理指令</h3><blockquote>
+<p>cd ~ #切换至home目录<br>pwd #查看当前的工作目录<br>cd / #切换至root目录<br>cd .. #回到上一次目录</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>ls<br>ls f* #查看以f开头的所有文件和子目录<br>ls -a #查看包含隐藏文件的文件和子目录</p>
+</blockquote>
+<blockquote>
+<p>cp 1.txt 2.txt #将文本1复制成文本2</p>
+</blockquote>
+<blockquote>
+<p>mv</p>
+</blockquote>
+<blockquote>
+<p>rm</p>
+</blockquote>
+<h3 id="2-2-2-编辑文本文件"><a href="#2-2-2-编辑文本文件" class="headerlink" title="2.2.2 编辑文本文件"></a>2.2.2 编辑文本文件</h3><p>通过nano编辑器来编辑文本文件</p>
+<blockquote>
+<p>sudo nano 1.txt</p>
+</blockquote>
+<p>查看文本文件内容</p>
+<blockquote>
+<p>cat 1.txt<br>more 1.txt</p>
+</blockquote>
+<p>将命令行文件导至文本文件中</p>
+<blockquote>
+<p>echo “hello world” &gt; 1.txt</p>
+</blockquote>
+<h3 id="2-2-2-目录管理"><a href="#2-2-2-目录管理" class="headerlink" title="2.2.2 目录管理"></a>2.2.2 目录管理</h3><p>创建目录</p>
+<blockquote>
+<p>mkdir</p>
+</blockquote>
+<p>删除目录</p>
+<blockquote>
+<p>rm</p>
+</blockquote>
+<h3 id="2-2-3-文件权限"><a href="#2-2-3-文件权限" class="headerlink" title="2.2.3 文件权限"></a>2.2.3 文件权限</h3><p>查看文件权限</p>
+<ul>
+<li>-rwx rwx rwx<br>代表：文件；所有者可读、可写、可运行；群组。。。；其他用户。。。；<blockquote>
+<p>ls -l</p>
+</blockquote>
+</li>
+</ul>
+<p>修改文件权限</p>
+<blockquote>
+<p>chmod 777 1.txt</p>
+</blockquote>
+<p>其中的(421)(421)(421)-&gt;777</p>
+<p>变更文件所有者与群组<br>文本1的所有者变更为tina</p>
+<blockquote>
+<p>chown tina 1.txt<br>文本1的所有者变更为root，但文件群组变更为tina<br>chown root:tina 1.txt</p>
+</blockquote>
+<h3 id="2-2-4-系统管理"><a href="#2-2-4-系统管理" class="headerlink" title="2.2.4 系统管理"></a>2.2.4 系统管理</h3><p>超级用户权利来运行工作</p>
+<blockquote>
+<p>sudo </p>
+</blockquote>
+<p>修改密码</p>
+<blockquote>
+<p>passwd</p>
+</blockquote>
+<h3 id="2-2-5-升级操作系统"><a href="#2-2-5-升级操作系统" class="headerlink" title="2.2.5 升级操作系统"></a>2.2.5 升级操作系统</h3><blockquote>
+<p>sudo apt-get update<br>sudo apt-get upgrade</p>
+</blockquote>
+<p>重启系统，确保系统使用最新的升级套件</p>
+<blockquote>
+<p>reboot</p>
+</blockquote>
+<h3 id="2-2-6-安装软件套件"><a href="#2-2-6-安装软件套件" class="headerlink" title="2.2.6 安装软件套件"></a>2.2.6 安装软件套件</h3><blockquote>
+<p>sudo apt-get install</p>
+</blockquote>
+<h3 id="2-2-7-自动运行程序"><a href="#2-2-7-自动运行程序" class="headerlink" title="2.2.7 自动运行程序"></a>2.2.7 自动运行程序</h3><p>修改【/etc/rc.local】文件，在文件内容的最后加入以下信息：</p>
+<blockquote>
+<p>/usr/bin/python /home/pi/button.py &amp;</p>
+</blockquote>
+<p>其中【&amp;】表明以后台方式运行程序</p>
+<h3 id="2-2-7-Shell-Script"><a href="#2-2-7-Shell-Script" class="headerlink" title="2.2.7 Shell Script"></a>2.2.7 Shell Script</h3><p>Linux标准的Shell为BASH；<br>Script语言的特色是，编写成文本文件后，不需要事先编译，而是运行时直接解译每一行的程序内容。</p>
+<blockquote>
+<p>nano sh01</p>
+</blockquote>
+<blockquote>
+<p>输入想依次执行的shell命令</p>
+</blockquote>
+<blockquote>
+<p>#!/bin/bash</p>
+</blockquote>
+<blockquote>
+<p>chmod 777 sh01</p>
+</blockquote>
+<blockquote>
+<p>./sh01</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/19/liniux-基础指令/" data-id="cjx2kdabw0015mcu6s3xic67q" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-git-常用命令" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/06/19/git-常用命令/" class="article-date">
@@ -160,7 +294,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/19/git-常用命令/" data-id="cjx2kbgqg000r7cu6ergy0rxy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/19/git-常用命令/" data-id="cjx2kdabs000xmcu6oklplspe" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
@@ -199,7 +333,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/19/人脸识别-demo/" data-id="cjx2kbgr6001x7cu6sw1860zc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/19/人脸识别-demo/" data-id="cjx2kdac7001nmcu6lt5t1ye7" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/人脸识别/">人脸识别</a></li></ul>
@@ -243,7 +377,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/18/pr-基础使用/" data-id="cjx2kbgr2001q7cu6djyqxyzk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/18/pr-基础使用/" data-id="cjx2kdac4001imcu69tbapff9" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pr/">pr</a></li></ul>
@@ -308,7 +442,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/18/c-c-笔记记录/" data-id="cjx2kbgqk000z7cu602s48dly" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/18/c-c-笔记记录/" data-id="cjx2kdabh000hmcu6k15qkarh" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c-c/">c/c++</a></li></ul>
@@ -356,7 +490,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/18/c-c-环境配置基础知识/" data-id="cjx2kbgq9000g7cu6oqpv1jzi" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/18/c-c-环境配置基础知识/" data-id="cjx2kdabd000bmcu64ounw4co" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c-c/">c/c++</a></li></ul>
@@ -396,7 +530,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/18/emacs-download/" data-id="cjx2kbgqc000k7cu6sdabpcxb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/18/emacs-download/" data-id="cjx2kdabm000nmcu6sv1lpiae" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/emacs/">emacs</a></li></ul>
@@ -439,7 +573,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/17/日记-毕业季/" data-id="cjx2kbgr800207cu6t5j2e9gh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/17/日记-毕业季/" data-id="cjx2kdac6001lmcu6tnx8zpc4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/日记/">日记</a></li></ul>
@@ -478,7 +612,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/12/pytorch-pytorch-hub/" data-id="cjx2kbgr4001t7cu6bhjntbox" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/12/pytorch-pytorch-hub/" data-id="cjx2kdac3001gmcu6efqetq5c" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PyTorch/">PyTorch</a></li></ul>
@@ -518,54 +652,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/12/graduate/" data-id="cjx2kbgqm00127cu6t211iisz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/12/graduate/" data-id="cjx2kdabq000umcu699bfjf9l" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/日记/">日记</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-blog-rebuild" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/06/11/blog-rebuild/" class="article-date">
-  <time datetime="2019-06-11T15:47:40.000Z" itemprop="datePublished">2019-06-11</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/11/blog-rebuild/">blog rebuild</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li><code>Hexo</code>用了一段时间了，有点想换<code>next</code>主题了，分级合理，美化效果也更好看（人家有官网的教程，好牛逼）；</li>
-<li>但是<code>next</code>的没有适配手机的页面配置，导致手机打开网页会很乱，为了照顾我的广大读者（数量：0），我还是会坚持<code>landscpae</code>；</li>
-<li>我在想要不要开放评论区（万一有人喷我）和阅读数（太少会不会丢人），等我考完六级（要考雅思的男人绝逼过不了）就弄，到时候你们就可以肆无忌惮表达对我的爱；</li>
-<li>最后，weijiang爱你们！❤️️️️️</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/11/blog-rebuild/" data-id="cjx2kbgq5000b7cu651s81qv0" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/">Blog</a></li></ul>
 
     </footer>
   </div>
@@ -589,7 +679,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Blog/" style="font-size: 17.5px;">Blog</a> <a href="/tags/Buy/" style="font-size: 10px;">Buy</a> <a href="/tags/Darknet/" style="font-size: 12.5px;">Darknet</a> <a href="/tags/Deep-Learning/" style="font-size: 20px;">Deep Learning</a> <a href="/tags/Jetson-Nano/" style="font-size: 15px;">Jetson Nano</a> <a href="/tags/OpenCV/" style="font-size: 12.5px;">OpenCV</a> <a href="/tags/PyTorch/" style="font-size: 12.5px;">PyTorch</a> <a href="/tags/TensorRT/" style="font-size: 10px;">TensorRT</a> <a href="/tags/c-c/" style="font-size: 12.5px;">c/c++</a> <a href="/tags/emacs/" style="font-size: 10px;">emacs</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/photo/" style="font-size: 12.5px;">photo</a> <a href="/tags/pr/" style="font-size: 10px;">pr</a> <a href="/tags/人脸识别/" style="font-size: 10px;">人脸识别</a> <a href="/tags/日记/" style="font-size: 12.5px;">日记</a> <a href="/tags/目标检测/" style="font-size: 12.5px;">目标检测</a>
+      <a href="/tags/Blog/" style="font-size: 17.5px;">Blog</a> <a href="/tags/Buy/" style="font-size: 10px;">Buy</a> <a href="/tags/Darknet/" style="font-size: 12.5px;">Darknet</a> <a href="/tags/Deep-Learning/" style="font-size: 20px;">Deep Learning</a> <a href="/tags/Jetson-Nano/" style="font-size: 15px;">Jetson Nano</a> <a href="/tags/OpenCV/" style="font-size: 12.5px;">OpenCV</a> <a href="/tags/PyTorch/" style="font-size: 12.5px;">PyTorch</a> <a href="/tags/TensorRT/" style="font-size: 10px;">TensorRT</a> <a href="/tags/c-c/" style="font-size: 12.5px;">c/c++</a> <a href="/tags/emacs/" style="font-size: 10px;">emacs</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/photo/" style="font-size: 12.5px;">photo</a> <a href="/tags/pr/" style="font-size: 10px;">pr</a> <a href="/tags/人脸识别/" style="font-size: 10px;">人脸识别</a> <a href="/tags/日记/" style="font-size: 12.5px;">日记</a> <a href="/tags/目标检测/" style="font-size: 12.5px;">目标检测</a>
     </div>
   </div>
 
@@ -598,7 +688,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">12</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">12</span></li></ul>
     </div>
   </div>
 
@@ -609,6 +699,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/06/19/liniux-基础指令/">[liniux]基础指令</a>
+          </li>
         
           <li>
             <a href="/2019/06/19/git-常用命令/">[git]常用命令</a>
@@ -624,10 +718,6 @@
         
           <li>
             <a href="/2019/06/18/c-c-笔记记录/">[c++]c++笔记记录</a>
-          </li>
-        
-          <li>
-            <a href="/2019/06/18/c-c-环境配置基础知识/">[c++]c++环境配置基础知识</a>
           </li>
         
       </ul>
