@@ -7,18 +7,18 @@
   
   <title>[pytorch]二、分类问题 | weijiangaaa</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="二、分类问题问题：有3堆数据，每个数据的特征都是（x，y），在坐标系中可以对应显示，如何进行分类？问题分析：1、输入的数据为（x，y），说明输入层有2个特征，则对应的n_feature=2，2个特征； 2、输出的分类要分3类，说明输出层有3个特征，则对应的n_output=3，3个特征； 3、其中的n_hidden，不受影响，之前在回归问题中使用的是10个神经元的隐藏层，这里可以不做改变 细节介绍">
+  <meta name="description" content="问题：有3堆数据，每个数据的特征都是（x，y），在坐标系中可以对应显示，如何进行分类？问题分析：1、输入的数据为（x，y），说明输入层有2个特征，则对应的n_feature=2，2个特征； 2、输出的分类要分3类，说明输出层有3个特征，则对应的n_output=3，3个特征； 3、其中的n_hidden，不受影响，之前在回归问题中使用的是10个神经元的隐藏层，这里可以不做改变 细节介绍：1、分类问">
 <meta name="keywords" content="Deep Learning,PyTorch">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[pytorch]二、分类问题">
 <meta property="og:url" content="http://yoursite.com/2019/06/19/pytorch-二、分类问题/index.html">
 <meta property="og:site_name" content="weijiangaaa">
-<meta property="og:description" content="二、分类问题问题：有3堆数据，每个数据的特征都是（x，y），在坐标系中可以对应显示，如何进行分类？问题分析：1、输入的数据为（x，y），说明输入层有2个特征，则对应的n_feature=2，2个特征； 2、输出的分类要分3类，说明输出层有3个特征，则对应的n_output=3，3个特征； 3、其中的n_hidden，不受影响，之前在回归问题中使用的是10个神经元的隐藏层，这里可以不做改变 细节介绍">
+<meta property="og:description" content="问题：有3堆数据，每个数据的特征都是（x，y），在坐标系中可以对应显示，如何进行分类？问题分析：1、输入的数据为（x，y），说明输入层有2个特征，则对应的n_feature=2，2个特征； 2、输出的分类要分3类，说明输出层有3个特征，则对应的n_output=3，3个特征； 3、其中的n_hidden，不受影响，之前在回归问题中使用的是10个神经元的隐藏层，这里可以不做改变 细节介绍：1、分类问">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-19T01:42:46.158Z">
+<meta property="og:updated_time" content="2019-06-19T09:22:54.254Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[pytorch]二、分类问题">
-<meta name="twitter:description" content="二、分类问题问题：有3堆数据，每个数据的特征都是（x，y），在坐标系中可以对应显示，如何进行分类？问题分析：1、输入的数据为（x，y），说明输入层有2个特征，则对应的n_feature=2，2个特征； 2、输出的分类要分3类，说明输出层有3个特征，则对应的n_output=3，3个特征； 3、其中的n_hidden，不受影响，之前在回归问题中使用的是10个神经元的隐藏层，这里可以不做改变 细节介绍">
+<meta name="twitter:description" content="问题：有3堆数据，每个数据的特征都是（x，y），在坐标系中可以对应显示，如何进行分类？问题分析：1、输入的数据为（x，y），说明输入层有2个特征，则对应的n_feature=2，2个特征； 2、输出的分类要分3类，说明输出层有3个特征，则对应的n_output=3，3个特征； 3、其中的n_hidden，不受影响，之前在回归问题中使用的是10个神经元的隐藏层，这里可以不做改变 细节介绍：1、分类问">
   
     <link rel="alternate" href="/atom.xml" title="weijiangaaa" type="application/atom+xml">
   
@@ -93,7 +93,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="二、分类问题"><a href="#二、分类问题" class="headerlink" title="二、分类问题"></a>二、分类问题</h1><h4 id="问题：有3堆数据，每个数据的特征都是（x，y），在坐标系中可以对应显示，如何进行分类？"><a href="#问题：有3堆数据，每个数据的特征都是（x，y），在坐标系中可以对应显示，如何进行分类？" class="headerlink" title="问题：有3堆数据，每个数据的特征都是（x，y），在坐标系中可以对应显示，如何进行分类？"></a>问题：有3堆数据，每个数据的特征都是（x，y），在坐标系中可以对应显示，如何进行分类？</h4><h5 id="问题分析："><a href="#问题分析：" class="headerlink" title="问题分析："></a>问题分析：</h5><p>1、输入的数据为（x，y），说明输入层有2个特征，则对应的n_feature=2，2个特征；</p>
+        <h4 id="问题：有3堆数据，每个数据的特征都是（x，y），在坐标系中可以对应显示，如何进行分类？"><a href="#问题：有3堆数据，每个数据的特征都是（x，y），在坐标系中可以对应显示，如何进行分类？" class="headerlink" title="问题：有3堆数据，每个数据的特征都是（x，y），在坐标系中可以对应显示，如何进行分类？"></a>问题：有3堆数据，每个数据的特征都是（x，y），在坐标系中可以对应显示，如何进行分类？</h4><h5 id="问题分析："><a href="#问题分析：" class="headerlink" title="问题分析："></a>问题分析：</h5><p>1、输入的数据为（x，y），说明输入层有2个特征，则对应的n_feature=2，2个特征；</p>
 <p>2、输出的分类要分3类，说明输出层有3个特征，则对应的n_output=3，3个特征；</p>
 <p>3、其中的n_hidden，不受影响，之前在回归问题中使用的是10个神经元的隐藏层，这里可以不做改变</p>
 <h5 id="细节介绍："><a href="#细节介绍：" class="headerlink" title="细节介绍："></a>细节介绍：</h5><p>1、分类问题的损失函数用<code>torch.nn.CrossEntropyLoss()</code>，其计算的是<code>softmax</code>，即预测误差为【0.1,0.2,0.7】，最后在计算结果中的标签误差为【0,0,1】，即说明分类中属于第三种情况的可能性最大，将其分入第三类中。</p>
