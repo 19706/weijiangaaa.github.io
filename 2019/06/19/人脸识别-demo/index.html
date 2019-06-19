@@ -16,7 +16,7 @@
 <meta property="og:description" content="1、Haar Cascade时间：2001年。  说明：最经典的算法，被Matlab和OpenCV引用作为库。  概况：基于Haar特征的cascade分类器。它是一种机器学习方法，通过许多正负样例中训练得到cascade方程，然后将其应用于其他图片。  前言： 目标检测的基本原理（yolo之前的那些方案）： 1、先通过训练集学习一个分类器； 2、然后在测试图像中以不同scale的窗口滑动扫描整个">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://img-my.csdn.net/uploads/201211/23/1353646276_1594.png">
-<meta property="og:updated_time" content="2019-06-19T08:55:45.584Z">
+<meta property="og:updated_time" content="2019-06-19T09:19:35.384Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[人脸识别]方法总结和对比分析">
 <meta name="twitter:description" content="1、Haar Cascade时间：2001年。  说明：最经典的算法，被Matlab和OpenCV引用作为库。  概况：基于Haar特征的cascade分类器。它是一种机器学习方法，通过许多正负样例中训练得到cascade方程，然后将其应用于其他图片。  前言： 目标检测的基本原理（yolo之前的那些方案）： 1、先通过训练集学习一个分类器； 2、然后在测试图像中以不同scale的窗口滑动扫描整个">
@@ -106,18 +106,35 @@
 <p>1、先通过训练集学习一个分类器；</p>
 <p>2、然后在测试图像中以不同<code>scale</code>的窗口滑动扫描整个图像；</p>
 <p>3、每次扫描做一下分类，判断一下当前的这个窗口是否为要检测的目标。</p>
-<p>算法的核心是分类，分类的核心一个是<strong>用什么特征</strong>，一个是<strong>用哪种分类器</strong>。</p>
 <ul>
-<li><code>Haar特征/矩形特征</code>，计算Haar特征个数，是使用黑色的所有像素值和减去白色的所有像素值和。</li>
+<li>算法的核心是分类，分类的核心一个是<strong>用什么特征</strong>，一个是<strong>用哪种分类器</strong>。</li>
+</ul>
+<hr>
+<ul>
+<li><code>Haar特征/矩形特征</code>，计算Haar特征个数，是使用黑色的所有像素值和减去白色的所有像素值和，<strong>24x24尺寸的滑动窗口特征数就超过160000</strong>。</li>
 </ul>
 <p><img src="https://img-my.csdn.net/uploads/201211/23/1353646276_1594.png" alt></p>
+<hr>
 <ul>
-<li><p><code>Integral Image</code>，来重新表示一幅图像，把计算量一下就缩减了一个量级。</p>
-</li>
-<li><p><code>Cascade 分类器</code>，提出级联分类器的方法，检测一个窗口未必要计算所有这T个特征。</p>
+<li><code>Integral Image</code>，来重新表示一幅图像，<strong>把计算量一下就缩减了一个量级</strong>。</li>
+</ul>
+<hr>
+<ul>
+<li><p><code>AdaBoost分类器</code>，是把多个弱分类器结合起来形成一个强分类器，是这些弱分类器的加权和。每个弱分类器的准确率并不高，但最后形成的强分类器的准确率就很高了，有很好的泛化能力，<strong>从超过16万个的特征中选择最好的特征</strong>，只需要200个特征的分类器在检测中的精确度达到了95%。</p>
+<p><em>”因此，我们将每个特征都应用于所有训练集图片中，对于每个特征，找出人脸图片分类效果最好的阈值。显然，分类会有误分类，我们选择分类错误率最小的那些特征，也就是说这些特征可以最好的将人脸图片和非人脸图片区分开。(实际上没有那么简单，每个图片初始时给定相同的权重。每次分类后，提升被分类错误图片的权重。然后再根据新的权重分类，计算出新的错误率和新的权重，直到错误率或迭代次数达到要求即停止。“</em></p>
 </li>
 </ul>
+<hr>
+<ul>
+<li><code>Cascade 分类器</code>，有人后续引入，提出级联分类器的方法，<strong>窗口在第一个阶段就检测失败了，那么就直接舍弃它，无需考虑剩下的特征。</strong> 级联分类器的关键是强分类器的次序安排：把<code>简单的</code>、<code>False Negative低</code>的安排在最前面。 这样可以快速判断出那些不相关的区域，把更多的计算量用在潜在区域.<ul>
+<li>False Positive：把合法的判断成非法的，译为“误报”。（相当于医学上的假阳性）</li>
+<li>False Negative：把非法的判断成合法，译为“漏报”。（相当于医学上的假阴性）</li>
+</ul>
+</li>
+</ul>
+<hr>
 <p>《Rapid Object Detection using a Boosted Cascade of Simple Features》<br>原文链接：<a href="https://ieeexplore.ieee.org/document/990517" target="_blank" rel="noopener">https://ieeexplore.ieee.org/document/990517</a></p>
+<p>参考链接：<a href="https://blog.csdn.net/u012116229/article/details/45057937" target="_blank" rel="noopener"><a href="https://blog.csdn.net/u012116229/article/details/45057937" target="_blank" rel="noopener">https://blog.csdn.net/u012116229/article/details/45057937</a></a></p>
 
       
     </div>
