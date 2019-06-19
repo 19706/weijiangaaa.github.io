@@ -8,7 +8,7 @@
   <title>一、yolov3-darknet-image | weijiangaaa</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="前言：Jetson Nano使用cam运行实时目标检测，读出预测框的坐标 1、开发框架的选择pytorch（训练模型灵活好用）；tensorflow（资源丰富、支持较多）；caffee（使用c++开发，速度快）；darknet（yolo专用的小型框架）；detectnet（NVIDIA使用DIGIST训练的框架）  FINALLY，本文选择darknet（因为其他暂时没找到教程）  2、摄像头的选">
-<meta name="keywords" content="Deep Learning,Darknet">
+<meta name="keywords" content="Deep Learning,Darknet,目标检测">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一、yolov3-darknet-image">
 <meta property="og:url" content="http://yoursite.com/2019/06/10/yolo-darknet/index.html">
@@ -16,7 +16,7 @@
 <meta property="og:description" content="前言：Jetson Nano使用cam运行实时目标检测，读出预测框的坐标 1、开发框架的选择pytorch（训练模型灵活好用）；tensorflow（资源丰富、支持较多）；caffee（使用c++开发，速度快）；darknet（yolo专用的小型框架）；detectnet（NVIDIA使用DIGIST训练的框架）  FINALLY，本文选择darknet（因为其他暂时没找到教程）  2、摄像头的选">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://pjreddie.com/media/image/Screen_Shot_2018-03-24_at_10.48.42_PM.png">
-<meta property="og:updated_time" content="2019-06-11T18:50:41.671Z">
+<meta property="og:updated_time" content="2019-06-19T01:07:36.286Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一、yolov3-darknet-image">
 <meta name="twitter:description" content="前言：Jetson Nano使用cam运行实时目标检测，读出预测框的坐标 1、开发框架的选择pytorch（训练模型灵活好用）；tensorflow（资源丰富、支持较多）；caffee（使用c++开发，速度快）；darknet（yolo专用的小型框架）；detectnet（NVIDIA使用DIGIST训练的框架）  FINALLY，本文选择darknet（因为其他暂时没找到教程）  2、摄像头的选">
@@ -123,10 +123,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/10/yolo-darknet/" data-id="cjx1kvhjq001wfou6rje1jp1i" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/10/yolo-darknet/" data-id="cjx2kbgr3001s7cu6fcchapht" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Darknet/">Darknet</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Darknet/">Darknet</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/目标检测/">目标检测</a></li></ul>
 
     </footer>
   </div>
@@ -162,7 +162,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Blog/" style="font-size: 17.5px;">Blog</a> <a href="/tags/Buy/" style="font-size: 10px;">Buy</a> <a href="/tags/Darknet/" style="font-size: 12.5px;">Darknet</a> <a href="/tags/Deep-Learning/" style="font-size: 20px;">Deep Learning</a> <a href="/tags/Jetson-Nano/" style="font-size: 15px;">Jetson Nano</a> <a href="/tags/OpenCV/" style="font-size: 12.5px;">OpenCV</a> <a href="/tags/PyTorch/" style="font-size: 12.5px;">PyTorch</a> <a href="/tags/c-c/" style="font-size: 12.5px;">c/c++</a> <a href="/tags/emacs/" style="font-size: 10px;">emacs</a> <a href="/tags/photo/" style="font-size: 12.5px;">photo</a> <a href="/tags/日记/" style="font-size: 12.5px;">日记</a>
+      <a href="/tags/Blog/" style="font-size: 17.5px;">Blog</a> <a href="/tags/Buy/" style="font-size: 10px;">Buy</a> <a href="/tags/Darknet/" style="font-size: 12.5px;">Darknet</a> <a href="/tags/Deep-Learning/" style="font-size: 20px;">Deep Learning</a> <a href="/tags/Jetson-Nano/" style="font-size: 15px;">Jetson Nano</a> <a href="/tags/OpenCV/" style="font-size: 12.5px;">OpenCV</a> <a href="/tags/PyTorch/" style="font-size: 12.5px;">PyTorch</a> <a href="/tags/TensorRT/" style="font-size: 10px;">TensorRT</a> <a href="/tags/c-c/" style="font-size: 12.5px;">c/c++</a> <a href="/tags/emacs/" style="font-size: 10px;">emacs</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/photo/" style="font-size: 12.5px;">photo</a> <a href="/tags/pr/" style="font-size: 10px;">pr</a> <a href="/tags/人脸识别/" style="font-size: 10px;">人脸识别</a> <a href="/tags/日记/" style="font-size: 12.5px;">日记</a> <a href="/tags/目标检测/" style="font-size: 12.5px;">目标检测</a>
     </div>
   </div>
 
@@ -171,7 +171,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">12</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">12</span></li></ul>
     </div>
   </div>
 
@@ -184,23 +184,23 @@
       <ul>
         
           <li>
+            <a href="/2019/06/19/git-常用命令/">[git]常用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/19/人脸识别-demo/">[人脸识别]方法总结和对比分析</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/18/pr-基础使用/">[pr]基础使用</a>
+          </li>
+        
+          <li>
             <a href="/2019/06/18/c-c-笔记记录/">[c++]c++笔记记录</a>
           </li>
         
           <li>
             <a href="/2019/06/18/c-c-环境配置基础知识/">[c++]c++环境配置基础知识</a>
-          </li>
-        
-          <li>
-            <a href="/2019/06/18/emacs-download/">[emacs]download</a>
-          </li>
-        
-          <li>
-            <a href="/2019/06/17/日记-毕业季/">[日记]毕业季</a>
-          </li>
-        
-          <li>
-            <a href="/2019/06/12/pytorch-pytorch-hub/">[pytorch] pytorch hub</a>
           </li>
         
       </ul>

@@ -8,14 +8,14 @@
   <title>二、yolov3_tiny-darknet-webcam | weijiangaaa</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="承接上文 前言：上文使用的是单张图片的目标检测，本文完成的是通过webcam完成实时的目标检测； 1、说明： 框架：darknet 底层语言：c 权重参数：yolov3-tiny 设备：webcam  2、步骤：1、先修改makefile里的编译文件，opencv=1，cuda=12、make clean-&amp;gt;make3、确保darknet-master目录下有.weights文件4、直接运行">
-<meta name="keywords" content="Deep Learning,Darknet">
+<meta name="keywords" content="Deep Learning,Darknet,目标检测">
 <meta property="og:type" content="article">
 <meta property="og:title" content="二、yolov3_tiny-darknet-webcam">
 <meta property="og:url" content="http://yoursite.com/2019/06/11/yolo-darknet-webcam/index.html">
 <meta property="og:site_name" content="weijiangaaa">
 <meta property="og:description" content="承接上文 前言：上文使用的是单张图片的目标检测，本文完成的是通过webcam完成实时的目标检测； 1、说明： 框架：darknet 底层语言：c 权重参数：yolov3-tiny 设备：webcam  2、步骤：1、先修改makefile里的编译文件，opencv=1，cuda=12、make clean-&amp;gt;make3、确保darknet-master目录下有.weights文件4、直接运行">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-11T18:50:41.101Z">
+<meta property="og:updated_time" content="2019-06-19T01:06:19.412Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="二、yolov3_tiny-darknet-webcam">
 <meta name="twitter:description" content="承接上文 前言：上文使用的是单张图片的目标检测，本文完成的是通过webcam完成实时的目标检测； 1、说明： 框架：darknet 底层语言：c 权重参数：yolov3-tiny 设备：webcam  2、步骤：1、先修改makefile里的编译文件，opencv=1，cuda=12、make clean-&amp;gt;make3、确保darknet-master目录下有.weights文件4、直接运行">
@@ -107,10 +107,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/11/yolo-darknet-webcam/" data-id="cjx1kvhjo001ufou6fil6wcld" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/11/yolo-darknet-webcam/" data-id="cjx2kbgr7001y7cu6cq44n9oe" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Darknet/">Darknet</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Darknet/">Darknet</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/目标检测/">目标检测</a></li></ul>
 
     </footer>
   </div>
@@ -146,7 +146,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Blog/" style="font-size: 17.5px;">Blog</a> <a href="/tags/Buy/" style="font-size: 10px;">Buy</a> <a href="/tags/Darknet/" style="font-size: 12.5px;">Darknet</a> <a href="/tags/Deep-Learning/" style="font-size: 20px;">Deep Learning</a> <a href="/tags/Jetson-Nano/" style="font-size: 15px;">Jetson Nano</a> <a href="/tags/OpenCV/" style="font-size: 12.5px;">OpenCV</a> <a href="/tags/PyTorch/" style="font-size: 12.5px;">PyTorch</a> <a href="/tags/c-c/" style="font-size: 12.5px;">c/c++</a> <a href="/tags/emacs/" style="font-size: 10px;">emacs</a> <a href="/tags/photo/" style="font-size: 12.5px;">photo</a> <a href="/tags/日记/" style="font-size: 12.5px;">日记</a>
+      <a href="/tags/Blog/" style="font-size: 17.5px;">Blog</a> <a href="/tags/Buy/" style="font-size: 10px;">Buy</a> <a href="/tags/Darknet/" style="font-size: 12.5px;">Darknet</a> <a href="/tags/Deep-Learning/" style="font-size: 20px;">Deep Learning</a> <a href="/tags/Jetson-Nano/" style="font-size: 15px;">Jetson Nano</a> <a href="/tags/OpenCV/" style="font-size: 12.5px;">OpenCV</a> <a href="/tags/PyTorch/" style="font-size: 12.5px;">PyTorch</a> <a href="/tags/TensorRT/" style="font-size: 10px;">TensorRT</a> <a href="/tags/c-c/" style="font-size: 12.5px;">c/c++</a> <a href="/tags/emacs/" style="font-size: 10px;">emacs</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/photo/" style="font-size: 12.5px;">photo</a> <a href="/tags/pr/" style="font-size: 10px;">pr</a> <a href="/tags/人脸识别/" style="font-size: 10px;">人脸识别</a> <a href="/tags/日记/" style="font-size: 12.5px;">日记</a> <a href="/tags/目标检测/" style="font-size: 12.5px;">目标检测</a>
     </div>
   </div>
 
@@ -155,7 +155,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">12</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">12</span></li></ul>
     </div>
   </div>
 
@@ -168,23 +168,23 @@
       <ul>
         
           <li>
+            <a href="/2019/06/19/git-常用命令/">[git]常用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/19/人脸识别-demo/">[人脸识别]方法总结和对比分析</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/18/pr-基础使用/">[pr]基础使用</a>
+          </li>
+        
+          <li>
             <a href="/2019/06/18/c-c-笔记记录/">[c++]c++笔记记录</a>
           </li>
         
           <li>
             <a href="/2019/06/18/c-c-环境配置基础知识/">[c++]c++环境配置基础知识</a>
-          </li>
-        
-          <li>
-            <a href="/2019/06/18/emacs-download/">[emacs]download</a>
-          </li>
-        
-          <li>
-            <a href="/2019/06/17/日记-毕业季/">[日记]毕业季</a>
-          </li>
-        
-          <li>
-            <a href="/2019/06/12/pytorch-pytorch-hub/">[pytorch] pytorch hub</a>
           </li>
         
       </ul>
