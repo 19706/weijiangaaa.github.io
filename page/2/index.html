@@ -104,7 +104,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/18/c-c-环境配置基础知识/" data-id="cjx976q970017c8u6m6zkjz22" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/18/c-c-环境配置基础知识/" data-id="cjxo2oj2z0006aku6uz53grbi" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c-c/">c/c++</a></li></ul>
@@ -144,7 +144,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/18/emacs-download/" data-id="cjx976q92000yc8u61me0mfsa" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/18/emacs-download/" data-id="cjxo2oj35000faku613fffl0i" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/emacs/">emacs</a></li></ul>
@@ -183,160 +183,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/12/pytorch-pytorch-hub/" data-id="cjx976q9e001hc8u6ft9jofc0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/12/pytorch-pytorch-hub/" data-id="cjxo2oj3k000yaku6ktvouipr" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PyTorch/">PyTorch</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-yolo-darknet-webcam" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/06/11/yolo-darknet-webcam/" class="article-date">
-  <time datetime="2019-06-11T14:40:39.000Z" itemprop="datePublished">2019-06-11</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/11/yolo-darknet-webcam/">二、yolov3_tiny-darknet-webcam</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><em>承接上文</em></p>
-<p>前言：上文使用的是单张图片的目标检测，本文完成的是通过<code>webcam</code>完成实时的目标检测；</p>
-<h2 id="1、说明："><a href="#1、说明：" class="headerlink" title="1、说明："></a>1、说明：</h2><ul>
-<li>框架：<code>darknet</code></li>
-<li>底层语言：<code>c</code></li>
-<li>权重参数：<code>yolov3-tiny</code></li>
-<li>设备：<code>webcam</code></li>
-</ul>
-<h2 id="2、步骤："><a href="#2、步骤：" class="headerlink" title="2、步骤："></a>2、步骤：</h2><p>1、先修改<code>makefile</code>里的编译文件，<code>opencv=1</code>，<code>cuda=1</code><br>2、<code>make clean</code>-&gt;<code>make</code><br>3、确保<code>darknet-master</code>目录下有<code>.weights</code>文件<br>4、直接运行<code>./darknet detector demo cfg/coco.data cfg/yolov3-tiny.cfg yolov3-tiny.weights -c 1</code></p>
-<h3 id="注："><a href="#注：" class="headerlink" title="注："></a>注：</h3><p>1、csi摄像头无法使用<br>2、一定要加<code>-c 1</code>选项，否则无论csi摄像头是否连接都无法启用<code>webcam</code><br>3、<code>fps10</code>左右，</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/11/yolo-darknet-webcam/" data-id="cjx976q9v002cc8u64akr35dq" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Darknet/">Darknet</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/目标检测/">目标检测</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-yolo-darknet" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/06/10/yolo-darknet/" class="article-date">
-  <time datetime="2019-06-09T16:45:39.000Z" itemprop="datePublished">2019-06-10</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/10/yolo-darknet/">一、yolov3-darknet-image</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>前言：Jetson Nano使用cam运行实时目标检测，读出预测框的坐标</p>
-<h3 id="1、开发框架的选择"><a href="#1、开发框架的选择" class="headerlink" title="1、开发框架的选择"></a>1、开发框架的选择</h3><p><code>pytorch</code>（训练模型灵活好用）；<br><code>tensorflow</code>（资源丰富、支持较多）；<br><code>caffee</code>（使用c++开发，速度快）；<br><code>darknet</code>（yolo专用的小型框架）；<br><code>detectnet</code>（NVIDIA使用DIGIST训练的框架）</p>
-<ul>
-<li>FINALLY，本文选择darknet（因为其他暂时没找到教程）</li>
-</ul>
-<h3 id="2、摄像头的选择"><a href="#2、摄像头的选择" class="headerlink" title="2、摄像头的选择"></a>2、摄像头的选择</h3><p>csi摄像头（使用pciee。。完成调用，速度显然更快，但是目前还不会）<br>webcam（通过usb总线进行视频流的调用，资料较多，速度相比以上较慢）</p>
-<p>FINALLY，本文选择webcam（因为csi不知道如何在opencv中调用）</p>
-<h4 id="3、过程实现"><a href="#3、过程实现" class="headerlink" title="3、过程实现"></a>3、过程实现</h4><ul>
-<li><p>1、从<code>github</code>上<code>clone</code>源码；</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/pjreddie/darknet</span><br><span class="line">cd darknet</span><br><span class="line">make</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>2、通过<code>wget</code>下载权重参数；</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://pjreddie.com/media/files/yolov3.weights</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>3、通过脚本直接运行<code>detect</code>；</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./darknet detect cfg/yolov3.cfg yolov3.weights data/dog.jpg</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>4、以下是模型网络的结构；</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">layer     filters    size              input                output</span><br><span class="line">    0 conv     32  3 x 3 / 1   416 x 416 x   3   -&gt;   416 x 416 x  32  0.299 BFLOPs</span><br><span class="line">    1 conv     64  3 x 3 / 2   416 x 416 x  32   -&gt;   208 x 208 x  64  1.595 BFLOPs</span><br><span class="line">    .......</span><br><span class="line">  105 conv    255  1 x 1 / 1    52 x  52 x 256   -&gt;    52 x  52 x 255  0.353 BFLOPs</span><br><span class="line">  <span class="number">106</span> detection</span><br><span class="line">truth_thresh: Using default <span class="string">'1.000000'</span></span><br><span class="line">Loading weights <span class="keyword">from</span> yolov3.weights...Done!</span><br><span class="line">data/dog.jpg: Predicted <span class="keyword">in</span> <span class="number">0.029329</span> seconds.</span><br><span class="line">dog: <span class="number">99</span>%</span><br><span class="line">truck: <span class="number">93</span>%</span><br><span class="line">bicycle: <span class="number">99</span>%</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>5、<code>yolov3</code>目标检测效果<br><img src="https://pjreddie.com/media/image/Screen_Shot_2018-03-24_at_10.48.42_PM.png" alt></p>
-</li>
-</ul>
-<p>参考：<a href="https://pjreddie.com/darknet/yolo/" target="_blank" rel="noopener">https://pjreddie.com/darknet/yolo/</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/10/yolo-darknet/" data-id="cjx976q9r0025c8u6jgb3hytr" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Darknet/">Darknet</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/目标检测/">目标检测</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Opencv-serial-vs2017" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/06/09/Opencv-serial-vs2017/" class="article-date">
-  <time datetime="2019-06-09T11:49:52.000Z" itemprop="datePublished">2019-06-09</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/09/Opencv-serial-vs2017/">Opencv-serial-vs2017</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>记录问题1：如何在不同的工程之下使用opencv<br>问题描述：环境是vs2017，在首次配置OpenCV环境之后，该工程之下的opencv操作没有任何问题<br>解决方案：在另一工程下，只需要修改debug的方式为x64即可</p>
-<p>记录问题2：使用vs2017进行串口通信，出现初始的报错<br>问题描述：环境是vs2017，使用c++的serial的配置出现未引用#include “stdafx.h”<br>解决方案：将#include “stdafx.h”进行注释，并在【项目】-【属性】-【C/C++】-【预编译头】-【创建/使用预编译头】，不使用预编译头文件</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/09/Opencv-serial-vs2017/" data-id="cjx976q930011c8u6dqcm0p86" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OpenCV/">OpenCV</a></li></ul>
 
     </footer>
   </div>
@@ -376,7 +226,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/01/tensorrt-introduction/" data-id="cjx976q9l001uc8u6c5bc9k7m" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/01/tensorrt-introduction/" data-id="cjxo2oj3s0016aku607qf09so" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TensorRT/">TensorRT</a></li></ul>
@@ -424,7 +274,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/31/keyboard/" data-id="cjx976q9i001pc8u65o493r0d" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/31/keyboard/" data-id="cjxo2oj3a000laku6tqfz4hvj" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Buy/">Buy</a></li></ul>
@@ -463,7 +313,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/31/emoji-test/" data-id="cjx976q950013c8u67o2rxza5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/31/emoji-test/" data-id="cjxo2oj38000jaku6goges9cw" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/">Blog</a></li></ul>
@@ -506,10 +356,145 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/28/daily-photo-1/" data-id="cjx976q8v000qc8u6lro7kcl4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/28/daily-photo-1/" data-id="cjxo2oj36000gaku650o91u6a" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/photo/">photo</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-daily-photo" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/05/22/daily-photo/" class="article-date">
+  <time datetime="2019-05-22T09:19:56.000Z" itemprop="datePublished">2019-05-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/22/daily-photo/">中北大学 龙山餐厅</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="拍摄于-中北大学-龙山餐厅"><a href="#拍摄于-中北大学-龙山餐厅" class="headerlink" title="拍摄于 中北大学 龙山餐厅"></a>拍摄于 中北大学 龙山餐厅</h3><h3 id="时间：2019-05-21-19：00"><a href="#时间：2019-05-21-19：00" class="headerlink" title="时间：2019-05-21 19：00"></a>时间：2019-05-21 19：00</h3>
+        
+          <p class="article-more-link">
+            <a href="/2019/05/22/daily-photo/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/05/22/daily-photo/" data-id="cjxo2oj31000aaku6frmpnmdp" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/photo/">photo</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/05/22/hello-world/" class="article-date">
+  <time datetime="2019-05-22T08:50:08.876Z" itemprop="datePublished">2019-05-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/22/hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<p><img src="https://github.com/weijiangaaa/MyPostImag/blob/branch1/magazine1.jpg?raw=true" alt="iamge2"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/05/22/hello-world/" data-id="cjxo2oj3e000paku66plrltu1" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-pytorch-九、CNN" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/05/20/pytorch-九、CNN/" class="article-date">
+  <time datetime="2019-05-20T03:17:23.000Z" itemprop="datePublished">2019-05-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/20/pytorch-九、CNN/">[pytorch]九、卷积神经网络</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>（Convolutional Neural Networks, CNN）<br><img src="https://pic1.zhimg.com/v2-6428cf505ac1e9e1cf462e1ec8fe9a68_b.gif" alt><br><img src="https://github.com/weijiangaaa/MyPostImag/blob/master/0_qd07w4Yevqq2d1vY.png?raw=true" alt></p>
+<p>在图片和语言方面有更优的测试效果</p>
+<p>计算器图像识别、视频分析、NLP、AlphaGo等等</p>
+<p>运作分析：<br>图片分析<br>图片的矩阵<br>优势在于，卷积在于区域处理，增加连续性，增加理解，批量过滤器<br>
+        
+          </p><p class="article-more-link">
+            <a href="/2019/05/20/pytorch-九、CNN/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/05/20/pytorch-九、CNN/" data-id="cjxo2oj4c0023aku66yyk5dju" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li></ul>
 
     </footer>
   </div>
@@ -533,7 +518,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Blog/" style="font-size: 15px;">Blog</a> <a href="/tags/Buy/" style="font-size: 10px;">Buy</a> <a href="/tags/Darknet/" style="font-size: 12.5px;">Darknet</a> <a href="/tags/Deep-Learning/" style="font-size: 20px;">Deep Learning</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Jetson-Nano/" style="font-size: 15px;">Jetson Nano</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Machine-Learning/" style="font-size: 10px;">Machine Learning</a> <a href="/tags/OpenCV/" style="font-size: 15px;">OpenCV</a> <a href="/tags/PR/" style="font-size: 10px;">PR</a> <a href="/tags/PyTorch/" style="font-size: 17.5px;">PyTorch</a> <a href="/tags/TensorRT/" style="font-size: 10px;">TensorRT</a> <a href="/tags/c-c/" style="font-size: 12.5px;">c/c++</a> <a href="/tags/emacs/" style="font-size: 10px;">emacs</a> <a href="/tags/photo/" style="font-size: 12.5px;">photo</a> <a href="/tags/人脸识别/" style="font-size: 12.5px;">人脸识别</a> <a href="/tags/目标检测/" style="font-size: 12.5px;">目标检测</a>
+      <a href="/tags/Blog/" style="font-size: 15px;">Blog</a> <a href="/tags/Buy/" style="font-size: 10px;">Buy</a> <a href="/tags/Deep-Learning/" style="font-size: 20px;">Deep Learning</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Machine-Learning/" style="font-size: 10px;">Machine Learning</a> <a href="/tags/OpenCV/" style="font-size: 10px;">OpenCV</a> <a href="/tags/PyTorch/" style="font-size: 17.5px;">PyTorch</a> <a href="/tags/TensorRT/" style="font-size: 10px;">TensorRT</a> <a href="/tags/c-c/" style="font-size: 12.5px;">c/c++</a> <a href="/tags/emacs/" style="font-size: 10px;">emacs</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/photo/" style="font-size: 12.5px;">photo</a> <a href="/tags/pr/" style="font-size: 10px;">pr</a> <a href="/tags/人脸识别/" style="font-size: 12.5px;">人脸识别</a>
     </div>
   </div>
 
@@ -542,7 +527,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">12</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">8</span></li></ul>
     </div>
   </div>
 
