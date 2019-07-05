@@ -68,6 +68,115 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-pr-基础使用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/18/pr-基础使用/" class="article-date">
+  <time datetime="2019-06-18T13:51:48.000Z" itemprop="datePublished">2019-06-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/18/pr-基础使用/">[pr]基础使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1、新建项目<br>名称和位置，是主要需要设置的参数；<br>渲染程序可以选择GPU的加速；<br>暂存盘，设置预览的暂存位置；</p>
+<p>2、工作界面<br>项目窗口<br>工作核心：时间轴窗口</p>
+<p>3、设置<br>首选项<br>外观<br>音频硬件：默认输出<br>自动保存：时间间隔缩短<br>媒体：时间码<br>媒体缓存文件、数据库：更改到其他的盘</p>
+<p>4、新建序列<br>序列预设<br>red r3d-&gt;1080p25<br>hdv-&gt;720p25</p>
+<p>编辑 首选项 常规 素材箱 双击 在新窗口中打开</p>
+<p>在源文件窗口中设置<code>入点</code>和<code>出点</code><br>单击前进和后退一帧</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/18/pr-基础使用/" data-id="cjxpj5zyr000uvku6irybmx3s" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pr/">pr</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-c-c-笔记记录" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/18/c-c-笔记记录/" class="article-date">
+  <time datetime="2019-06-18T03:51:14.000Z" itemprop="datePublished">2019-06-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/18/c-c-笔记记录/">[c++]c++笔记记录</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="存储变量类型："><a href="#存储变量类型：" class="headerlink" title="存储变量类型："></a>存储变量类型：</h2><p>1、<code>register</code> 存储类用于定义存储在寄存器中而不是 RAM 中的局部变量，且不能对它应用一元的 ‘&amp;’ 运算符。</p>
+<p>2、<code>static</code> 修饰局部变量可以在函数调用之间保持局部变量的值。<br><code>static</code> 修饰符也可以应用于全局变量。当 static 修饰全局变量时，会使变量的作用域限制在声明它的文件内。</p>
+<p>3、<code>extern</code> 是用来在另一个文件中声明一个全局变量或函数。<br>无法初始化的变量。<br>全局变量对所有的程序文件都是可见的。</p>
+<h2 id="函数参数："><a href="#函数参数：" class="headerlink" title="函数参数："></a>函数参数：</h2><table>
+<thead>
+<tr>
+<th>调用类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>传值调用</td>
+<td>修改函数内的形式参数对实际参数没有影响。</td>
+</tr>
+<tr>
+<td>指针调用</td>
+<td>该方法把参数的地址复制给形式参数，修改形式参数会影响实际参数。</td>
+</tr>
+<tr>
+<td>引用调用</td>
+<td>该方法把参数的引用复制给形式参数，修改形式参数会影响实际参数。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="字符串："><a href="#字符串：" class="headerlink" title="字符串："></a>字符串：</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> greeting[<span class="number">6</span>] = &#123;<span class="string">'H'</span>, <span class="string">'e'</span>, <span class="string">'l'</span>, <span class="string">'l'</span>, <span class="string">'o'</span>, <span class="string">'\0'</span>&#125;;</span><br><span class="line"><span class="keyword">char</span> greeting[] = <span class="string">"Hello"</span>;</span><br><span class="line"><span class="built_in">string</span> str1 = <span class="string">"Hello"</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="指针："><a href="#指针：" class="headerlink" title="指针："></a>指针：</h2><p>动态内存分配。<br>指针是一个变量，其值为另一个变量的地址。<br>所有指针的值的实际数据类型，不管是整型、浮点型、字符型，还是其他的数据类型，都是一样的，都是一个代表内存地址的长的十六进制数。<br>定义一个指针变量-&gt;把变量地址赋值给指针-&gt;访问指针变量中可用地址的值。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/18/c-c-笔记记录/" data-id="cjxpj5zyb0009vku68b4276pw" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c-c/">c/c++</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-c-c-环境配置基础知识" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/06/18/c-c-环境配置基础知识/" class="article-date">
@@ -104,7 +213,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/18/c-c-环境配置基础知识/" data-id="cjxo2oj2z0006aku6uz53grbi" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/18/c-c-环境配置基础知识/" data-id="cjxpj5zyd000bvku6mtsuro3k" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c-c/">c/c++</a></li></ul>
@@ -144,7 +253,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/18/emacs-download/" data-id="cjxo2oj35000faku613fffl0i" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/18/emacs-download/" data-id="cjxpj5zyj000ivku6m7zypk9m" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/emacs/">emacs</a></li></ul>
@@ -183,7 +292,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/12/pytorch-pytorch-hub/" data-id="cjxo2oj3k000yaku6ktvouipr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/12/pytorch-pytorch-hub/" data-id="cjxpj5zyu000zvku6pj001xj2" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PyTorch/">PyTorch</a></li></ul>
@@ -226,7 +335,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/01/tensorrt-introduction/" data-id="cjxo2oj3s0016aku607qf09so" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/01/tensorrt-introduction/" data-id="cjxpj5zz6001dvku63zvy66f3" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TensorRT/">TensorRT</a></li></ul>
@@ -274,7 +383,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/31/keyboard/" data-id="cjxo2oj3a000laku6tqfz4hvj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/31/keyboard/" data-id="cjxpj5zyn000nvku6uc9ecjel" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Buy/">Buy</a></li></ul>
@@ -313,7 +422,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/31/emoji-test/" data-id="cjxo2oj38000jaku6goges9cw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/31/emoji-test/" data-id="cjxpj5zyl000lvku6vhiavv2v" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/">Blog</a></li></ul>
@@ -356,7 +465,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/28/daily-photo-1/" data-id="cjxo2oj36000gaku650o91u6a" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/28/daily-photo-1/" data-id="cjxpj5zyg000gvku6g583wlq4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/photo/">photo</a></li></ul>
@@ -399,102 +508,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/22/daily-photo/" data-id="cjxo2oj31000aaku6frmpnmdp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/22/daily-photo/" data-id="cjxpj5zyf000dvku60e5otdf0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/photo/">photo</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/05/22/hello-world/" class="article-date">
-  <time datetime="2019-05-22T08:50:08.876Z" itemprop="datePublished">2019-05-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/22/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-<p><img src="https://github.com/weijiangaaa/MyPostImag/blob/branch1/magazine1.jpg?raw=true" alt="iamge2"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/22/hello-world/" data-id="cjxo2oj3e000paku66plrltu1" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-pytorch-九、CNN" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/05/20/pytorch-九、CNN/" class="article-date">
-  <time datetime="2019-05-20T03:17:23.000Z" itemprop="datePublished">2019-05-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/20/pytorch-九、CNN/">[pytorch]九、卷积神经网络</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>（Convolutional Neural Networks, CNN）<br><img src="https://pic1.zhimg.com/v2-6428cf505ac1e9e1cf462e1ec8fe9a68_b.gif" alt><br><img src="https://github.com/weijiangaaa/MyPostImag/blob/master/0_qd07w4Yevqq2d1vY.png?raw=true" alt></p>
-<p>在图片和语言方面有更优的测试效果</p>
-<p>计算器图像识别、视频分析、NLP、AlphaGo等等</p>
-<p>运作分析：<br>图片分析<br>图片的矩阵<br>优势在于，卷积在于区域处理，增加连续性，增加理解，批量过滤器<br>
-        
-          </p><p class="article-more-link">
-            <a href="/2019/05/20/pytorch-九、CNN/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/20/pytorch-九、CNN/" data-id="cjxo2oj4c0023aku66yyk5dju" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li></ul>
 
     </footer>
   </div>
@@ -518,7 +535,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Blog/" style="font-size: 15px;">Blog</a> <a href="/tags/Buy/" style="font-size: 10px;">Buy</a> <a href="/tags/Deep-Learning/" style="font-size: 20px;">Deep Learning</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Machine-Learning/" style="font-size: 10px;">Machine Learning</a> <a href="/tags/OpenCV/" style="font-size: 10px;">OpenCV</a> <a href="/tags/PyTorch/" style="font-size: 17.5px;">PyTorch</a> <a href="/tags/TensorRT/" style="font-size: 10px;">TensorRT</a> <a href="/tags/c-c/" style="font-size: 12.5px;">c/c++</a> <a href="/tags/emacs/" style="font-size: 10px;">emacs</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/photo/" style="font-size: 12.5px;">photo</a> <a href="/tags/pr/" style="font-size: 10px;">pr</a> <a href="/tags/人脸识别/" style="font-size: 12.5px;">人脸识别</a>
+      <a href="/tags/Blog/" style="font-size: 15px;">Blog</a> <a href="/tags/Buy/" style="font-size: 10px;">Buy</a> <a href="/tags/Deep-Learning/" style="font-size: 20px;">Deep Learning</a> <a href="/tags/GAKKI/" style="font-size: 10px;">GAKKI</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Machine-Learning/" style="font-size: 10px;">Machine Learning</a> <a href="/tags/OpenCV/" style="font-size: 10px;">OpenCV</a> <a href="/tags/PyTorch/" style="font-size: 17.5px;">PyTorch</a> <a href="/tags/TensorRT/" style="font-size: 10px;">TensorRT</a> <a href="/tags/c-c/" style="font-size: 12.5px;">c/c++</a> <a href="/tags/emacs/" style="font-size: 10px;">emacs</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/photo/" style="font-size: 12.5px;">photo</a> <a href="/tags/pr/" style="font-size: 10px;">pr</a> <a href="/tags/人脸识别/" style="font-size: 12.5px;">人脸识别</a> <a href="/tags/目标检测/" style="font-size: 10px;">目标检测</a>
     </div>
   </div>
 
@@ -527,7 +544,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">8</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">8</span></li></ul>
     </div>
   </div>
 
@@ -540,6 +557,14 @@
       <ul>
         
           <li>
+            <a href="/2019/07/05/GAKKI/">Awesome Girl vol.32</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/04/target-introduction/">target_introduction</a>
+          </li>
+        
+          <li>
             <a href="/2019/06/19/Git/">Git</a>
           </li>
         
@@ -549,14 +574,6 @@
         
           <li>
             <a href="/2019/06/19/ML-欧几里得距离/">[ML]note</a>
-          </li>
-        
-          <li>
-            <a href="/2019/06/19/pytorch-三、快速搭建神经网络/">[pytorch]三、快速搭建神经网络</a>
-          </li>
-        
-          <li>
-            <a href="/2019/06/19/pytorch-二、分类问题/">[pytorch]二、分类问题</a>
           </li>
         
       </ul>
