@@ -5,20 +5,20 @@
   
 
   
-  <title>[pytorch]二、分类问题 | weijiangaaa</title>
+  <title>gcc、clang和make、cmake | weijiangaaa</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="问题：有3堆数据，每个数据的特征都是（x，y），在坐标系中可以对应显示，如何进行分类？问题分析：1、输入的数据为（x，y），说明输入层有2个特征，则对应的n_feature=2，2个特征； 2、输出的分类要分3类，说明输出层有3个特征，则对应的n_output=3，3个特征； 3、其中的n_hidden，不受影响，之前在回归问题中使用的是10个神经元的隐藏层，这里可以不做改变 细节介绍：1、分类问">
-<meta name="keywords" content="PyTorch,Deep Learning">
+  <meta name="description" content="gcc、clang和make、cmake  首先说明一下整个编程的过程是：源代码（.cpp）-&amp;gt;编译程序-&amp;gt;目标程序（.obj）-&amp;gt;链接程序（整合目标程序.obj和库程序.lib）-&amp;gt;可执行程序（.exe）。  我们常使用的IDE，例如VS、Pycharm等等，通过“运行（F5）”，便可一步完成以上所有的工作，但是在其他环境中，例如Ubuntu、Mac OS中，我们为了使用">
+<meta name="keywords" content="Program">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[pytorch]二、分类问题">
-<meta property="og:url" content="http://yoursite.com/2019/06/19/pytorch-二、分类问题/index.html">
+<meta property="og:title" content="gcc、clang和make、cmake">
+<meta property="og:url" content="http://yoursite.com/2019/07/19/gcc/index.html">
 <meta property="og:site_name" content="weijiangaaa">
-<meta property="og:description" content="问题：有3堆数据，每个数据的特征都是（x，y），在坐标系中可以对应显示，如何进行分类？问题分析：1、输入的数据为（x，y），说明输入层有2个特征，则对应的n_feature=2，2个特征； 2、输出的分类要分3类，说明输出层有3个特征，则对应的n_output=3，3个特征； 3、其中的n_hidden，不受影响，之前在回归问题中使用的是10个神经元的隐藏层，这里可以不做改变 细节介绍：1、分类问">
+<meta property="og:description" content="gcc、clang和make、cmake  首先说明一下整个编程的过程是：源代码（.cpp）-&amp;gt;编译程序-&amp;gt;目标程序（.obj）-&amp;gt;链接程序（整合目标程序.obj和库程序.lib）-&amp;gt;可执行程序（.exe）。  我们常使用的IDE，例如VS、Pycharm等等，通过“运行（F5）”，便可一步完成以上所有的工作，但是在其他环境中，例如Ubuntu、Mac OS中，我们为了使用">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-19T09:22:54.254Z">
+<meta property="og:updated_time" content="2019-07-19T07:38:19.585Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[pytorch]二、分类问题">
-<meta name="twitter:description" content="问题：有3堆数据，每个数据的特征都是（x，y），在坐标系中可以对应显示，如何进行分类？问题分析：1、输入的数据为（x，y），说明输入层有2个特征，则对应的n_feature=2，2个特征； 2、输出的分类要分3类，说明输出层有3个特征，则对应的n_output=3，3个特征； 3、其中的n_hidden，不受影响，之前在回归问题中使用的是10个神经元的隐藏层，这里可以不做改变 细节介绍：1、分类问">
+<meta name="twitter:title" content="gcc、clang和make、cmake">
+<meta name="twitter:description" content="gcc、clang和make、cmake  首先说明一下整个编程的过程是：源代码（.cpp）-&amp;gt;编译程序-&amp;gt;目标程序（.obj）-&amp;gt;链接程序（整合目标程序.obj和库程序.lib）-&amp;gt;可执行程序（.exe）。  我们常使用的IDE，例如VS、Pycharm等等，通过“运行（F5）”，便可一步完成以上所有的工作，但是在其他环境中，例如Ubuntu、Mac OS中，我们为了使用">
   
     <link rel="alternate" href="/atom.xml" title="weijiangaaa" type="application/atom+xml">
   
@@ -71,10 +71,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-pytorch-二、分类问题" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-gcc" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/06/19/pytorch-二、分类问题/" class="article-date">
-  <time datetime="2019-06-19T01:40:53.000Z" itemprop="datePublished">2019-06-19</time>
+    <a href="/2019/07/19/gcc/" class="article-date">
+  <time datetime="2019-07-19T07:35:33.000Z" itemprop="datePublished">2019-07-19</time>
 </a>
     
   </div>
@@ -85,7 +85,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      [pytorch]二、分类问题
+      gcc、clang和make、cmake
     </h1>
   
 
@@ -93,32 +93,33 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="问题：有3堆数据，每个数据的特征都是（x，y），在坐标系中可以对应显示，如何进行分类？"><a href="#问题：有3堆数据，每个数据的特征都是（x，y），在坐标系中可以对应显示，如何进行分类？" class="headerlink" title="问题：有3堆数据，每个数据的特征都是（x，y），在坐标系中可以对应显示，如何进行分类？"></a>问题：有3堆数据，每个数据的特征都是（x，y），在坐标系中可以对应显示，如何进行分类？</h4><h5 id="问题分析："><a href="#问题分析：" class="headerlink" title="问题分析："></a>问题分析：</h5><p>1、输入的数据为（x，y），说明输入层有2个特征，则对应的n_feature=2，2个特征；</p>
-<p>2、输出的分类要分3类，说明输出层有3个特征，则对应的n_output=3，3个特征；</p>
-<p>3、其中的n_hidden，不受影响，之前在回归问题中使用的是10个神经元的隐藏层，这里可以不做改变</p>
-<h5 id="细节介绍："><a href="#细节介绍：" class="headerlink" title="细节介绍："></a>细节介绍：</h5><p>1、分类问题的损失函数用<code>torch.nn.CrossEntropyLoss()</code>，其计算的是<code>softmax</code>，即预测误差为【0.1,0.2,0.7】，最后在计算结果中的标签误差为【0,0,1】，即说明分类中属于第三种情况的可能性最大，将其分入第三类中。</p>
-<p>2、输出格式的改变：<br>在回归问题中是：</p>
-<blockquote>
-<p>y_pred=net(x)</p>
+        <h2 id="gcc、clang和make、cmake"><a href="#gcc、clang和make、cmake" class="headerlink" title="gcc、clang和make、cmake"></a>gcc、clang和make、cmake</h2><hr>
 <ul>
-<li>这里的输出是一个固定的数值，就是y的预测值</li>
+<li><p>首先说明一下整个编程的过程是：<br>源代码（.cpp）-&gt;编译程序-&gt;目标程序（.obj）-&gt;链接程序（整合目标程序.obj和库程序.lib）-&gt;可执行程序（.exe）。</p>
+</li>
+<li><p>我们常使用的IDE，例如VS、Pycharm等等，通过“运行（F5）”，便可一步完成以上所有的工作，但是在其他环境中，例如Ubuntu、Mac OS中，我们为了使用更加轻量的开发环境，抛去冗杂的大型开发环境，在Vim以及Nano中，没有如此系统的“一键完成”，所以我们还是有必要学习以上的过程。</p>
+</li>
 </ul>
-</blockquote>
-<p>在分类问题中是：</p>
-<blockquote>
-<p>out=net(x)</p>
-</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;gcc、clang</span><br></pre></td></tr></table></figure>
 <ul>
-<li>这里的输出是一个列表，在这里是比如【10,23,77】这样的格式，所以用<code>softmax()</code>来进行转换，输出变为【0.1,0.2,0.7】这样的格式，即说明属于第3类的可能性最大</li>
+<li>其中完成第一步编译这个过程就是由gcc或者clang编译器来完成的，从源代码得到目标程序。这两者是不同的编译器，其中gcc速度较快，而且报错提示更加人性化。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;make</span><br></pre></td></tr></table></figure>
+<ul>
+<li>一般我们对于单一的源代码文件可以通过gcc完成编译，但是面对工程文件包含多个源代码文件的时候，挨个文件使用gcc自然麻烦而且效率低。<br>而make借用makefile文件里的相关指令，例如常见的<em>gcc -o test.c</em>，来完成对所有源代码的编译，提高了编译的效率，一般只需要make指令，便可以完成所有的编译工作。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;cmake</span><br></pre></td></tr></table></figure>
+<ul>
+<li>以上，我们需要编写makefile，完成make需要的指令，这里makefile较复杂，所以我们一般都过cmake来完成makefile的自动生成，而生成的法则则是cmakelists.txt，相较于makefile，cmakelists.txt更加符合我们的编写习惯而且更加高级易读。</li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/19/pytorch-二、分类问题/" data-id="cjy9sr3a7001q1cu6s7coy4g6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/19/gcc/" data-id="cjy9sr39r00111cu6cvzx6euu" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PyTorch/">PyTorch</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Program/">Program</a></li></ul>
 
     </footer>
   </div>
@@ -126,19 +127,10 @@
     
   <nav id="article-nav">
     
-      <a href="/2019/06/19/pytorch-三、快速搭建神经网络/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption"><font color="purple">下一篇 newer</font></strong>
-        <div class="article-nav-title">
-          
-            <font color="purple">[pytorch]三、快速搭建神经网络</font>
-          
-        </div>
-      </a>
     
-    
-      <a href="/2019/06/19/pytorch-一、回归问题/" id="article-nav-older" class="article-nav-link-wrap">
+      <a href="/2019/07/19/3d-visualsfm-0/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption"><font color="purple">上一篇 older</font></strong>
-        <div class="article-nav-title"><font color="purple">[pytorch]一、回归问题</font></div>
+        <div class="article-nav-title"><font color="purple">[3D重建]VisualSFM</font></div>
       </a>
     
   </nav>
