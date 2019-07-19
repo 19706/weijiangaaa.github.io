@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>[darknet]二、yolov3_tiny-darknet-webcam | weijiangaaa</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="承接上文 前言：上文使用的是单张图片的目标检测，本文完成的是通过webcam完成实时的目标检测； 1、说明： 框架：darknet 底层语言：c 权重参数：yolov3-tiny 设备：webcam  2、步骤：1、先修改makefile里的编译文件，opencv=1，cuda=12、make clean-&amp;gt;make3、确保darknet-master目录下有.weights文件4、直接运行">
+<meta name="keywords" content="Deep Learning,Darknet,目标检测">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[darknet]二、yolov3_tiny-darknet-webcam">
+<meta property="og:url" content="http://yoursite.com/2019/06/11/yolo-darknet-webcam/index.html">
+<meta property="og:site_name" content="weijiangaaa">
+<meta property="og:description" content="承接上文 前言：上文使用的是单张图片的目标检测，本文完成的是通过webcam完成实时的目标检测； 1、说明： 框架：darknet 底层语言：c 权重参数：yolov3-tiny 设备：webcam  2、步骤：1、先修改makefile里的编译文件，opencv=1，cuda=12、make clean-&amp;gt;make3、确保darknet-master目录下有.weights文件4、直接运行">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-07-19T03:28:35.746Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[darknet]二、yolov3_tiny-darknet-webcam">
+<meta name="twitter:description" content="承接上文 前言：上文使用的是单张图片的目标检测，本文完成的是通过webcam完成实时的目标检测； 1、说明： 框架：darknet 底层语言：c 权重参数：yolov3-tiny 设备：webcam  2、步骤：1、先修改makefile里的编译文件，opencv=1，cuda=12、make clean-&amp;gt;make3、确保darknet-master目录下有.weights文件4、直接运行">
+  
+    <link rel="alternate" href="/atom.xml" title="weijiangaaa" type="application/atom+xml">
+  
+  
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">weijiangaaa</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">rua rua rua !!! ❤️❤️❤️</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">🍖首页</a>
+        
+          <a class="main-nav-link" href="/archives">🥩归档</a>
+        
+          <a class="main-nav-link" href="/tags">🍗标签</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-yolo-darknet-webcam" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/11/yolo-darknet-webcam/" class="article-date">
+  <time datetime="2019-06-11T14:40:39.000Z" itemprop="datePublished">2019-06-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      [darknet]二、yolov3_tiny-darknet-webcam
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>承接上文</em></p>
+<p>前言：上文使用的是单张图片的目标检测，本文完成的是通过<code>webcam</code>完成实时的目标检测；</p>
+<h2 id="1、说明："><a href="#1、说明：" class="headerlink" title="1、说明："></a>1、说明：</h2><ul>
+<li>框架：<code>darknet</code></li>
+<li>底层语言：<code>c</code></li>
+<li>权重参数：<code>yolov3-tiny</code></li>
+<li>设备：<code>webcam</code></li>
+</ul>
+<h2 id="2、步骤："><a href="#2、步骤：" class="headerlink" title="2、步骤："></a>2、步骤：</h2><p>1、先修改<code>makefile</code>里的编译文件，<code>opencv=1</code>，<code>cuda=1</code><br>2、<code>make clean</code>-&gt;<code>make</code><br>3、确保<code>darknet-master</code>目录下有<code>.weights</code>文件<br>4、直接运行<code>./darknet detector demo cfg/coco.data cfg/yolov3-tiny.cfg yolov3-tiny.weights -c 1</code></p>
+<h3 id="注："><a href="#注：" class="headerlink" title="注："></a>注：</h3><p>1、csi摄像头无法使用<br>2、一定要加<code>-c 1</code>选项，否则无论csi摄像头是否连接都无法启用<code>webcam</code><br>3、<code>fps10</code>左右，</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/11/yolo-darknet-webcam/" data-id="cjy9kzpgv0029dku6nd1yjvzs" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Darknet/">Darknet</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/目标检测/">目标检测</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+  <nav id="article-nav">
+    
+      <a href="/2019/06/12/pytorch-pytorch-hub/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"><font color="purple">下一篇 newer</font></strong>
+        <div class="article-nav-title">
+          
+            <font color="purple">[pytorch] pytorch hub</font>
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2019/06/10/yolo-darknet-image/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"><font color="purple">上一篇 older</font></strong>
+        <div class="article-nav-title"><font color="purple">[darknet]一、yolov3-darknet-image</font></div>
+      </a>
+    
+  </nav>
+  
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/3D-Reconstruction/" style="font-size: 10px;">3D Reconstruction</a> <a href="/tags/Blog/" style="font-size: 15px;">Blog</a> <a href="/tags/Buy/" style="font-size: 10px;">Buy</a> <a href="/tags/C-C/" style="font-size: 12.5px;">C/C++</a> <a href="/tags/Darknet/" style="font-size: 12.5px;">Darknet</a> <a href="/tags/Deep-Learning/" style="font-size: 20px;">Deep Learning</a> <a href="/tags/Emacs/" style="font-size: 10px;">Emacs</a> <a href="/tags/GAKKI/" style="font-size: 10px;">GAKKI</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Jetson-Nano/" style="font-size: 15px;">Jetson Nano</a> <a href="/tags/Machine-Learning/" style="font-size: 10px;">Machine Learning</a> <a href="/tags/OpenCV/" style="font-size: 10px;">OpenCV</a> <a href="/tags/Photo/" style="font-size: 12.5px;">Photo</a> <a href="/tags/Pr/" style="font-size: 10px;">Pr</a> <a href="/tags/PyTorch/" style="font-size: 17.5px;">PyTorch</a> <a href="/tags/SFM/" style="font-size: 10px;">SFM</a> <a href="/tags/TensorRT/" style="font-size: 10px;">TensorRT</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/人脸识别/" style="font-size: 12.5px;">人脸识别</a> <a href="/tags/目标检测/" style="font-size: 12.5px;">目标检测</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">11</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/07/19/3D-visualsfm/">[3D Reconstruction]VisualSFM</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/19/pytorch-八、Optimizer优化器/">[pytorch]八、Optimizer优化器</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/17/say-something/">say something</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/05/GAKKI/">Awesome Girl vol.32</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/19/Git/">Git</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 weijiangaaa<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">🍖首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">🥩归档</a>
+  
+    <a href="/tags" class="mobile-nav-link">🍗标签</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+<script type="text/javascript" src="/js/Click-Love.js"></script>
+
+  </div>
+</body>
+</html>

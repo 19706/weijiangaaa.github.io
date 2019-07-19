@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>[3D Reconstruction]VisualSFM | weijiangaaa</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="VisualSFM先上图看一下3D重建的效果：  引言：在CVPR2019的会议上关于3D重建的比重已经变得很大（具体的比例忘了记录，反正就是很大）；  说明： 实验室最近的项目是在做三维重建，在导师和博士生的项目组负责项目整体（整日Blog和Clone）； 关键点是特征点匹配级别的精度和速度，这个是另一个刘同学（他是学机电的。）在做； 自己定了一套方案但是被否了（可能是我自己的玻璃心）。  方案">
+<meta name="keywords" content="3D Reconstruction,SFM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[3D Reconstruction]VisualSFM">
+<meta property="og:url" content="http://yoursite.com/2019/07/19/3D-visualsfm/index.html">
+<meta property="og:site_name" content="weijiangaaa">
+<meta property="og:description" content="VisualSFM先上图看一下3D重建的效果：  引言：在CVPR2019的会议上关于3D重建的比重已经变得很大（具体的比例忘了记录，反正就是很大）；  说明： 实验室最近的项目是在做三维重建，在导师和博士生的项目组负责项目整体（整日Blog和Clone）； 关键点是特征点匹配级别的精度和速度，这个是另一个刘同学（他是学机电的。）在做； 自己定了一套方案但是被否了（可能是我自己的玻璃心）。  方案">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="c:/Users/19706/Desktop/要上传GitHub的图片/微信图片_20190719113634.png">
+<meta property="og:image" content="c:/Users/19706/blog/MyBlogImagePost/gif/IMG_6257.GIF">
+<meta property="og:image" content="c:/Users/19706/blog/MyBlogImagePost/u=4062049546,2467896062&fm=26&gp=0.jpg">
+<meta property="og:image" content="c:/Users/19706/Desktop/要上传GitHub的图片/QQ图片20190719114213.jpg">
+<meta property="og:image" content="c:/Users/19706/Desktop/要上传GitHub的图片/TIM截图20190706110227.png">
+<meta property="og:image" content="c:/Users/19706/Desktop/要上传GitHub的图片/微信图片_20190719113634.png">
+<meta property="og:updated_time" content="2019-07-19T04:06:01.865Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[3D Reconstruction]VisualSFM">
+<meta name="twitter:description" content="VisualSFM先上图看一下3D重建的效果：  引言：在CVPR2019的会议上关于3D重建的比重已经变得很大（具体的比例忘了记录，反正就是很大）；  说明： 实验室最近的项目是在做三维重建，在导师和博士生的项目组负责项目整体（整日Blog和Clone）； 关键点是特征点匹配级别的精度和速度，这个是另一个刘同学（他是学机电的。）在做； 自己定了一套方案但是被否了（可能是我自己的玻璃心）。  方案">
+<meta name="twitter:image" content="c:/Users/19706/Desktop/要上传GitHub的图片/微信图片_20190719113634.png">
+  
+    <link rel="alternate" href="/atom.xml" title="weijiangaaa" type="application/atom+xml">
+  
+  
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">weijiangaaa</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">rua rua rua !!! ❤️❤️❤️</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">🍖首页</a>
+        
+          <a class="main-nav-link" href="/archives">🥩归档</a>
+        
+          <a class="main-nav-link" href="/tags">🍗标签</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-3D-visualsfm" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/19/3D-visualsfm/" class="article-date">
+  <time datetime="2019-07-19T03:45:03.000Z" itemprop="datePublished">2019-07-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      [3D Reconstruction]VisualSFM
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="VisualSFM"><a href="#VisualSFM" class="headerlink" title="VisualSFM"></a>VisualSFM</h2><p>先上图看一下3D重建的效果：</p>
+<p><img src="C:\Users\19706\Desktop\要上传GitHub的图片\微信图片_20190719113634.png" alt></p>
+<h4 id="引言："><a href="#引言：" class="headerlink" title="引言："></a>引言：</h4><p>在<code>CVPR2019</code>的会议上关于<strong>3D重建</strong>的比重已经变得很大（具体的比例忘了记录，反正就是很大）；</p>
+<p><img src="C:\Users\19706\blog\MyBlogImagePost\gif\IMG_6257.GIF" alt></p>
+<h4 id="说明："><a href="#说明：" class="headerlink" title="说明："></a>说明：</h4><ul>
+<li>实验室最近的项目是在做三维重建，在导师和博士生的项目组负责项目整体（整日Blog和Clone）；</li>
+<li>关键点是特征点匹配级别的精度和速度，这个是另一个刘同学（他是学机电的。）在做；</li>
+<li>自己定了一套方案但是被否了（可能是我自己的玻璃心）。</li>
+</ul>
+<h4 id="方案说明："><a href="#方案说明：" class="headerlink" title="方案说明："></a>方案说明：</h4><p>1、2D：核心是二维图像、sfm算法、多视图，完成稀疏点云的拼接。</p>
+<p>2、3D：使用RGB-D摄像头完成多个视图的稀疏点云，完成点云的配准、融合和拼接，再完成后续贴图工作。</p>
+<p>（个人偏向于方案2，但是没通过，那以后工作的重心偏向于方案一）</p>
+<p><img src="C:\Users\19706\blog\MyBlogImagePost\u=4062049546,2467896062&amp;fm=26&amp;gp=0.jpg" alt></p>
+<h3 id="一、VisualSFM做图像匹配"><a href="#一、VisualSFM做图像匹配" class="headerlink" title="一、VisualSFM做图像匹配"></a>一、VisualSFM做图像匹配</h3><ul>
+<li><p>稀疏点云（.out文件）</p>
+</li>
+<li><p>稀疏点云重建出生成稠密点云（.plt文件）</p>
+</li>
+<li><p>图片序列（.list文件）</p>
+</li>
+</ul>
+<h4 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h4><p>1、在VisualSFM中输入图像，越多的照片重建效果越好；</p>
+<p>2、进行特征检测和匹配，利用<code>SIFT</code>完成<code>特征提取</code>、<code>特征描述</code>；</p>
+<p>3、利用<code>SFM</code>进行<code>稀疏3D</code>重建；</p>
+<p>4、利用<code>CMVS(Clustering Views for Multi-view Stereo)/PMVS</code>进行<code>稠密3D</code>重建；</p>
+<blockquote>
+<p>CMVS/PMVS下载地址GitHub：<a href="https://github.com/pmoulon/CMVS-PMVS" target="_blank" rel="noopener">https://github.com/pmoulon/CMVS-PMVS</a></p>
+</blockquote>
+<h3 id="二、MeshLab进行优化"><a href="#二、MeshLab进行优化" class="headerlink" title="二、MeshLab进行优化"></a>二、MeshLab进行优化</h3><ul>
+<li>建出包含纹理的、干净的、高分辨率的网格</li>
+</ul>
+<h4 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h4><p>1、打开bundle.rd.out 文件；</p>
+<p>2、稠密点云代替稀疏点云；</p>
+<p>3、清除杂点、网格化、修复流形边缘、参数化、投影纹理、完成导出；</p>
+<p><em>（具体过程省略了一万字，反正也没人看，有问题的请私聊吧，<a href="mailto:1970650352@qq.com" target="_blank" rel="noopener">1970650352@qq.com</a>）</em></p>
+<p>实物图片如下：</p>
+<p><img src="C:\Users\19706\Desktop\要上传GitHub的图片\QQ图片20190719114213.jpg" alt></p>
+<p>输入图片集合如下：</p>
+<p><img src="C:\Users\19706\Desktop\要上传GitHub的图片\TIM截图20190706110227.png" alt></p>
+<p>输出结果如下：</p>
+<p><img src="C:\Users\19706\Desktop\要上传GitHub的图片\微信图片_20190719113634.png" alt></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/07/19/3D-visualsfm/" data-id="cjy9kzpeu0000dku6gbw408j7" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/3D-Reconstruction/">3D Reconstruction</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SFM/">SFM</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+  <nav id="article-nav">
+    
+    
+      <a href="/2019/07/19/pytorch-八、Optimizer优化器/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"><font color="purple">上一篇 older</font></strong>
+        <div class="article-nav-title"><font color="purple">[pytorch]八、Optimizer优化器</font></div>
+      </a>
+    
+  </nav>
+  
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/3D-Reconstruction/" style="font-size: 10px;">3D Reconstruction</a> <a href="/tags/Blog/" style="font-size: 15px;">Blog</a> <a href="/tags/Buy/" style="font-size: 10px;">Buy</a> <a href="/tags/C-C/" style="font-size: 12.5px;">C/C++</a> <a href="/tags/Darknet/" style="font-size: 12.5px;">Darknet</a> <a href="/tags/Deep-Learning/" style="font-size: 20px;">Deep Learning</a> <a href="/tags/Emacs/" style="font-size: 10px;">Emacs</a> <a href="/tags/GAKKI/" style="font-size: 10px;">GAKKI</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Jetson-Nano/" style="font-size: 15px;">Jetson Nano</a> <a href="/tags/Machine-Learning/" style="font-size: 10px;">Machine Learning</a> <a href="/tags/OpenCV/" style="font-size: 10px;">OpenCV</a> <a href="/tags/Photo/" style="font-size: 12.5px;">Photo</a> <a href="/tags/Pr/" style="font-size: 10px;">Pr</a> <a href="/tags/PyTorch/" style="font-size: 17.5px;">PyTorch</a> <a href="/tags/SFM/" style="font-size: 10px;">SFM</a> <a href="/tags/TensorRT/" style="font-size: 10px;">TensorRT</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/人脸识别/" style="font-size: 12.5px;">人脸识别</a> <a href="/tags/目标检测/" style="font-size: 12.5px;">目标检测</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">11</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/07/19/3D-visualsfm/">[3D Reconstruction]VisualSFM</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/19/pytorch-八、Optimizer优化器/">[pytorch]八、Optimizer优化器</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/17/say-something/">say something</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/05/GAKKI/">Awesome Girl vol.32</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/19/Git/">Git</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 weijiangaaa<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">🍖首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">🥩归档</a>
+  
+    <a href="/tags" class="mobile-nav-link">🍗标签</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+<script type="text/javascript" src="/js/Click-Love.js"></script>
+
+  </div>
+</body>
+</html>
