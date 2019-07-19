@@ -7,24 +7,23 @@
   
   <title>[3D重建]VisualSFM | weijiangaaa</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="VisualSFM(3D重建先写一部分吧，明天要回成都了，笔记太乱了不想整理，就这样。)  实物图片如下：  先上图看一下3D重建的效果：  引言：在CVPR2019的会议上关于3D重建的比重已经变得很大（具体的比例忘了记录，反正就是很大）； 说明： 实验室最近的项目是在做三维重建，在导师和博士生的项目组负责项目整体（整日Blog和Clone）； 关键点是特征点匹配级别的精度和速度，这个是另一个刘">
+  <meta name="description" content="VisualSFM(3D重建先写一部分吧，明天要回成都了，笔记太乱了不想整理，就这样。)   输入图片集合如下：  3D重建的效果：  实物图片如下：  引言：在CVPR2019的会议上关于3D重建的比重已经变得很大（具体的比例忘了记录，反正就是很大）； 说明： 实验室最近的项目是在做三维重建，在导师和博士生的项目组负责项目整体（整日Blog和Clone）； 关键点是特征点匹配级别的精度和速度，这">
 <meta name="keywords" content="3D Reconstruction,SFM">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[3D重建]VisualSFM">
 <meta property="og:url" content="http://yoursite.com/2019/07/19/3D-visualsfm/index.html">
 <meta property="og:site_name" content="weijiangaaa">
-<meta property="og:description" content="VisualSFM(3D重建先写一部分吧，明天要回成都了，笔记太乱了不想整理，就这样。)  实物图片如下：  先上图看一下3D重建的效果：  引言：在CVPR2019的会议上关于3D重建的比重已经变得很大（具体的比例忘了记录，反正就是很大）； 说明： 实验室最近的项目是在做三维重建，在导师和博士生的项目组负责项目整体（整日Blog和Clone）； 关键点是特征点匹配级别的精度和速度，这个是另一个刘">
+<meta property="og:description" content="VisualSFM(3D重建先写一部分吧，明天要回成都了，笔记太乱了不想整理，就这样。)   输入图片集合如下：  3D重建的效果：  实物图片如下：  引言：在CVPR2019的会议上关于3D重建的比重已经变得很大（具体的比例忘了记录，反正就是很大）； 说明： 实验室最近的项目是在做三维重建，在导师和博士生的项目组负责项目整体（整日Blog和Clone）； 关键点是特征点匹配级别的精度和速度，这">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://github.com/weijiangaaa/MyPostImag/blob/master/gif/IMG_6255.GIF?raw=true">
-<meta property="og:image" content="https://github.com/weijiangaaa/MyPostImag/blob/master/QQ%E5%9B%BE%E7%89%8720190719114833.jpg?raw=true">
+<meta property="og:image" content="https://github.com/weijiangaaa/MyPostImag/blob/master/TIM%E6%88%AA%E5%9B%BE20190706110227.png?raw=true">
 <meta property="og:image" content="https://github.com/weijiangaaa/MyPostImag/blob/master/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20190719113634.png?raw=true">
+<meta property="og:image" content="https://github.com/weijiangaaa/MyPostImag/blob/master/QQ%E5%9B%BE%E7%89%8720190719114833.jpg?raw=true">
 <meta property="og:image" content="c:/Users/19706/blog/MyBlogImagePost/u=4062049546,2467896062&fm=26&gp=0.jpg">
-<meta property="og:image" content="c:/Users/19706/Desktop/要上传GitHub的图片/TIM截图20190706110227.png">
-<meta property="og:image" content="c:/Users/19706/Desktop/要上传GitHub的图片/微信图片_20190719113634.png">
-<meta property="og:updated_time" content="2019-07-19T04:21:50.241Z">
+<meta property="og:updated_time" content="2019-07-19T04:38:37.191Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[3D重建]VisualSFM">
-<meta name="twitter:description" content="VisualSFM(3D重建先写一部分吧，明天要回成都了，笔记太乱了不想整理，就这样。)  实物图片如下：  先上图看一下3D重建的效果：  引言：在CVPR2019的会议上关于3D重建的比重已经变得很大（具体的比例忘了记录，反正就是很大）； 说明： 实验室最近的项目是在做三维重建，在导师和博士生的项目组负责项目整体（整日Blog和Clone）； 关键点是特征点匹配级别的精度和速度，这个是另一个刘">
+<meta name="twitter:description" content="VisualSFM(3D重建先写一部分吧，明天要回成都了，笔记太乱了不想整理，就这样。)   输入图片集合如下：  3D重建的效果：  实物图片如下：  引言：在CVPR2019的会议上关于3D重建的比重已经变得很大（具体的比例忘了记录，反正就是很大）； 说明： 实验室最近的项目是在做三维重建，在导师和博士生的项目组负责项目整体（整日Blog和Clone）； 关键点是特征点匹配级别的精度和速度，这">
 <meta name="twitter:image" content="https://github.com/weijiangaaa/MyPostImag/blob/master/gif/IMG_6255.GIF?raw=true">
   
     <link rel="alternate" href="/atom.xml" title="weijiangaaa" type="application/atom+xml">
@@ -100,17 +99,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="VisualSFM"><a href="#VisualSFM" class="headerlink" title="VisualSFM"></a>VisualSFM</h2><h5 id="3D重建先写一部分吧，明天要回成都了，笔记太乱了不想整理，就这样。"><a href="#3D重建先写一部分吧，明天要回成都了，笔记太乱了不想整理，就这样。" class="headerlink" title="(3D重建先写一部分吧，明天要回成都了，笔记太乱了不想整理，就这样。)"></a>(<font color="#FF69B4">3D重建先写一部分吧，明天要回成都了，笔记太乱了不想整理，就这样。</font>)</h5><p><img src="https://github.com/weijiangaaa/MyPostImag/blob/master/gif/IMG_6255.GIF?raw=true" alt></p>
+        <h2 id="VisualSFM"><a href="#VisualSFM" class="headerlink" title="VisualSFM"></a>VisualSFM</h2><p>(<font color="#FF69B4">3D重建先写一部分吧，明天要回成都了，笔记太乱了不想整理，就这样。</font>)</p>
+<p><img src="https://github.com/weijiangaaa/MyPostImag/blob/master/gif/IMG_6255.GIF?raw=true" alt></p>
 <hr>
+<p>输入图片集合如下：</p>
+<p><img src="https://github.com/weijiangaaa/MyPostImag/blob/master/TIM%E6%88%AA%E5%9B%BE20190706110227.png?raw=true" alt></p>
+<p>3D重建的效果：</p>
+<p><img src="https://github.com/weijiangaaa/MyPostImag/blob/master/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20190719113634.png?raw=true" alt></p>
 <p>实物图片如下：</p>
 <p><img src="https://github.com/weijiangaaa/MyPostImag/blob/master/QQ%E5%9B%BE%E7%89%8720190719114833.jpg?raw=true" alt></p>
-<p>先上图看一下3D重建的效果：</p>
-<p><img src="https://github.com/weijiangaaa/MyPostImag/blob/master/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20190719113634.png?raw=true" alt></p>
 <h4 id="引言："><a href="#引言：" class="headerlink" title="引言："></a>引言：</h4><p>在<code>CVPR2019</code>的会议上关于<strong>3D重建</strong>的比重已经变得很大（具体的比例忘了记录，反正就是很大）；</p>
 <h4 id="说明："><a href="#说明：" class="headerlink" title="说明："></a>说明：</h4><ul>
 <li>实验室最近的项目是在做三维重建，在导师和博士生的项目组负责项目整体（整日Blog和Clone）；</li>
-<li>关键点是特征点匹配级别的精度和速度，这个是另一个刘同学（他是学机电的。）在做；</li>
-<li>自己定了一套方案但是被否了（可能是我自己的玻璃心）。</li>
+<li>关键点是特征点匹配级别的精度和速度，这个是另一个刘同学（他是学机电的）在做；</li>
+<li>自己定了一套方案但是被否了（可能是我自己的玻璃心）</li>
 </ul>
 <a id="more"></a>
 <h4 id="方案说明："><a href="#方案说明：" class="headerlink" title="方案说明："></a>方案说明：</h4><p>1、2D：核心是二维图像、sfm算法、多视图，完成稀疏点云的拼接。</p>
@@ -129,9 +131,7 @@
 <p>2、进行特征检测和匹配，利用<code>SIFT</code>完成<code>特征提取</code>、<code>特征描述</code>；</p>
 <p>3、利用<code>SFM</code>进行<code>稀疏3D</code>重建；</p>
 <p>4、利用<code>CMVS(Clustering Views for Multi-view Stereo)/PMVS</code>进行<code>稠密3D</code>重建；</p>
-<blockquote>
-<p>CMVS/PMVS下载地址GitHub：<a href="https://github.com/pmoulon/CMVS-PMVS" target="_blank" rel="noopener">https://github.com/pmoulon/CMVS-PMVS</a></p>
-</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt; CMVS/PMVS下载地址GitHub：[https://github.com/pmoulon/CMVS-PMVS](https://github.com/pmoulon/CMVS-PMVS)</span><br></pre></td></tr></table></figure>
 <h3 id="二、MeshLab进行优化"><a href="#二、MeshLab进行优化" class="headerlink" title="二、MeshLab进行优化"></a>二、MeshLab进行优化</h3><ul>
 <li>建出包含纹理的、干净的、高分辨率的网格</li>
 </ul>
@@ -139,10 +139,6 @@
 <p>2、稠密点云代替稀疏点云；</p>
 <p>3、清除杂点、网格化、修复流形边缘、参数化、投影纹理、完成导出；</p>
 <p><em>（具体过程省略了一万字，反正也没人看，有问题的请私聊吧，<a href="mailto:1970650352@qq.com" target="_blank" rel="noopener">1970650352@qq.com</a>）</em></p>
-<p>输入图片集合如下：</p>
-<p><img src="C:\Users\19706\Desktop\要上传GitHub的图片\TIM截图20190706110227.png" alt></p>
-<p>输出结果如下：</p>
-<p><img src="C:\Users\19706\Desktop\要上传GitHub的图片\微信图片_20190719113634.png" alt></p>
 
       
     </div>
