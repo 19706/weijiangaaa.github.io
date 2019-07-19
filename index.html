@@ -68,139 +68,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-3D-visualsfm" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/07/19/3D-visualsfm/" class="article-date">
-  <time datetime="2019-07-19T07:05:12.097Z" itemprop="datePublished">2019-07-19</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!DOCTYPE html>
-    <html>
-    <head><meta name="generator" content="Hexo 3.8.0">
-        <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
-        <title>VisualSFM</title>
-        
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
-        
-        <style>
-.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
-</style>
-        <style>
-            body {
-                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
-                font-size: 14px;
-                line-height: 1.6;
-            }
-        </style>
-        
-        
-    </head>
-    <body>
-        <hr>
-<h2 id="title-3D%E9%87%8D%E5%BB%BAVisualSFMdate-2019-07-19-114503tags-3D-Reconstruction-SFMcategories">title: '[3D重建]VisualSFM'
-date: 2019-07-19 11:45:03
-tags: [3D Reconstruction, SFM]
-categories:</h2>
-<h2 id="VisualSFM">VisualSFM</h2>
-<p>(<font color="#FF69B4">3D重建先写一部分吧，明天要回成都了，笔记太乱了不想整理，就这样。</font>)</p>
-<p><img src="https://github.com/weijiangaaa/MyPostImag/blob/master/gif/IMG_6255.GIF?raw=true" alt></p>
-<hr>
-<p>输入图片集合如下：</p>
-<p><img src="https://github.com/weijiangaaa/MyPostImag/blob/master/TIM%E6%88%AA%E5%9B%BE20190706110227.png?raw=true" alt></p>
-<p>3D重建的效果：</p>
-<p><img src="https://github.com/weijiangaaa/MyPostImag/blob/master/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20190719113634.png?raw=true" alt></p>
-<p>实物图片如下：</p>
-<p><img src="https://github.com/weijiangaaa/MyPostImag/blob/master/QQ%E5%9B%BE%E7%89%8720190719114833.jpg?raw=true" alt></p>
-<h4 id="%E5%BC%95%E8%A8%80">引言：</h4>
-<p>在<code>CVPR2019</code>的会议上关于<strong>3D重建</strong>的比重已经变得很大（具体的比例忘了记录，反正就是很大）；</p>
-<h4 id="%E8%AF%B4%E6%98%8E">说明：</h4>
-<ul>
-<li>实验室最近的项目是在做三维重建，在导师和博士生的项目组负责项目整体（整日Blog和Clone）；</li>
-<li>关键点是特征点匹配级别的精度和速度，这个是另一个刘同学（他是学机电的）在做；</li>
-<li>自己定了一套方案但是被否了（可能是我自己的玻璃心）</li>
-</ul>
-        
-          <p class="article-more-link">
-            <a href="/2019/07/19/3D-visualsfm/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/19/3D-visualsfm/" data-id="cjy9rfzwo0000f0u6yred37cf" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-3D-visualsfm" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/07/19/3D-visualsfm/" class="article-date">
-  <time datetime="2019-07-19T03:45:03.000Z" itemprop="datePublished">2019-07-19</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/19/3D-visualsfm/">[3D重建]VisualSFM</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="VisualSFM"><a href="#VisualSFM" class="headerlink" title="VisualSFM"></a>VisualSFM</h2><p>(<font color="#FF69B4">3D重建先写一部分吧，明天要回成都了，笔记太乱了不想整理，就这样。</font>)</p>
-<p><img src="https://github.com/weijiangaaa/MyPostImag/blob/master/gif/IMG_6255.GIF?raw=true" alt></p>
-<hr>
-<p>输入图片集合如下：</p>
-<p><img src="https://github.com/weijiangaaa/MyPostImag/blob/master/TIM%E6%88%AA%E5%9B%BE20190706110227.png?raw=true" alt></p>
-<p>3D重建的效果：</p>
-<p><img src="https://github.com/weijiangaaa/MyPostImag/blob/master/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20190719113634.png?raw=true" alt></p>
-<p>实物图片如下：</p>
-<p><img src="https://github.com/weijiangaaa/MyPostImag/blob/master/QQ%E5%9B%BE%E7%89%8720190719114833.jpg?raw=true" alt></p>
-<h4 id="引言："><a href="#引言：" class="headerlink" title="引言："></a>引言：</h4><p>在<code>CVPR2019</code>的会议上关于<strong>3D重建</strong>的比重已经变得很大（具体的比例忘了记录，反正就是很大）；</p>
-<h4 id="说明："><a href="#说明：" class="headerlink" title="说明："></a>说明：</h4><ul>
-<li>实验室最近的项目是在做三维重建，在导师和博士生的项目组负责项目整体（整日Blog和Clone）；</li>
-<li>关键点是特征点匹配级别的精度和速度，这个是另一个刘同学（他是学机电的）在做；</li>
-<li>自己定了一套方案但是被否了（可能是我自己的玻璃心）</li>
-</ul>
-        
-          <p class="article-more-link">
-            <a href="/2019/07/19/3D-visualsfm/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/19/3D-visualsfm/" data-id="cjy9ld6lc0000mgu6uztnu74r" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/3D-Reconstruction/">3D Reconstruction</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SFM/">SFM</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
     <article id="post-pytorch-八、Optimizer优化器" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/07/19/pytorch-八、Optimizer优化器/" class="article-date">
@@ -233,7 +100,7 @@ categories:</h2>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/19/pytorch-八、Optimizer优化器/" data-id="cjy9ld6nb001omgu6qafpgji4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/19/pytorch-八、Optimizer优化器/" data-id="cjy9s0br8001ks0u6wvlordat" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PyTorch/">PyTorch</a></li></ul>
@@ -271,7 +138,7 @@ categories:</h2>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/17/say-something/" data-id="cjy9ld6nf001tmgu6iook0oir" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/17/say-something/" data-id="cjy9s0brd001ts0u6e0455v0y" class="article-share-link">Share</a>
       
       
     </footer>
@@ -308,7 +175,7 @@ categories:</h2>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/05/GAKKI/" data-id="cjy9ld6ll0003mgu6ejk5a9zg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/05/GAKKI/" data-id="cjy9s0bq30001s0u61qrk7d0x" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GAKKI/">GAKKI</a></li></ul>
@@ -376,7 +243,7 @@ categories:</h2>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/19/Git/" data-id="cjy9ld6ln0005mgu6vnbak5fu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/19/Git/" data-id="cjy9s0bqa0006s0u6vdej76ry" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li></ul>
@@ -455,7 +322,7 @@ categories:</h2>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/19/人脸识别/" data-id="cjy9ld6nj001zmgu6wbuu54gx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/19/人脸识别/" data-id="cjy9s0bre001vs0u63uyk26oc" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/人脸识别/">人脸识别</a></li></ul>
@@ -494,7 +361,7 @@ categories:</h2>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/19/ML-欧几里得距离/" data-id="cjy9ld6mj000smgu6waz8op56" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/19/ML-欧几里得距离/" data-id="cjy9s0bqe000bs0u65gcv6r3a" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li></ul>
@@ -535,7 +402,7 @@ categories:</h2>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/19/pytorch-三、快速搭建神经网络/" data-id="cjy9ld6na001mmgu6twexwwtd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/19/pytorch-三、快速搭建神经网络/" data-id="cjy9s0br4001ds0u6rc8pxlla" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PyTorch/">PyTorch</a></li></ul>
@@ -591,10 +458,182 @@ categories:</h2>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/19/pytorch-二、分类问题/" data-id="cjy9ld6nh001vmgu62rnpfwe9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/19/pytorch-二、分类问题/" data-id="cjy9s0br7001hs0u6077lohmp" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PyTorch/">PyTorch</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-pytorch-一、回归问题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/19/pytorch-一、回归问题/" class="article-date">
+  <time datetime="2019-06-19T01:39:12.000Z" itemprop="datePublished">2019-06-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/19/pytorch-一、回归问题/">[pytorch]一、回归问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="问题：有一堆数据点，（x，y），找到曲线，拟合到数据点上，做一个已知数据点之外的预测？"><a href="#问题：有一堆数据点，（x，y），找到曲线，拟合到数据点上，做一个已知数据点之外的预测？" class="headerlink" title="问题：有一堆数据点，（x，y），找到曲线，拟合到数据点上，做一个已知数据点之外的预测？"></a>问题：有一堆数据点，（x，y），找到曲线，拟合到数据点上，做一个已知数据点之外的预测？</h4><h5 id="问题分析："><a href="#问题分析：" class="headerlink" title="问题分析："></a>问题分析：</h5><h5 id="细节介绍："><a href="#细节介绍：" class="headerlink" title="细节介绍："></a>细节介绍：</h5>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/19/pytorch-一、回归问题/" data-id="cjy9s0br3001as0u60xv6hrca" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PyTorch/">PyTorch</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-liniux-基础指令" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/19/liniux-基础指令/" class="article-date">
+  <time datetime="2019-06-19T01:34:00.000Z" itemprop="datePublished">2019-06-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/19/liniux-基础指令/">[linux]基础指令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="2、Linux基本操作"><a href="#2、Linux基本操作" class="headerlink" title="2、Linux基本操作"></a>2、Linux基本操作</h1><p><em>以下都是从接触Jetson Nano开始，学习Linux的笔记：</em></p>
+<h2 id="2-1简介"><a href="#2-1简介" class="headerlink" title="2.1简介"></a>2.1简介</h2><p>Jetson Nano官方提高的系统镜像中预置了基于Ubuntu16.04的LTS系统，其中包含了吧啦吧啦一堆（）<br>这里是一些常见的问题说明，新手需要注意：</p>
+<ul>
+<li>Linux下的文件，没有拓展名的概念，所以看到txt不要想当然的就认为是一个文本文件；</li>
+<li>同时，文件名是区分大小写的；<h2 id="2-2基础常用指令"><a href="#2-2基础常用指令" class="headerlink" title="2.2基础常用指令"></a>2.2基础常用指令</h2><h3 id="2-2-1-文件管理指令"><a href="#2-2-1-文件管理指令" class="headerlink" title="2.2.1 文件管理指令"></a>2.2.1 文件管理指令</h3><blockquote>
+<p>cd ~ #切换至home目录<br>pwd #查看当前的工作目录<br>cd / #切换至root目录<br>cd .. #回到上一次目录</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>ls<br>ls f* #查看以f开头的所有文件和子目录<br>ls -a #查看包含隐藏文件的文件和子目录</p>
+</blockquote>
+<blockquote>
+<p>cp 1.txt 2.txt #将文本1复制成文本2</p>
+</blockquote>
+<blockquote>
+<p>mv</p>
+</blockquote>
+<blockquote>
+<p>rm</p>
+</blockquote>
+<h3 id="2-2-2-编辑文本文件"><a href="#2-2-2-编辑文本文件" class="headerlink" title="2.2.2 编辑文本文件"></a>2.2.2 编辑文本文件</h3><p>通过nano编辑器来编辑文本文件</p>
+<blockquote>
+<p>sudo nano 1.txt</p>
+</blockquote>
+<p>查看文本文件内容</p>
+<blockquote>
+<p>cat 1.txt<br>more 1.txt</p>
+</blockquote>
+<p>将命令行文件导至文本文件中</p>
+<blockquote>
+<p>echo “hello world” &gt; 1.txt</p>
+</blockquote>
+<h3 id="2-2-2-目录管理"><a href="#2-2-2-目录管理" class="headerlink" title="2.2.2 目录管理"></a>2.2.2 目录管理</h3><p>创建目录</p>
+<blockquote>
+<p>mkdir</p>
+</blockquote>
+<p>删除目录</p>
+<blockquote>
+<p>rm</p>
+</blockquote>
+<h3 id="2-2-3-文件权限"><a href="#2-2-3-文件权限" class="headerlink" title="2.2.3 文件权限"></a>2.2.3 文件权限</h3><p>查看文件权限</p>
+<ul>
+<li>-rwx rwx rwx<br>代表：文件；所有者可读、可写、可运行；群组。。。；其他用户。。。；<blockquote>
+<p>ls -l</p>
+</blockquote>
+</li>
+</ul>
+<p>修改文件权限</p>
+<blockquote>
+<p>chmod 777 1.txt</p>
+</blockquote>
+<p>其中的(421)(421)(421)-&gt;777</p>
+<p>变更文件所有者与群组<br>文本1的所有者变更为tina</p>
+<blockquote>
+<p>chown tina 1.txt<br>文本1的所有者变更为root，但文件群组变更为tina<br>chown root:tina 1.txt</p>
+</blockquote>
+<h3 id="2-2-4-系统管理"><a href="#2-2-4-系统管理" class="headerlink" title="2.2.4 系统管理"></a>2.2.4 系统管理</h3><p>超级用户权利来运行工作</p>
+<blockquote>
+<p>sudo </p>
+</blockquote>
+<p>修改密码</p>
+<blockquote>
+<p>passwd</p>
+</blockquote>
+<h3 id="2-2-5-升级操作系统"><a href="#2-2-5-升级操作系统" class="headerlink" title="2.2.5 升级操作系统"></a>2.2.5 升级操作系统</h3><blockquote>
+<p>sudo apt-get update<br>sudo apt-get upgrade</p>
+</blockquote>
+<p>重启系统，确保系统使用最新的升级套件</p>
+<blockquote>
+<p>reboot</p>
+</blockquote>
+<h3 id="2-2-6-安装软件套件"><a href="#2-2-6-安装软件套件" class="headerlink" title="2.2.6 安装软件套件"></a>2.2.6 安装软件套件</h3><blockquote>
+<p>sudo apt-get install</p>
+</blockquote>
+<h3 id="2-2-7-自动运行程序"><a href="#2-2-7-自动运行程序" class="headerlink" title="2.2.7 自动运行程序"></a>2.2.7 自动运行程序</h3><p>修改【/etc/rc.local】文件，在文件内容的最后加入以下信息：</p>
+<blockquote>
+<p>/usr/bin/python /home/pi/button.py &amp;</p>
+</blockquote>
+<p>其中【&amp;】表明以后台方式运行程序</p>
+<h3 id="2-2-7-Shell-Script"><a href="#2-2-7-Shell-Script" class="headerlink" title="2.2.7 Shell Script"></a>2.2.7 Shell Script</h3><p>Linux标准的Shell为BASH；<br>Script语言的特色是，编写成文本文件后，不需要事先编译，而是运行时直接解译每一行的程序内容。</p>
+<blockquote>
+<p>nano sh01</p>
+</blockquote>
+<blockquote>
+<p>输入想依次执行的shell命令</p>
+</blockquote>
+<blockquote>
+<p>#!/bin/bash</p>
+</blockquote>
+<blockquote>
+<p>chmod 777 sh01</p>
+</blockquote>
+<blockquote>
+<p>./sh01</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/19/liniux-基础指令/" data-id="cjy9s0bqs000ws0u6b73f05g6" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
 
     </footer>
   </div>
@@ -607,7 +646,7 @@ categories:</h2>
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -618,7 +657,7 @@ categories:</h2>
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/3D-Reconstruction/" style="font-size: 10px;">3D Reconstruction</a> <a href="/tags/Blog/" style="font-size: 15px;">Blog</a> <a href="/tags/Buy/" style="font-size: 10px;">Buy</a> <a href="/tags/C-C/" style="font-size: 12.5px;">C/C++</a> <a href="/tags/Darknet/" style="font-size: 12.5px;">Darknet</a> <a href="/tags/Deep-Learning/" style="font-size: 20px;">Deep Learning</a> <a href="/tags/Emacs/" style="font-size: 10px;">Emacs</a> <a href="/tags/GAKKI/" style="font-size: 10px;">GAKKI</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Jetson-Nano/" style="font-size: 15px;">Jetson Nano</a> <a href="/tags/Machine-Learning/" style="font-size: 10px;">Machine Learning</a> <a href="/tags/OpenCV/" style="font-size: 10px;">OpenCV</a> <a href="/tags/Photo/" style="font-size: 12.5px;">Photo</a> <a href="/tags/Pr/" style="font-size: 10px;">Pr</a> <a href="/tags/PyTorch/" style="font-size: 17.5px;">PyTorch</a> <a href="/tags/SFM/" style="font-size: 10px;">SFM</a> <a href="/tags/TensorRT/" style="font-size: 10px;">TensorRT</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/人脸识别/" style="font-size: 12.5px;">人脸识别</a> <a href="/tags/目标检测/" style="font-size: 12.5px;">目标检测</a>
+      <a href="/tags/Blog/" style="font-size: 15px;">Blog</a> <a href="/tags/Buy/" style="font-size: 10px;">Buy</a> <a href="/tags/C-C/" style="font-size: 12.5px;">C/C++</a> <a href="/tags/Darknet/" style="font-size: 12.5px;">Darknet</a> <a href="/tags/Deep-Learning/" style="font-size: 20px;">Deep Learning</a> <a href="/tags/Emacs/" style="font-size: 10px;">Emacs</a> <a href="/tags/GAKKI/" style="font-size: 10px;">GAKKI</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Jetson-Nano/" style="font-size: 15px;">Jetson Nano</a> <a href="/tags/Machine-Learning/" style="font-size: 10px;">Machine Learning</a> <a href="/tags/OpenCV/" style="font-size: 10px;">OpenCV</a> <a href="/tags/Photo/" style="font-size: 12.5px;">Photo</a> <a href="/tags/Pr/" style="font-size: 10px;">Pr</a> <a href="/tags/PyTorch/" style="font-size: 17.5px;">PyTorch</a> <a href="/tags/TensorRT/" style="font-size: 10px;">TensorRT</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/人脸识别/" style="font-size: 12.5px;">人脸识别</a> <a href="/tags/目标检测/" style="font-size: 12.5px;">目标检测</a>
     </div>
   </div>
 
@@ -627,7 +666,7 @@ categories:</h2>
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">11</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">11</span></li></ul>
     </div>
   </div>
 
@@ -640,14 +679,6 @@ categories:</h2>
       <ul>
         
           <li>
-            <a href="/2019/07/19/3D-visualsfm/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2019/07/19/3D-visualsfm/">[3D重建]VisualSFM</a>
-          </li>
-        
-          <li>
             <a href="/2019/07/19/pytorch-八、Optimizer优化器/">[pytorch]八、Optimizer优化器</a>
           </li>
         
@@ -657,6 +688,14 @@ categories:</h2>
         
           <li>
             <a href="/2019/07/05/GAKKI/">Awesome Girl vol.32</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/19/Git/">Git</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/19/人脸识别/">[人脸识别]二、OpenFace</a>
           </li>
         
       </ul>
