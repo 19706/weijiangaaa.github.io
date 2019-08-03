@@ -5,22 +5,28 @@
   
 
   
-  <title>[nano]二、Jetson Nano运行jetson-inference | weijiangaaa</title>
+  <title>[CV]特征点的一些笔记 | weijiangaaa</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="测试平台：Jetson Nano 安装前提： git和cake 12$ sudo apt-get install git$ sudo apt-get install cmake">
-<meta name="keywords" content="Jetson Nano">
+  <meta name="description" content="1、HOG（总结自知乎）1、HOG=&amp;gt;图像的物体特征 2、可选的操作：伽马校正（目的时减少光度）-&amp;gt;灰度化 3、单纯计算梯度的方法：   对于像素点A，要计算水平梯度和竖直梯度，如上图，水平梯度  =30-20=10,竖直梯度 =64-32=32  那么总的梯度强度值g和梯度方向  将按照以下公式计算：    梯度方向将会取绝对值   4、8x8的cell，会得到8x8x2个值，将这">
+<meta name="keywords" content="CV">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[nano]二、Jetson Nano运行jetson-inference">
-<meta property="og:url" content="http://yoursite.com/2019/05/22/jetson-inference/index.html">
+<meta property="og:title" content="[CV]特征点的一些笔记">
+<meta property="og:url" content="http://yoursite.com/2019/08/03/tezheng/index.html">
 <meta property="og:site_name" content="weijiangaaa">
-<meta property="og:description" content="测试平台：Jetson Nano 安装前提： git和cake 12$ sudo apt-get install git$ sudo apt-get install cmake">
+<meta property="og:description" content="1、HOG（总结自知乎）1、HOG=&amp;gt;图像的物体特征 2、可选的操作：伽马校正（目的时减少光度）-&amp;gt;灰度化 3、单纯计算梯度的方法：   对于像素点A，要计算水平梯度和竖直梯度，如上图，水平梯度  =30-20=10,竖直梯度 =64-32=32  那么总的梯度强度值g和梯度方向  将按照以下公式计算：    梯度方向将会取绝对值   4、8x8的cell，会得到8x8x2个值，将这">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://github.com/weijiangaaa/MyPostImag/blob/master/nvidia-jetson-nano-module-standing-1cc-p@2x.jpg?raw=true">
-<meta property="og:updated_time" content="2019-07-19T03:26:54.896Z">
+<meta property="og:image" content="https://github.com/weijiangaaa/MyPostImag/blob/master/CV/lenna.jpg?raw=true">
+<meta property="og:image" content="https://pic1.zhimg.com/v2-1d866ca3e02c8288b17c9b714f71f5f0_b.jpg">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=g_x">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=g_y">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Ctheta">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=g%3D%5Csqrt%7Bg_x%5E2%2Bg_y%5E2%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Ctheta%3Darctan%7B%5Cfrac%7Bg_x%7D%7Bg_y%7D%7D">
+<meta property="og:updated_time" content="2019-08-03T09:11:35.171Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[nano]二、Jetson Nano运行jetson-inference">
-<meta name="twitter:description" content="测试平台：Jetson Nano 安装前提： git和cake 12$ sudo apt-get install git$ sudo apt-get install cmake">
-<meta name="twitter:image" content="https://github.com/weijiangaaa/MyPostImag/blob/master/nvidia-jetson-nano-module-standing-1cc-p@2x.jpg?raw=true">
+<meta name="twitter:title" content="[CV]特征点的一些笔记">
+<meta name="twitter:description" content="1、HOG（总结自知乎）1、HOG=&amp;gt;图像的物体特征 2、可选的操作：伽马校正（目的时减少光度）-&amp;gt;灰度化 3、单纯计算梯度的方法：   对于像素点A，要计算水平梯度和竖直梯度，如上图，水平梯度  =30-20=10,竖直梯度 =64-32=32  那么总的梯度强度值g和梯度方向  将按照以下公式计算：    梯度方向将会取绝对值   4、8x8的cell，会得到8x8x2个值，将这">
+<meta name="twitter:image" content="https://github.com/weijiangaaa/MyPostImag/blob/master/CV/lenna.jpg?raw=true">
   
     <link rel="alternate" href="/atom.xml" title="weijiangaaa" type="application/atom+xml">
   
@@ -73,16 +79,12 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-jetson-inference" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-tezheng" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/05/22/jetson-inference/" class="article-date">
-  <time datetime="2019-05-22T06:47:03.000Z" itemprop="datePublished">2019-05-22</time>
+    <a href="/2019/08/03/tezheng/" class="article-date">
+  <time datetime="2019-08-03T05:54:55.000Z" itemprop="datePublished">2019-08-03</time>
 </a>
     
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Jetson-Nano/">Jetson Nano</a>►<a class="article-category-link" href="/categories/Jetson-Nano/2、运行jetson-inference/">2、运行jetson-inference</a>
-  </div>
-
   </div>
   <div class="article-inner">
     
@@ -91,7 +93,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      [nano]二、Jetson Nano运行jetson-inference
+      [CV]特征点的一些笔记
     </h1>
   
 
@@ -99,27 +101,55 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>测试平台：Jetson Nano</strong><br><img src="https://github.com/weijiangaaa/MyPostImag/blob/master/nvidia-jetson-nano-module-standing-1cc-p@2x.jpg?raw=true" alt></p>
-<p>安装前提：</p>
-<p>git和cake</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install git</span><br><span class="line">$ sudo apt-get install cmake</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<p>从GitHub上Clone整个工程文件： </p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://github.com/dusty-nv/jetson-inference</span><br><span class="line">$ cd jetson-inference</span><br><span class="line">$ git submodule update --init</span><br></pre></td></tr></table></figure>
-<p>使用<code>CMake</code>完成<code>makefile</code>的生成；</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir build    </span><br><span class="line">$ cd build       </span><br><span class="line">$ cmake ../ <span class="comment">#执行CMakePrebuild.sh</span></span><br></pre></td></tr></table></figure>
-<p>批处理编译<code>make</code>指令；</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cd jetson-inference/build			</span><br><span class="line">$ make <span class="comment">#对源代码进行编译，生成可执行文件</span></span><br><span class="line">$ sudo make install <span class="comment">#将生成的可执行文件安装到当前计算机中</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cd jetson-inference/build/aarch64/bin</span><br><span class="line">$ ./imagenet-console orange_0.jpg output_0.jpg <span class="comment">#Classifying Images with ImageNet</span></span><br><span class="line">$ ./detectnet-console dog_1.jpg output_1.jpg coco-dog <span class="comment">#Locating Object Coordinates using DetectNet</span></span><br></pre></td></tr></table></figure>
-<p>参考资料：<br>1、<a href="https://blog.csdn.net/weixin_42491857/article/details/80741060" target="_blank" rel="noopener">CMake与Make最简单直接的区别</a><br>2、<a href="https://www.cnblogs.com/mogujiang/p/5545462.html" target="_blank" rel="noopener">config、make、make install</a></p>
+        <p><img src="https://github.com/weijiangaaa/MyPostImag/blob/master/CV/lenna.jpg?raw=true" alt></p>
+<h2 id="1、HOG（总结自知乎）"><a href="#1、HOG（总结自知乎）" class="headerlink" title="1、HOG（总结自知乎）"></a>1、HOG（总结自知乎）</h2><p>1、HOG=&gt;图像的物体特征</p>
+<p>2、可选的操作：伽马校正（目的时减少光度）-&gt;灰度化</p>
+<p>3、单纯计算梯度的方法：</p>
+<p><img src="https://pic1.zhimg.com/v2-1d866ca3e02c8288b17c9b714f71f5f0_b.jpg" alt></p>
+<ul>
+<li><p>对于像素点A，要计算水平梯度和竖直梯度，如上图，水平梯度 <img src="https://www.zhihu.com/equation?tex=g_x" alt="[公式]"> =30-20=10,竖直梯度 <img src="https://www.zhihu.com/equation?tex=g_y" alt="[公式]">=64-32=32</p>
+</li>
+<li><p>那么总的梯度强度值g和梯度方向 <img src="https://www.zhihu.com/equation?tex=%5Ctheta" alt="[公式]"> 将按照以下公式计算：</p>
+<p><img src="https://www.zhihu.com/equation?tex=g%3D%5Csqrt%7Bg_x%5E2%2Bg_y%5E2%7D" alt="[公式]"></p>
+<p><img src="https://www.zhihu.com/equation?tex=%5Ctheta%3Darctan%7B%5Cfrac%7Bg_x%7D%7Bg_y%7D%7D" alt="[公式]"></p>
+</li>
+<li><p>梯度方向将会取绝对值</p>
+</li>
+</ul>
+<p>4、8x8的cell，会得到8x8x2个值，将这些值划分到若干个bin：0-20-40-60等等（目的是提高鲁棒性、减少计算量）</p>
+<ul>
+<li><p>以上的便是<strong>梯度直方图</strong></p>
+</li>
+<li><p>若0和160的值较多，说明梯度向上和向下，有横向边缘</p>
+</li>
+<li>normalize-&gt;归一化：降低光照的影响</li>
+<li>等级划分：像素-&gt;cell-&gt;block-&gt;vector（貌似patch和cell是一个数量级，还没查证）</li>
+</ul>
+<p>5、总的过程：一幅图像-&gt;很多个block-&gt;大的vector（这个便是大的HOG特征，最终需要的特征结果向量）</p>
+<hr>
+<h2 id="2、SIFT"><a href="#2、SIFT" class="headerlink" title="2、SIFT"></a>2、SIFT</h2><p>详细过程，分为两部分：</p>
+<p>1、<strong>特征点检出</strong>，2、<strong>特征点描述</strong></p>
+<p>1、-&gt;方法：<code>DoG</code>（有时候用<code>MSER</code>）-&gt;通俗解释：完成对图像不同程度的高斯模糊</p>
+<ul>
+<li>这里说明不同程度的高斯模糊是因为可能导致角点产生较大的变化-&gt;这些点常用作特征点</li>
+</ul>
+<p>2、-&gt;就是简单版本的HOG算法（这里是SIFT的主体，但一般常说1和2一起为SIFT）</p>
+<ul>
+<li>16x16的local patch-&gt;4x4的4个子区域-&gt;bin-&gt;大的特征向量-&gt;归一化</li>
+<li><ul>
+<li>16x16-&gt;计算该patch的主方向-&gt;完成旋转到统一方向标准-&gt;此时具有<strong>方向不变性</strong></li>
+<li>16x16-&gt;计算该patch的梯度大小-&gt;完成大小尺寸标准化-&gt;此时具有<strong>尺度不变性</strong></li>
+</ul>
+</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/22/jetson-inference/" data-id="cjyv4x4590018ygu68h335rq0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/08/03/tezheng/" data-id="cjyvbi8ej0000j8u67t9tdo8q" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jetson-Nano/">Jetson Nano</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CV/">CV</a></li></ul>
 
     </footer>
   </div>
@@ -127,19 +157,10 @@
     
   <nav id="article-nav">
     
-      <a href="/2019/05/22/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption"><font color="purple">下一篇 newer</font></strong>
-        <div class="article-nav-title">
-          
-            <font color="purple">Hello World</font>
-          
-        </div>
-      </a>
     
-    
-      <a href="/2019/05/22/Jetson-Nano安装PyTorch/" id="article-nav-older" class="article-nav-link-wrap">
+      <a href="/2019/08/03/PUBG-PUBG生涯的单排第一鸡，9杀高击杀！/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption"><font color="purple">上一篇 older</font></strong>
-        <div class="article-nav-title"><font color="purple">[nano]三、Jetson Nano安装PyTorch</font></div>
+        <div class="article-nav-title"><font color="purple">[PUBG]PUBG生涯的单排第一鸡🐔，9杀高击杀！</font></div>
       </a>
     
   </nav>

@@ -68,6 +68,45 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-ML-欧几里得距离" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/19/ML-欧几里得距离/" class="article-date">
+  <time datetime="2019-06-19T11:38:03.000Z" itemprop="datePublished">2019-06-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/19/ML-欧几里得距离/">[ml]note</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>欧几里得度量：</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/19/ML-欧几里得距离/" data-id="cjyv4x44k0009ygu6lxremyht" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-pytorch-三、快速搭建神经网络" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/06/19/pytorch-三、快速搭建神经网络/" class="article-date">
@@ -607,54 +646,6 @@
 
 
   
-    <article id="post-yolo-darknet-webcam" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/06/11/yolo-darknet-webcam/" class="article-date">
-  <time datetime="2019-06-11T14:40:39.000Z" itemprop="datePublished">2019-06-11</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/11/yolo-darknet-webcam/">[darknet]二、yolov3_tiny-darknet-webcam</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><em>承接上文</em></p>
-<p>前言：上文使用的是单张图片的目标检测，本文完成的是通过<code>webcam</code>完成实时的目标检测；</p>
-<h2 id="1、说明："><a href="#1、说明：" class="headerlink" title="1、说明："></a>1、说明：</h2><ul>
-<li>框架：<code>darknet</code></li>
-<li>底层语言：<code>c</code></li>
-<li>权重参数：<code>yolov3-tiny</code></li>
-<li>设备：<code>webcam</code></li>
-</ul>
-<h2 id="2、步骤："><a href="#2、步骤：" class="headerlink" title="2、步骤："></a>2、步骤：</h2><p>1、先修改<code>makefile</code>里的编译文件，<code>opencv=1</code>，<code>cuda=1</code><br>2、<code>make clean</code>-&gt;<code>make</code><br>3、确保<code>darknet-master</code>目录下有<code>.weights</code>文件<br>4、直接运行<code>./darknet detector demo cfg/coco.data cfg/yolov3-tiny.cfg yolov3-tiny.weights -c 1</code></p>
-<h3 id="注："><a href="#注：" class="headerlink" title="注："></a>注：</h3><p>1、csi摄像头无法使用<br>2、一定要加<code>-c 1</code>选项，否则无论csi摄像头是否连接都无法启用<code>webcam</code><br>3、<code>fps10</code>左右，</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/11/yolo-darknet-webcam/" data-id="cjyv4x45n0021ygu61srvwag2" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Darknet/">Darknet</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/目标检测/">目标检测</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -670,7 +661,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/3D-Reconstruction/" style="font-size: 10px;">3D Reconstruction</a> <a href="/tags/Blog/" style="font-size: 15px;">Blog</a> <a href="/tags/Buy/" style="font-size: 10px;">Buy</a> <a href="/tags/CF/" style="font-size: 10px;">CF</a> <a href="/tags/Darknet/" style="font-size: 12.5px;">Darknet</a> <a href="/tags/Deep-Learning/" style="font-size: 20px;">Deep Learning</a> <a href="/tags/Emacs/" style="font-size: 10px;">Emacs</a> <a href="/tags/GAKKI/" style="font-size: 10px;">GAKKI</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Jetson-Nano/" style="font-size: 15px;">Jetson Nano</a> <a href="/tags/Machine-Learning/" style="font-size: 10px;">Machine Learning</a> <a href="/tags/OpenCV/" style="font-size: 10px;">OpenCV</a> <a href="/tags/PUBG/" style="font-size: 10px;">PUBG</a> <a href="/tags/Photo/" style="font-size: 12.5px;">Photo</a> <a href="/tags/Program/" style="font-size: 10px;">Program</a> <a href="/tags/PyTorch/" style="font-size: 17.5px;">PyTorch</a> <a href="/tags/SFM/" style="font-size: 10px;">SFM</a> <a href="/tags/Say-something/" style="font-size: 10px;">Say something</a> <a href="/tags/TensorRT/" style="font-size: 10px;">TensorRT</a> <a href="/tags/c-c/" style="font-size: 12.5px;">c/c++</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/人脸识别/" style="font-size: 12.5px;">人脸识别</a> <a href="/tags/目标检测/" style="font-size: 12.5px;">目标检测</a> <a href="/tags/目标跟踪/" style="font-size: 10px;">目标跟踪</a>
+      <a href="/tags/3D-Reconstruction/" style="font-size: 10px;">3D Reconstruction</a> <a href="/tags/Blog/" style="font-size: 15px;">Blog</a> <a href="/tags/Buy/" style="font-size: 10px;">Buy</a> <a href="/tags/CF/" style="font-size: 10px;">CF</a> <a href="/tags/CV/" style="font-size: 10px;">CV</a> <a href="/tags/Darknet/" style="font-size: 12.5px;">Darknet</a> <a href="/tags/Deep-Learning/" style="font-size: 20px;">Deep Learning</a> <a href="/tags/Emacs/" style="font-size: 10px;">Emacs</a> <a href="/tags/GAKKI/" style="font-size: 10px;">GAKKI</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Jetson-Nano/" style="font-size: 15px;">Jetson Nano</a> <a href="/tags/Machine-Learning/" style="font-size: 10px;">Machine Learning</a> <a href="/tags/OpenCV/" style="font-size: 10px;">OpenCV</a> <a href="/tags/PUBG/" style="font-size: 10px;">PUBG</a> <a href="/tags/Photo/" style="font-size: 12.5px;">Photo</a> <a href="/tags/Program/" style="font-size: 10px;">Program</a> <a href="/tags/PyTorch/" style="font-size: 17.5px;">PyTorch</a> <a href="/tags/SFM/" style="font-size: 10px;">SFM</a> <a href="/tags/Say-something/" style="font-size: 10px;">Say something</a> <a href="/tags/TensorRT/" style="font-size: 10px;">TensorRT</a> <a href="/tags/c-c/" style="font-size: 12.5px;">c/c++</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/人脸识别/" style="font-size: 12.5px;">人脸识别</a> <a href="/tags/目标检测/" style="font-size: 12.5px;">目标检测</a> <a href="/tags/目标跟踪/" style="font-size: 10px;">目标跟踪</a>
     </div>
   </div>
 
@@ -679,7 +670,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">11</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">11</span></li></ul>
     </div>
   </div>
 
@@ -690,6 +681,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/08/03/tezheng/">[CV]特征点的一些笔记</a>
+          </li>
         
           <li>
             <a href="/2019/08/03/PUBG-PUBG生涯的单排第一鸡，9杀高击杀！/">[PUBG]PUBG生涯的单排第一鸡🐔，9杀高击杀！</a>
@@ -705,10 +700,6 @@
         
           <li>
             <a href="/2019/07/19/gcc/">gcc、clang和make、cmake</a>
-          </li>
-        
-          <li>
-            <a href="/2019/07/19/3d-visualsfm-0/">[3D重建]VisualSFM</a>
           </li>
         
       </ul>

@@ -68,6 +68,85 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-tezheng" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/08/03/tezheng/" class="article-date">
+  <time datetime="2019-08-03T05:54:55.000Z" itemprop="datePublished">2019-08-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/03/tezheng/">[CV]特征点的一些笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://github.com/weijiangaaa/MyPostImag/blob/master/CV/lenna.jpg?raw=true" alt></p>
+<h2 id="1、HOG（总结自知乎）"><a href="#1、HOG（总结自知乎）" class="headerlink" title="1、HOG（总结自知乎）"></a>1、HOG（总结自知乎）</h2><p>1、HOG=&gt;图像的物体特征</p>
+<p>2、可选的操作：伽马校正（目的时减少光度）-&gt;灰度化</p>
+<p>3、单纯计算梯度的方法：</p>
+<p><img src="https://pic1.zhimg.com/v2-1d866ca3e02c8288b17c9b714f71f5f0_b.jpg" alt></p>
+<ul>
+<li><p>对于像素点A，要计算水平梯度和竖直梯度，如上图，水平梯度 <img src="https://www.zhihu.com/equation?tex=g_x" alt="[公式]"> =30-20=10,竖直梯度 <img src="https://www.zhihu.com/equation?tex=g_y" alt="[公式]">=64-32=32</p>
+</li>
+<li><p>那么总的梯度强度值g和梯度方向 <img src="https://www.zhihu.com/equation?tex=%5Ctheta" alt="[公式]"> 将按照以下公式计算：</p>
+<p><img src="https://www.zhihu.com/equation?tex=g%3D%5Csqrt%7Bg_x%5E2%2Bg_y%5E2%7D" alt="[公式]"></p>
+<p><img src="https://www.zhihu.com/equation?tex=%5Ctheta%3Darctan%7B%5Cfrac%7Bg_x%7D%7Bg_y%7D%7D" alt="[公式]"></p>
+</li>
+<li><p>梯度方向将会取绝对值</p>
+</li>
+</ul>
+<p>4、8x8的cell，会得到8x8x2个值，将这些值划分到若干个bin：0-20-40-60等等（目的是提高鲁棒性、减少计算量）</p>
+<ul>
+<li><p>以上的便是<strong>梯度直方图</strong></p>
+</li>
+<li><p>若0和160的值较多，说明梯度向上和向下，有横向边缘</p>
+</li>
+<li>normalize-&gt;归一化：降低光照的影响</li>
+<li>等级划分：像素-&gt;cell-&gt;block-&gt;vector（貌似patch和cell是一个数量级，还没查证）</li>
+</ul>
+<p>5、总的过程：一幅图像-&gt;很多个block-&gt;大的vector（这个便是大的HOG特征，最终需要的特征结果向量）</p>
+<hr>
+<h2 id="2、SIFT"><a href="#2、SIFT" class="headerlink" title="2、SIFT"></a>2、SIFT</h2><p>详细过程，分为两部分：</p>
+<p>1、<strong>特征点检出</strong>，2、<strong>特征点描述</strong></p>
+<p>1、-&gt;方法：<code>DoG</code>（有时候用<code>MSER</code>）-&gt;通俗解释：完成对图像不同程度的高斯模糊</p>
+<ul>
+<li>这里说明不同程度的高斯模糊是因为可能导致角点产生较大的变化-&gt;这些点常用作特征点</li>
+</ul>
+<p>2、-&gt;就是简单版本的HOG算法（这里是SIFT的主体，但一般常说1和2一起为SIFT）</p>
+<ul>
+<li>16x16的local patch-&gt;4x4的4个子区域-&gt;bin-&gt;大的特征向量-&gt;归一化</li>
+<li><ul>
+<li>16x16-&gt;计算该patch的主方向-&gt;完成旋转到统一方向标准-&gt;此时具有<strong>方向不变性</strong></li>
+<li>16x16-&gt;计算该patch的梯度大小-&gt;完成大小尺寸标准化-&gt;此时具有<strong>尺度不变性</strong></li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/08/03/tezheng/" data-id="cjyvbi8ej0000j8u67t9tdo8q" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CV/">CV</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-PUBG-PUBG生涯的单排第一鸡，9杀高击杀！" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/08/03/PUBG-PUBG生涯的单排第一鸡，9杀高击杀！/" class="article-date">
@@ -598,45 +677,6 @@
 
 
   
-    <article id="post-ML-欧几里得距离" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/06/19/ML-欧几里得距离/" class="article-date">
-  <time datetime="2019-06-19T11:38:03.000Z" itemprop="datePublished">2019-06-19</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/19/ML-欧几里得距离/">[ml]note</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>欧几里得度量：</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/19/ML-欧几里得距离/" data-id="cjyv4x44k0009ygu6lxremyht" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -652,7 +692,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/3D-Reconstruction/" style="font-size: 10px;">3D Reconstruction</a> <a href="/tags/Blog/" style="font-size: 15px;">Blog</a> <a href="/tags/Buy/" style="font-size: 10px;">Buy</a> <a href="/tags/CF/" style="font-size: 10px;">CF</a> <a href="/tags/Darknet/" style="font-size: 12.5px;">Darknet</a> <a href="/tags/Deep-Learning/" style="font-size: 20px;">Deep Learning</a> <a href="/tags/Emacs/" style="font-size: 10px;">Emacs</a> <a href="/tags/GAKKI/" style="font-size: 10px;">GAKKI</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Jetson-Nano/" style="font-size: 15px;">Jetson Nano</a> <a href="/tags/Machine-Learning/" style="font-size: 10px;">Machine Learning</a> <a href="/tags/OpenCV/" style="font-size: 10px;">OpenCV</a> <a href="/tags/PUBG/" style="font-size: 10px;">PUBG</a> <a href="/tags/Photo/" style="font-size: 12.5px;">Photo</a> <a href="/tags/Program/" style="font-size: 10px;">Program</a> <a href="/tags/PyTorch/" style="font-size: 17.5px;">PyTorch</a> <a href="/tags/SFM/" style="font-size: 10px;">SFM</a> <a href="/tags/Say-something/" style="font-size: 10px;">Say something</a> <a href="/tags/TensorRT/" style="font-size: 10px;">TensorRT</a> <a href="/tags/c-c/" style="font-size: 12.5px;">c/c++</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/人脸识别/" style="font-size: 12.5px;">人脸识别</a> <a href="/tags/目标检测/" style="font-size: 12.5px;">目标检测</a> <a href="/tags/目标跟踪/" style="font-size: 10px;">目标跟踪</a>
+      <a href="/tags/3D-Reconstruction/" style="font-size: 10px;">3D Reconstruction</a> <a href="/tags/Blog/" style="font-size: 15px;">Blog</a> <a href="/tags/Buy/" style="font-size: 10px;">Buy</a> <a href="/tags/CF/" style="font-size: 10px;">CF</a> <a href="/tags/CV/" style="font-size: 10px;">CV</a> <a href="/tags/Darknet/" style="font-size: 12.5px;">Darknet</a> <a href="/tags/Deep-Learning/" style="font-size: 20px;">Deep Learning</a> <a href="/tags/Emacs/" style="font-size: 10px;">Emacs</a> <a href="/tags/GAKKI/" style="font-size: 10px;">GAKKI</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Jetson-Nano/" style="font-size: 15px;">Jetson Nano</a> <a href="/tags/Machine-Learning/" style="font-size: 10px;">Machine Learning</a> <a href="/tags/OpenCV/" style="font-size: 10px;">OpenCV</a> <a href="/tags/PUBG/" style="font-size: 10px;">PUBG</a> <a href="/tags/Photo/" style="font-size: 12.5px;">Photo</a> <a href="/tags/Program/" style="font-size: 10px;">Program</a> <a href="/tags/PyTorch/" style="font-size: 17.5px;">PyTorch</a> <a href="/tags/SFM/" style="font-size: 10px;">SFM</a> <a href="/tags/Say-something/" style="font-size: 10px;">Say something</a> <a href="/tags/TensorRT/" style="font-size: 10px;">TensorRT</a> <a href="/tags/c-c/" style="font-size: 12.5px;">c/c++</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/人脸识别/" style="font-size: 12.5px;">人脸识别</a> <a href="/tags/目标检测/" style="font-size: 12.5px;">目标检测</a> <a href="/tags/目标跟踪/" style="font-size: 10px;">目标跟踪</a>
     </div>
   </div>
 
@@ -661,7 +701,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">11</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">11</span></li></ul>
     </div>
   </div>
 
@@ -672,6 +712,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/08/03/tezheng/">[CV]特征点的一些笔记</a>
+          </li>
         
           <li>
             <a href="/2019/08/03/PUBG-PUBG生涯的单排第一鸡，9杀高击杀！/">[PUBG]PUBG生涯的单排第一鸡🐔，9杀高击杀！</a>
@@ -687,10 +731,6 @@
         
           <li>
             <a href="/2019/07/19/gcc/">gcc、clang和make、cmake</a>
-          </li>
-        
-          <li>
-            <a href="/2019/07/19/3d-visualsfm-0/">[3D重建]VisualSFM</a>
           </li>
         
       </ul>
