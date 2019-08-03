@@ -68,6 +68,68 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-yolo-darknet-image" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/10/yolo-darknet-image/" class="article-date">
+  <time datetime="2019-06-09T16:45:39.000Z" itemprop="datePublished">2019-06-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/10/yolo-darknet-image/">[darknet]一、yolov3-darknet-image</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>前言：Jetson Nano使用cam运行实时目标检测，读出预测框的坐标</p>
+<h3 id="1、开发框架的选择"><a href="#1、开发框架的选择" class="headerlink" title="1、开发框架的选择"></a>1、开发框架的选择</h3><p><code>pytorch</code>（训练模型灵活好用）；<br><code>tensorflow</code>（资源丰富、支持较多）；<br><code>caffee</code>（使用c++开发，速度快）；<br><code>darknet</code>（yolo专用的小型框架）；<br><code>detectnet</code>（NVIDIA使用DIGIST训练的框架）</p>
+<ul>
+<li>FINALLY，本文选择darknet（因为其他暂时没找到教程）</li>
+</ul>
+<h3 id="2、摄像头的选择"><a href="#2、摄像头的选择" class="headerlink" title="2、摄像头的选择"></a>2、摄像头的选择</h3><p>csi摄像头（使用pciee。。完成调用，速度显然更快，但是目前还不会）<br>webcam（通过usb总线进行视频流的调用，资料较多，速度相比以上较慢）</p>
+<p>FINALLY，本文选择webcam（因为csi不知道如何在opencv中调用）</p>
+<h4 id="3、过程实现"><a href="#3、过程实现" class="headerlink" title="3、过程实现"></a>3、过程实现</h4><ul>
+<li><p>1、从<code>github</code>上<code>clone</code>源码；</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/pjreddie/darknet</span><br><span class="line">cd darknet</span><br><span class="line">make</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>2、通过<code>wget</code>下载权重参数；</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://pjreddie.com/media/files/yolov3.weights</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>3、通过脚本直接运行<code>detect</code>；</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./darknet detect cfg/yolov3.cfg yolov3.weights data/dog.jpg</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>4、以下是模型网络的结构；</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">layer     filters    size              input                output</span><br><span class="line">    0 conv     32  3 x 3 / 1   416 x 416 x   3   -&gt;   416 x 416 x  32  0.299 BFLOPs</span><br><span class="line">    1 conv     64  3 x 3 / 2   416 x 416 x  32   -&gt;   208 x 208 x  64  1.595 BFLOPs</span><br><span class="line">    .......</span><br><span class="line">  105 conv    255  1 x 1 / 1    52 x  52 x 256   -&gt;    52 x  52 x 255  0.353 BFLOPs</span><br><span class="line">  <span class="number">106</span> detection</span><br><span class="line">truth_thresh: Using default <span class="string">'1.000000'</span></span><br><span class="line">Loading weights <span class="keyword">from</span> yolov3.weights...Done!</span><br><span class="line">data/dog.jpg: Predicted <span class="keyword">in</span> <span class="number">0.029329</span> seconds.</span><br><span class="line">dog: <span class="number">99</span>%</span><br><span class="line">truck: <span class="number">93</span>%</span><br><span class="line">bicycle: <span class="number">99</span>%</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>5、<code>yolov3</code>目标检测效果<br><img src="https://pjreddie.com/media/image/Screen_Shot_2018-03-24_at_10.48.42_PM.png" alt></p>
+</li>
+</ul>
+<p>参考：<a href="https://pjreddie.com/darknet/yolo/" target="_blank" rel="noopener">https://pjreddie.com/darknet/yolo/</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/10/yolo-darknet-image/" data-id="cjyv39ynv002docu6h2uevbml" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Darknet/">Darknet</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/目标检测/">目标检测</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-tensorrt-introduction" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/06/01/tensorrt-introduction/" class="article-date">
@@ -99,7 +161,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/01/tensorrt-introduction/" data-id="cjyv0m5f4001raou6tk9wd9hp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/01/tensorrt-introduction/" data-id="cjyv39ynp0024ocu636xbnsn7" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TensorRT/">TensorRT</a></li></ul>
@@ -147,7 +209,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/31/keyboard/" data-id="cjyv0m5es001aaou6s0a36zch" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/31/keyboard/" data-id="cjyv39yne001locu63nahamj9" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Buy/">Buy</a></li></ul>
@@ -181,12 +243,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>❤️️️️️<br>💕<br>🤣</p>
+        <p>❤️️️️️<br>💕<br>🤣<br>🐔</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/31/emoji-test/" data-id="cjyv0m5eg000zaou636g8htoi" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/31/emoji-test/" data-id="cjyv39ynd001jocu6mk73apuh" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/">Blog</a></li></ul>
@@ -229,7 +291,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/28/daily-photo-1/" data-id="cjyv0m5e9000maou6xk5c5w3n" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/28/daily-photo-1/" data-id="cjyv39yn10018ocu61x2rwan6" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Photo/">Photo</a></li></ul>
@@ -277,7 +339,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/22/Jetson-nano-power-supply/" data-id="cjyv0m5e2000caou6jduu9gnn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/22/Jetson-nano-power-supply/" data-id="cjyv39ym6000aocu65k6siyk8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jetson-Nano/">Jetson Nano</a></li></ul>
@@ -320,7 +382,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/22/daily-photo/" data-id="cjyv0m5ee000waou6pij9ehb4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/22/daily-photo/" data-id="cjyv39yn4001bocu6suifm8t4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Photo/">Photo</a></li></ul>
@@ -368,7 +430,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/22/hello-world/" data-id="cjyv0m5ej0011aou6laeryj0y" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/22/hello-world/" data-id="cjyv39ynb001hocu6gptsuhn6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -416,7 +478,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/22/jetson-inference/" data-id="cjyv0m5el0013aou6a7ueg8ex" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/22/jetson-inference/" data-id="cjyv39yng001qocu6jadu65m5" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jetson-Nano/">Jetson Nano</a></li></ul>
@@ -467,56 +529,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/22/Jetson-Nano安装PyTorch/" data-id="cjyv0m5dy0006aou63jj8zsl6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/22/Jetson-Nano安装PyTorch/" data-id="cjyv39ym40009ocu6mubrolfk" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jetson-Nano/">Jetson Nano</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PyTorch/">PyTorch</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-pytorch-九、CNN" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/05/20/pytorch-九、CNN/" class="article-date">
-  <time datetime="2019-05-20T03:17:23.000Z" itemprop="datePublished">2019-05-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/20/pytorch-九、CNN/">[pytorch]九、卷积神经网络</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>（Convolutional Neural Networks, CNN）<br><img src="https://pic1.zhimg.com/v2-6428cf505ac1e9e1cf462e1ec8fe9a68_b.gif" alt><br><img src="https://github.com/weijiangaaa/MyPostImag/blob/master/0_qd07w4Yevqq2d1vY.png?raw=true" alt></p>
-<p>在图片和语言方面有更优的测试效果</p>
-<p>计算器图像识别、视频分析、NLP、AlphaGo等等</p>
-<p>运作分析：<br>图片分析<br>图片的矩阵<br>优势在于，卷积在于区域处理，增加连续性，增加理解，批量过滤器<br>
-        
-          </p><p class="article-more-link">
-            <a href="/2019/05/20/pytorch-九、CNN/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/20/pytorch-九、CNN/" data-id="cjyv0m5g8003jaou65lpsawpp" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PyTorch/">PyTorch</a></li></ul>
 
     </footer>
   </div>
@@ -549,7 +565,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">11</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">11</span></li></ul>
     </div>
   </div>
 
@@ -560,6 +576,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/08/03/PUBG-PUBG生涯的单排第一鸡，9杀高击杀！/">[PUBG]PUBG生涯的单排第一鸡🐔，9杀高击杀！</a>
+          </li>
         
           <li>
             <a href="/2019/08/03/Say-someting-1/">Say someting</a>
@@ -575,10 +595,6 @@
         
           <li>
             <a href="/2019/07/19/3d-visualsfm-0/">[3D重建]VisualSFM</a>
-          </li>
-        
-          <li>
-            <a href="/2019/07/19/pytorch-八、Optimizer优化器/">[pytorch]八、Optimizer优化器</a>
           </li>
         
       </ul>
