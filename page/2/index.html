@@ -68,6 +68,76 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Git" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/19/Git/" class="article-date">
+  <time datetime="2019-06-19T12:19:11.000Z" itemprop="datePublished">2019-06-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/19/Git/">Git</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>Git是一个开源的分布式版本控制系统，可以有效、高速地处理从很小到非常大的项目版本管理。</em></p>
+<p><img src="https://github.com/weijiangaaa/MyPostImag/blob/master/1_09KWDWnv1JDeZ-LEkXpL7g.png?raw=true" alt></p>
+<p>个人目前的常用途：<br>1、目前绝大多数优秀项目的源码都会开源在<code>github</code>上，为了<code>clone</code>；<br>2、个人博客是搭载<code>github</code>上的，<code>git</code>是基础命令工具，同是为的是素材的网络地址；<br>3、为了项目源代码的开源共享。</p>
+<p>git log –oneline</p>
+<h3 id="回到过去"><a href="#回到过去" class="headerlink" title="回到过去"></a>回到过去</h3><p>reset是在commit之间穿梭</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;git reset</span><br><span class="line">&gt;git reset --hard HEAD</span><br><span class="line">&gt;git reset --hard HEAD^^</span><br><span class="line">&gt;git reset --hard HEAD~2</span><br></pre></td></tr></table></figure>
+<p>使用ID号码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;git reset --hard 283968a</span><br></pre></td></tr></table></figure>
+<h3 id="回到未来"><a href="#回到未来" class="headerlink" title="回到未来"></a>回到未来</h3><p>查看“未来的ID号码”<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;git reflog</span><br></pre></td></tr></table></figure></p>
+<h4 id="对单个文件进行回到过去"><a href="#对单个文件进行回到过去" class="headerlink" title="对单个文件进行回到过去"></a>对单个文件进行回到过去</h4><ul>
+<li><p>说明：【checkout】是针对单个文件进行的回退，相比于【reset】，【checkout】操作后log中的所有记录均不发生改变；而【reset】后，整个log发生了改变，其下的【checkout】也会不同。</p>
+</li>
+<li><p>比喻：【reset】改变了历史，包括其中的人物命运也随历史的不同而不同；【checkou】不改变历史，而是可以单独可查个人在不同版本历史的命运。就好像是针对历史中某个人物的命运改变，即只回退了单一文件的版本，</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;git checkout 【ID】 --  1.py</span><br></pre></td></tr></table></figure>
+<h3 id="Branch"><a href="#Branch" class="headerlink" title="Branch"></a>Branch</h3><p>Master主要给用户使用，其他的branch的话可以用作自己的开发</p>
+<p>通过图表的方式来查看branch<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;git log --oneline --graph</span><br></pre></td></tr></table></figure></p>
+<p>建立分支<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;git branch dev</span><br></pre></td></tr></table></figure></p>
+<p>查看分支<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;git branch</span><br></pre></td></tr></table></figure></p>
+<p>其中带有【 * 】的说明是所处的分支</p>
+<p>转换分支<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;gir checkout dev</span><br></pre></td></tr></table></figure></p>
+<p>删除分支<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;git checkout branch</span><br><span class="line">&gt;git branch -d dev</span><br></pre></td></tr></table></figure></p>
+<p>先切换回主分支再进行其他分支的删除</p>
+<p>建立分支2<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;git checkout -b dev</span><br><span class="line">&gt;git commit -am &quot;change&quot;</span><br></pre></td></tr></table></figure></p>
+<p>前提是已经stage，已经在管理库中存在</p>
+<p>转换主分支<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;git checkout master</span><br></pre></td></tr></table></figure></p>
+<p>进入master之后，branch不影响master，用户看到的还是master的</p>
+<p>开发版本完成之后，将其从branch推到master中<br>确保进入了master<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;git merge dev</span><br></pre></td></tr></table></figure></p>
+<p>这条指令就在master中，将dev的信息推进来</p>
+<p>加入信息，选项的内容为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;git merge --no-ff -m &quot;keep me merge info&quot; dev</span><br></pre></td></tr></table></figure></p>
+<p>补图（Git的全过程）：<br><img src="https://github.com/weijiangaaa/MyPostImag/blob/master/1_9qX9F9MGsWKfcmgTOR9BPw.png?raw=true" alt></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/19/Git/" data-id="cjz6v4gvj000a0gu6kx6jppoz" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-人脸识别" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/06/19/人脸识别/" class="article-date">
@@ -135,7 +205,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/19/人脸识别/" data-id="cjywooyv20028rku67igwarx2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/19/人脸识别/" data-id="cjz6v4gxq003j0gu6pp1cnqbe" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/人脸识别/">人脸识别</a></li></ul>
@@ -174,7 +244,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/19/ML-欧几里得距离/" data-id="cjywooyty000erku6i8wlpt62" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/19/ML-欧几里得距离/" data-id="cjz6v4gvn000c0gu677fvt1tc" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li></ul>
@@ -215,7 +285,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/19/pytorch-三、快速搭建神经网络/" data-id="cjywooyuq001mrku6i70x2ik0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/19/pytorch-三、快速搭建神经网络/" data-id="cjz6v4gwp001q0gu6mjjd0iv5" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PyTorch/">PyTorch</a></li></ul>
@@ -271,7 +341,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/19/pytorch-二、分类问题/" data-id="cjywooyus001qrku6sy7tkhbk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/19/pytorch-二、分类问题/" data-id="cjz6v4gwr001t0gu6d1d1kanj" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PyTorch/">PyTorch</a></li></ul>
@@ -309,7 +379,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/19/pytorch-一、回归问题/" data-id="cjywooyun001grku6ezeyc7hj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/19/pytorch-一、回归问题/" data-id="cjz6v4gwh001e0gu6yww2wswl" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PyTorch/">PyTorch</a></li></ul>
@@ -443,7 +513,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/19/liniux-基础指令/" data-id="cjywooyuo001jrku602gbgfma" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/19/liniux-基础指令/" data-id="cjz6v4gwg001b0gu6aovjr8gc" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
@@ -518,7 +588,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/19/人脸识别1、Haar Cascade/" data-id="cjywooyv10026rku6ve8nfk92" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/19/人脸识别1、Haar Cascade/" data-id="cjz6v4gxr003k0gu67ogb3ozg" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OpenCV/">OpenCV</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/人脸识别/">人脸识别</a></li></ul>
@@ -583,7 +653,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/18/c-c-笔记记录/" data-id="cjywooyu5000nrku6u0qvki1y" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/18/c-c-笔记记录/" data-id="cjz6v4gwc00140gu6zyi6dmud" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c-c/">c/c++</a></li></ul>
@@ -634,50 +704,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/18/c-c-环境配置基础知识/" data-id="cjywooyu2000jrku6uxjzbewu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/18/c-c-环境配置基础知识/" data-id="cjz6v4gvs000h0gu6ihlelpwy" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c-c/">c/c++</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-emacs-download" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/06/18/emacs-download/" class="article-date">
-  <time datetime="2019-06-17T16:34:45.000Z" itemprop="datePublished">2019-06-18</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/18/emacs-download/">[emacs]download</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在Linux开发环境下<code>emacs</code>以及<code>spacemacs</code>的配置很简单，非常好用的编辑器，但是在win10下的配置很是麻烦，在百度查找教程的过程中也只找到一篇参考文章，码起来再说。</p>
-<p>转载：<a href="https://blog.csdn.net/u011729865/article/details/54178388" target="_blank" rel="noopener">Windows10下安装emacs25.1及spacemacs</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/18/emacs-download/" data-id="cjywooyub000yrku6uh475lhz" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Emacs/">Emacs</a></li></ul>
 
     </footer>
   </div>
@@ -701,7 +731,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/3D-Reconstruction/" style="font-size: 10px;">3D Reconstruction</a> <a href="/tags/Blog/" style="font-size: 15px;">Blog</a> <a href="/tags/Buy/" style="font-size: 10px;">Buy</a> <a href="/tags/CV/" style="font-size: 10px;">CV</a> <a href="/tags/Darknet/" style="font-size: 12.5px;">Darknet</a> <a href="/tags/Deep-Learning/" style="font-size: 20px;">Deep Learning</a> <a href="/tags/Emacs/" style="font-size: 10px;">Emacs</a> <a href="/tags/GAKKI/" style="font-size: 10px;">GAKKI</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Jetson-Nano/" style="font-size: 15px;">Jetson Nano</a> <a href="/tags/Machine-Learning/" style="font-size: 10px;">Machine Learning</a> <a href="/tags/OpenCV/" style="font-size: 12.5px;">OpenCV</a> <a href="/tags/PUBG/" style="font-size: 10px;">PUBG</a> <a href="/tags/Photo/" style="font-size: 12.5px;">Photo</a> <a href="/tags/Program/" style="font-size: 10px;">Program</a> <a href="/tags/PyTorch/" style="font-size: 17.5px;">PyTorch</a> <a href="/tags/Say-something/" style="font-size: 10px;">Say something</a> <a href="/tags/TensorRT/" style="font-size: 10px;">TensorRT</a> <a href="/tags/c-c/" style="font-size: 12.5px;">c/c++</a> <a href="/tags/diary/" style="font-size: 10px;">diary</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/人脸识别/" style="font-size: 12.5px;">人脸识别</a> <a href="/tags/目标检测/" style="font-size: 12.5px;">目标检测</a> <a href="/tags/目标跟踪/" style="font-size: 10px;">目标跟踪</a>
+      <a href="/tags/3D-Reconstruction/" style="font-size: 10px;">3D Reconstruction</a> <a href="/tags/Blog/" style="font-size: 15px;">Blog</a> <a href="/tags/Buy/" style="font-size: 10px;">Buy</a> <a href="/tags/CV/" style="font-size: 10px;">CV</a> <a href="/tags/Darknet/" style="font-size: 12.5px;">Darknet</a> <a href="/tags/Deep-Learning/" style="font-size: 20px;">Deep Learning</a> <a href="/tags/Emacs/" style="font-size: 10px;">Emacs</a> <a href="/tags/GAKKI/" style="font-size: 10px;">GAKKI</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Jetson-Nano/" style="font-size: 15px;">Jetson Nano</a> <a href="/tags/Machine-Learning/" style="font-size: 10px;">Machine Learning</a> <a href="/tags/OpenCV/" style="font-size: 12.5px;">OpenCV</a> <a href="/tags/PUBG/" style="font-size: 12.5px;">PUBG</a> <a href="/tags/Photo/" style="font-size: 12.5px;">Photo</a> <a href="/tags/Program/" style="font-size: 10px;">Program</a> <a href="/tags/PyTorch/" style="font-size: 17.5px;">PyTorch</a> <a href="/tags/Say-something/" style="font-size: 10px;">Say something</a> <a href="/tags/TensorRT/" style="font-size: 10px;">TensorRT</a> <a href="/tags/c-c/" style="font-size: 12.5px;">c/c++</a> <a href="/tags/diary/" style="font-size: 10px;">diary</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/人脸识别/" style="font-size: 12.5px;">人脸识别</a> <a href="/tags/目标检测/" style="font-size: 12.5px;">目标检测</a> <a href="/tags/目标跟踪/" style="font-size: 10px;">目标跟踪</a>
     </div>
   </div>
 
@@ -710,7 +740,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">11</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">11</span></li></ul>
     </div>
   </div>
 
@@ -721,6 +751,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/08/11/PUBG-3-4-5-KILLS/">[PUBG]3人四排，决赛圈发力，5杀吃鸡</a>
+          </li>
         
           <li>
             <a href="/2019/08/04/diary/">diary 2019-08-04 15:23:48</a>
@@ -736,10 +770,6 @@
         
           <li>
             <a href="/2019/08/03/say/">Say someting</a>
-          </li>
-        
-          <li>
-            <a href="/2019/07/23/tracker-eco/">[CF]ECO</a>
           </li>
         
       </ul>
