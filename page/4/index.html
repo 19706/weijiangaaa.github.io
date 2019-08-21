@@ -68,6 +68,54 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Jetson-nano-power-supply" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/05/22/Jetson-nano-power-supply/" class="article-date">
+  <time datetime="2019-05-22T14:56:34.000Z" itemprop="datePublished">2019-05-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/22/Jetson-nano-power-supply/">[nano]Jetson nano_power supply</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Jetson nano的供电方式一般有2种：</p>
+<ul>
+<li>1、USB供电</li>
+<li><p>2、DC供电</p>
+</li>
+<li><p>其中第一种供电方式，<code>J48</code>断开，第二种使用DC的方式要使用跳线帽将<code>J48</code>短接；</p>
+</li>
+<li>Jetson nano默认的供电功率是5W，而一般情况下跑一些最基础的模型推理就可能歇菜，所以出现自动关机等问题的时候，使用DC供电一般都可以解决问题；</li>
+<li>使用DC供电时候，在<code>shut down</code>之后，nano关机，此时要注意220V-5V的适配器由于电容效应还存在残余电压，使得nano处于一种奇怪的状态，此时便有2中方法断电：<br>1、拔掉DC口，不过这种方法对nano不好，插拔太多会松，并不建议；<br>2、拔掉插座的供电，这种方法由于残余电压，在拔掉后无法立刻开机，要等待5s左右，使得残余电压褪去，再进行供电，开机成功！</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/05/22/Jetson-nano-power-supply/" data-id="cjzkpgbtn000fxku66z72kia4" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jetson-Nano/">Jetson Nano</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-daily-photo" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/05/22/daily-photo/" class="article-date">
@@ -99,7 +147,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/22/daily-photo/" data-id="cjz6v4gw9000y0gu6fg3cdmc7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/22/daily-photo/" data-id="cjzkpgbu2000txku6g2n4p2jr" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Photo/">Photo</a></li></ul>
@@ -147,7 +195,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/22/hello-world/" data-id="cjz6v4gwj001g0gu6sv8lq52g" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/22/hello-world/" data-id="cjzkpgbuj001exku6dxen3nki" class="article-share-link">Share</a>
       
       
     </footer>
@@ -195,7 +243,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/22/jetson-inference/" data-id="cjz6v4gwk001h0gu62a0ay19i" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/22/jetson-inference/" data-id="cjzkpgbum001jxku6u8tczu3l" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jetson-Nano/">Jetson Nano</a></li></ul>
@@ -246,7 +294,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/22/Jetson-Nano安装PyTorch/" data-id="cjz6v4gvd00050gu62ys7vefk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/22/Jetson-Nano安装PyTorch/" data-id="cjzkpgbth000axku6nanhscf8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jetson-Nano/">Jetson Nano</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PyTorch/">PyTorch</a></li></ul>
@@ -292,7 +340,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/20/pytorch-九、CNN/" data-id="cjz6v4gxu003m0gu6zsv209g1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/20/pytorch-九、CNN/" data-id="cjzkpgbvu003yxku6wmpvbnxw" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PyTorch/">PyTorch</a></li></ul>
@@ -344,7 +392,7 @@
       
     </li></ul></div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/20/Blog-GitHub-Page-Hexo-landscape/" data-id="cjz6v4guy00000gu61kcyhcej" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/20/Blog-GitHub-Page-Hexo-landscape/" data-id="cjzkpgbt80003xku6npeykz8k" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/">Blog</a></li></ul>
@@ -410,7 +458,7 @@
       
     </li></ul></div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/20/Introduction/" data-id="cjz6v4gvg00060gu60h9486o3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/20/Introduction/" data-id="cjzkpgbte0006xku6vf8go3u5" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Blog/">Blog</a></li></ul>
@@ -437,7 +485,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/3D-Reconstruction/" style="font-size: 10px;">3D Reconstruction</a> <a href="/tags/Blog/" style="font-size: 15px;">Blog</a> <a href="/tags/Buy/" style="font-size: 10px;">Buy</a> <a href="/tags/CV/" style="font-size: 10px;">CV</a> <a href="/tags/Darknet/" style="font-size: 12.5px;">Darknet</a> <a href="/tags/Deep-Learning/" style="font-size: 20px;">Deep Learning</a> <a href="/tags/Emacs/" style="font-size: 10px;">Emacs</a> <a href="/tags/GAKKI/" style="font-size: 10px;">GAKKI</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Jetson-Nano/" style="font-size: 15px;">Jetson Nano</a> <a href="/tags/Machine-Learning/" style="font-size: 10px;">Machine Learning</a> <a href="/tags/OpenCV/" style="font-size: 12.5px;">OpenCV</a> <a href="/tags/PUBG/" style="font-size: 12.5px;">PUBG</a> <a href="/tags/Photo/" style="font-size: 12.5px;">Photo</a> <a href="/tags/Program/" style="font-size: 10px;">Program</a> <a href="/tags/PyTorch/" style="font-size: 17.5px;">PyTorch</a> <a href="/tags/Say-something/" style="font-size: 10px;">Say something</a> <a href="/tags/TensorRT/" style="font-size: 10px;">TensorRT</a> <a href="/tags/c-c/" style="font-size: 12.5px;">c/c++</a> <a href="/tags/diary/" style="font-size: 10px;">diary</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/人脸识别/" style="font-size: 12.5px;">人脸识别</a> <a href="/tags/目标检测/" style="font-size: 12.5px;">目标检测</a> <a href="/tags/目标跟踪/" style="font-size: 10px;">目标跟踪</a>
+      <a href="/tags/3D-Reconstruction/" style="font-size: 10px;">3D Reconstruction</a> <a href="/tags/Blog/" style="font-size: 15px;">Blog</a> <a href="/tags/CV/" style="font-size: 10px;">CV</a> <a href="/tags/Darknet/" style="font-size: 12.5px;">Darknet</a> <a href="/tags/Deep-Learning/" style="font-size: 20px;">Deep Learning</a> <a href="/tags/Emacs/" style="font-size: 10px;">Emacs</a> <a href="/tags/GAKKI/" style="font-size: 10px;">GAKKI</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Jetson-Nano/" style="font-size: 15px;">Jetson Nano</a> <a href="/tags/Machine-Learning/" style="font-size: 10px;">Machine Learning</a> <a href="/tags/OpenCV/" style="font-size: 12.5px;">OpenCV</a> <a href="/tags/PUBG/" style="font-size: 12.5px;">PUBG</a> <a href="/tags/Photo/" style="font-size: 12.5px;">Photo</a> <a href="/tags/Program/" style="font-size: 10px;">Program</a> <a href="/tags/PyTorch/" style="font-size: 17.5px;">PyTorch</a> <a href="/tags/Say-something/" style="font-size: 10px;">Say something</a> <a href="/tags/TensorRT/" style="font-size: 10px;">TensorRT</a> <a href="/tags/c-c/" style="font-size: 12.5px;">c/c++</a> <a href="/tags/diary/" style="font-size: 10px;">diary</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/人脸识别/" style="font-size: 12.5px;">人脸识别</a> <a href="/tags/杂物/" style="font-size: 12.5px;">杂物</a> <a href="/tags/目标检测/" style="font-size: 12.5px;">目标检测</a> <a href="/tags/目标跟踪/" style="font-size: 10px;">目标跟踪</a>
     </div>
   </div>
 
@@ -446,7 +494,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">11</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">11</span></li></ul>
     </div>
   </div>
 
@@ -457,6 +505,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/08/21/buy-keyboards-HHKB/">下一阶段：HHKB</a>
+          </li>
         
           <li>
             <a href="/2019/08/11/PUBG-3-4-5-KILLS/">[PUBG]3人四排，决赛圈发力，5杀吃鸡</a>
@@ -472,10 +524,6 @@
         
           <li>
             <a href="/2019/08/03/PUBG-PUBG生涯的单排第一鸡，9杀高击杀！/">[PUBG]PUBG生涯的单排第一鸡🐔，9杀高击杀！</a>
-          </li>
-        
-          <li>
-            <a href="/2019/08/03/say/">Say someting</a>
           </li>
         
       </ul>
